@@ -6,11 +6,6 @@
   <!-- JSPC servlet mappings start -->
 
     <servlet>
-        <servlet-name>org.apache.jsp.index_jsp</servlet-name>
-        <servlet-class>org.apache.jsp.index_jsp</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>org.apache.jsp.Matricula.index_jsp</servlet-name>
         <servlet-class>org.apache.jsp.Matricula.index_jsp</servlet-class>
     </servlet>
@@ -20,14 +15,19 @@
         <servlet-class>org.apache.jsp.Matricula.registro_jsp</servlet-class>
     </servlet>
 
-    <servlet-mapping>
+    <servlet>
         <servlet-name>org.apache.jsp.index_jsp</servlet-name>
-        <url-pattern>/index.jsp</url-pattern>
-    </servlet-mapping>
+        <servlet-class>org.apache.jsp.index_jsp</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>org.apache.jsp.Matricula.index_jsp</servlet-name>
         <url-pattern>/Matricula/index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.index_jsp</servlet-name>
+        <url-pattern>/index.jsp</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

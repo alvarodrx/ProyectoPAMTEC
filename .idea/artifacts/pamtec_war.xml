@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pamtec:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>pamtec</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="pamtec-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="pamtec:war exploded" />
+    </root>
+  </artifact>
+</component>
