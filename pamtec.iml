@@ -14,7 +14,7 @@
         </sourceRoots>
       </configuration>
     </facet>
-    <facet type="google-app-engine" name="Google App Engine">
+    <facet type="app-engine-standard" name="Google App Engine">
       <configuration />
     </facet>
   </component>
@@ -71,3 +71,4 @@
     <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
   </component>
 </module>
+

@@ -11,13 +11,23 @@
     </servlet>
 
     <servlet>
+        <servlet-name>org.apache.jsp.Matricula.index_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.Matricula.index_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>org.apache.jsp.Matricula.registro_jsp</servlet-name>
         <servlet-class>org.apache.jsp.Matricula.registro_jsp</servlet-class>
     </servlet>
 
     <servlet>
-        <servlet-name>org.apache.jsp.Matricula.index_jsp</servlet-name>
-        <servlet-class>org.apache.jsp.Matricula.index_jsp</servlet-class>
+        <servlet-name>org.apache.jsp.SISAS.index_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.SISAS.index_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.SISAS.login.index_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.SISAS.login.index_jsp</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -26,13 +36,23 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>org.apache.jsp.Matricula.index_jsp</servlet-name>
+        <url-pattern>/Matricula/index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>org.apache.jsp.Matricula.registro_jsp</servlet-name>
         <url-pattern>/Matricula/registro.jsp</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>org.apache.jsp.Matricula.index_jsp</servlet-name>
-        <url-pattern>/Matricula/index.jsp</url-pattern>
+        <servlet-name>org.apache.jsp.SISAS.index_jsp</servlet-name>
+        <url-pattern>/SISAS/index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.SISAS.login.index_jsp</servlet-name>
+        <url-pattern>/SISAS/login/index.jsp</url-pattern>
     </servlet-mapping>
 
 <!-- JSPC servlet mappings end -->
@@ -40,6 +60,5 @@
 <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>Matricula/index.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
