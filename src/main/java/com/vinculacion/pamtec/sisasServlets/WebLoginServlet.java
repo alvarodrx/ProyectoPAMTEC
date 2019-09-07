@@ -37,7 +37,7 @@ public class WebLoginServlet extends BaseServlet {
         if (usuario == null || usuario.isEmpty() || passw == null || passw.isEmpty()) {
             session.setAttribute("message", "Usuario o contrase&ntilde;a incorrecta.");
             log(usuario, passw, device, "INVALIDO");
-            resp.sendRedirect("/login/");
+            resp.sendRedirect("/SISAS/login/");
         }
         
         String query = "SELECT Id AS ID, Estado AS ESTADO FROM Usuario WHERE Usuario = '" + usuario + "' AND Password = '" + passw + "';";
@@ -46,21 +46,21 @@ public class WebLoginServlet extends BaseServlet {
             if (rs.getInt("ESTADO") != 1){
                 session.setAttribute("message", "Esta cuenta se encuentra inactiva.");
                 log(usuario, passw, device, "CUENTA INACTIVA");
-                resp.sendRedirect("/login/");
+                resp.sendRedirect("/SISAS/login/");
                 return;
             } else {
                 session.setAttribute("userId", rs.getString("ID"));
                 //session.setAttribute("usuario", rs.getString("NOMBRE"));
                 session.setAttribute("millis", Calendar.getInstance().getTimeInMillis());
                 session.setMaxInactiveInterval(3600);
-                resp.sendRedirect("/");
+                resp.sendRedirect("/SISAS/misCursos.jsp");
                 log(usuario, passw, device, "VALIDO");
                 return;
             }
         } else {
             session.setAttribute("message", "Contrase&ntilde;a incorrecta.");
             log(usuario, passw, device, "INVALIDO");
-            resp.sendRedirect("/login/");
+            resp.sendRedirect("/SISAS/login/");
         }
     }
 

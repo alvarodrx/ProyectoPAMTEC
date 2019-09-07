@@ -21,6 +21,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>org.apache.jsp.SISAS.misCursos_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.SISAS.misCursos_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>org.apache.jsp.SISAS.index_jsp</servlet-name>
         <servlet-class>org.apache.jsp.SISAS.index_jsp</servlet-class>
     </servlet>
@@ -28,6 +33,11 @@
     <servlet>
         <servlet-name>org.apache.jsp.SISAS.login.index_jsp</servlet-name>
         <servlet-class>org.apache.jsp.SISAS.login.index_jsp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>org.apache.jsp.loadingPage.loadingWrapper_jsp</servlet-name>
+        <servlet-class>org.apache.jsp.loadingPage.loadingWrapper_jsp</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -46,6 +56,11 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>org.apache.jsp.SISAS.misCursos_jsp</servlet-name>
+        <url-pattern>/SISAS/misCursos.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>org.apache.jsp.SISAS.index_jsp</servlet-name>
         <url-pattern>/SISAS/index.jsp</url-pattern>
     </servlet-mapping>
@@ -53,6 +68,11 @@
     <servlet-mapping>
         <servlet-name>org.apache.jsp.SISAS.login.index_jsp</servlet-name>
         <url-pattern>/SISAS/login/index.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>org.apache.jsp.loadingPage.loadingWrapper_jsp</servlet-name>
+        <url-pattern>/loadingPage/loadingWrapper.jsp</url-pattern>
     </servlet-mapping>
 
 <!-- JSPC servlet mappings end -->
