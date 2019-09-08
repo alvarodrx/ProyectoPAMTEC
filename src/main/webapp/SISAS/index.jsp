@@ -1,16 +1,29 @@
 <html>
 <head>
-
+    <!--
     <%
-        String message = request.getParameter("message");
+        String message = "", millis = "", curso = "", cursoName = "";
+        Object attr = session.getAttribute("message");
+        if (attr != null)
+            message = attr.toString();
         pageContext.setAttribute("message", message);
 
-        String millis = request.getParameter("millis");
+        attr = session.getAttribute("millis");
+        if (attr != null)
+            millis = attr.toString();
         pageContext.setAttribute("millis", millis);
 
-        String curso = request.getParameter("curso");
+        attr = session.getAttribute("curso");
+        if (attr != null)
+            curso = attr.toString();
         pageContext.setAttribute("curso", curso);
+
+        attr = session.getAttribute("cursoName");
+        if (attr != null)
+            cursoName = attr.toString();
+        pageContext.setAttribute("cursoName", cursoName);
     %>
+    -->
     <title>SISAS</title>
 
 
@@ -125,7 +138,7 @@
             });
         }
 
-        //Permite preguntar al usuario si desea ontinuar antes de realizar una accion
+        //Permite preguntar al usuario si desea continuar antes de realizar una accion
         function validate() {
             return confirm("Esta seguro que desea continuar?");
         }
@@ -153,20 +166,22 @@
             background: #36a9daaa;
             z-index: 0;
         }
-        .navbar{
+
+        .navbar {
             z-index: 1;
         }
+
         .logo {
             height: 40px;
         }
     </style>
 
 </head>
-<body>
-<input type="hidden" id="millis" name="millis" value="${millis}">
-<input type="hidden" id="message" name="message" value="${message}">
-<input type="hidden" id="curso" name="curso" value="${curso}">
 <div class="primary-data-content">
+    <body>
+    <input type="hidden" id="millis" name="millis" value="${millis}">
+    <input type="hidden" id="message" name="message" value="${message}">
+    <input type="hidden" id="curso" name="curso" value="${curso}">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
@@ -182,13 +197,20 @@
             </form>
         </div>
     </nav>
-
-
+    <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button type="button" id="dropdownMenuCurso" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg" aria-haspopup="true" aria-expanded="false">
+            Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
+        </button>
+        <div>
+            <h3 class="mt-2 ml-5">${cursoName}</h3>
+        </div>
+    </div>
+    </body>
 
 </div>
 
 
+<!--
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
-
-</body>
+-->
 </html>

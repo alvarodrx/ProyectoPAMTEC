@@ -1,4 +1,6 @@
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/BaseServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/HelloAppEngine.java
+/Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/SetCursoServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/UpdateSessionServlet.java
+/Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/GoToServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java

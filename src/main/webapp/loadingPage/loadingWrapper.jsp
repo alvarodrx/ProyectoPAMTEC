@@ -157,6 +157,7 @@
         #loading-content-panel {
             background: #e8efff;
             height: inherit;
+            z-index: 2;
         }
     </style>
 </head>

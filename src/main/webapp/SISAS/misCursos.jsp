@@ -1,16 +1,19 @@
 <html>
 <head>
-
+    <!--
     <%
-        String message = request.getParameter("message");
+        String message = "", millis = "";
+        Object attr = session.getAttribute("message");
+        if (attr != null)
+            message = attr.toString();
         pageContext.setAttribute("message", message);
 
-        String millis = request.getParameter("millis");
+        attr = session.getAttribute("millis");
+        if (attr != null)
+            millis = attr.toString();
         pageContext.setAttribute("millis", millis);
-
-        String curso = request.getParameter("curso");
-        pageContext.setAttribute("curso", curso);
     %>
+    -->
     <title>SISAS</title>
 
 
@@ -32,6 +35,7 @@
     <script type="text/javascript">
         function showMessage(msg) {
             if (msg && msg !== "") {
+                msg = $('<span/>').html(msg).text();
                 alert(msg);
             }
         }
@@ -119,6 +123,10 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
+        function goToCurso(cursoId, cursoName){
+            window.location.href = "/setCurso?curso="+cursoId + "&cursoName="+cursoName;
+        }
+
 
     </script>
 
@@ -148,6 +156,9 @@
         }
         .logo {
             height: 40px;
+        }
+        tr{
+            cursor: pointer;
         }
     </style>
 
@@ -182,7 +193,7 @@
                 <div class="table-responsive" style="max-height: 280px;overflow-y: scroll;">
                     <table class="table table-hover">
                         <tbody>
-                        <tr class="table-dark">
+                        <tr class="table-dark" onclick="goToCurso(1, 'Curso 1');">
                             <td scope="row">
                                 <i class="material-icons">
                                     list_alt
@@ -190,7 +201,7 @@
                             </td>
                             <td>Curso 1</td>
                         </tr>
-                        <tr class="table-light">
+                        <tr class="table-light" onclick="goToCurso(2, 'Curso 2');">
                             <td scope="row">
                                 <i class="material-icons">
                                     list_alt
