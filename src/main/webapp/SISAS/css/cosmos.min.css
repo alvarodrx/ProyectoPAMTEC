@@ -25,15 +25,15 @@
     --cyan: #9954BB;
     --white: #fff;
     --gray: #868e96;
-    --gray-dark: #373a3c;
+    --gray-dark: #797979;
     --primary: #2780E3;
-    --secondary: #373a3c;
+    --secondary: #797979;
     --success: #3FB618;
     --info: #9954BB;
     --warning: #FF7518;
     --danger: #FF0039;
     --light: #f8f9fa;
-    --dark: #373a3c;
+    --dark: #797979;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -1946,7 +1946,7 @@ pre code {
 }
 
 .table-dark, .table-dark > th, .table-dark > td {
-    background-color: #c7c8c8
+    background-color: #797979
 }
 
 .table-dark th, .table-dark td, .table-dark thead th, .table-dark tbody + tbody {
@@ -1987,7 +1987,7 @@ pre code {
 
 .table-dark {
     color: #fff;
-    background-color: #373a3c
+    background-color: #797979
 }
 
 .table-dark th, .table-dark td, .table-dark thead th {
@@ -10411,12 +10411,9 @@ a.text-dark:hover, a.text-dark:focus {
     }
 
     .table-dark {
-        color: inherit
+        color: #797979
     }
 
-    .table-dark th, .table-dark td, .table-dark thead th, .table-dark tbody + tbody {
-        border-color: #dee2e6
-    }
 
     .table .thead-dark th {
         color: inherit;

@@ -26,9 +26,8 @@
     <link rel="stylesheet" href="css/cosmos.min.css">
 
     <!-- icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 
     <script type="text/javascript">
         function showMessage(msg) {
@@ -56,7 +55,7 @@
         function valSession() {
             var millisSession = $('input[name="millis"]').val();
             if (!millisSession || millisSession === "") {
-                window.location.href = "/";
+                window.location.href = "/SISAS/login/";
                 return false;
             }
             var d = new Date();
@@ -124,6 +123,13 @@
     </script>
 
     <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            font-family: Arial, serif;
+        }
+
         .wrapper {
             display: flex;
             align-items: center;
@@ -134,8 +140,14 @@
             left: 0;
             top: 0;
             bottom: 0;
-            background: #7171B787;
-            z-index: -1;
+            background: #36a9daaa;
+            z-index: 0;
+        }
+        .navbar{
+            z-index: 1;
+        }
+        .logo {
+            height: 40px;
         }
     </style>
 
@@ -150,28 +162,85 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <img src="imagenes/logoBlanco.png" class="img-fluid logo">
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" action="/weblogin?tipo=SALIR">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                    <span class="align-top">Salir</span>
+                    <i class="material-icons">exit_to_app</i>
+                </button>
             </form>
         </div>
     </nav>
 
     <div class="wrapper">
-        <div class="card bg-light mb-3" style="max-width: 20rem;">
-            <div class="card-body">
-                <h2 class="card-title"><b>Mis cursos</b></h2>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="card bg-light mb-3 rounded-lg shadow" >
+            <div class="card-body" style="display: block; width: 400px; max-height: 400px;">
+                <h2 class="card-title mx-auto" style="text-align: center"><b>Mis cursos</b></h2>
+                <br>
+                <div class="table-responsive" style="max-height: 280px;overflow-y: scroll;">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr class="table-dark">
+                            <td scope="row">
+                                <i class="material-icons">
+                                    list_alt
+                                </i>
+                            </td>
+                            <td>Curso 1</td>
+                        </tr>
+                        <tr class="table-light">
+                            <td scope="row">
+                                <i class="material-icons">
+                                    list_alt
+                                </i>
+                            </td>
+                            <td>Curso 2</td>
+                        </tr>
+                        <tr class="table-dark">
+                            <td scope="row">
+                                <i class="material-icons">
+                                    list_alt
+                                </i>
+                            </td>
+                            <td>Curso 1</td>
+                        </tr>
+                        <tr class="table-light">
+                            <td scope="row">
+                                <i class="material-icons">
+                                    list_alt
+                                </i>
+                            </td>
+                            <td>Curso 2</td>
+                        </tr>
+                        <tr class="table-dark">
+                            <td scope="row">
+                                <i class="material-icons">
+                                    list_alt
+                                </i>
+                            </td>
+                            <td>Curso 1</td>
+                        </tr>
+                        <tr class="table-light">
+                            <td scope="row">
+                                <i class="material-icons">
+                                    list_alt
+                                </i>
+                            </td>
+                            <td>Curso 2</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+
+
     </div>
 
 </div>
-
-
+</body>
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
 
-</body>
 </html>

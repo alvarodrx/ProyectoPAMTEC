@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/cosmos.min.css">
 
     <!-- icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
@@ -66,7 +66,7 @@
         function valSession() {
             var millisSession = $('input[name="millis"]').val();
             if (!millisSession || millisSession === "") {
-                window.location.href = "/";
+                window.location.href = "/SISAS/login/";
                 return false;
             }
             var d = new Date();
@@ -132,7 +132,34 @@
 
 
     </script>
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            font-family: Arial, serif;
+        }
 
+        .wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: #36a9daaa;
+            z-index: 0;
+        }
+        .navbar{
+            z-index: 1;
+        }
+        .logo {
+            height: 40px;
+        }
+    </style>
 
 </head>
 <body>
@@ -144,11 +171,14 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <img src="imagenes/logoBlanco.png" class="img-fluid logo">
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" action="/weblogin?tipo=SALIR">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                    <span class="align-top">Salir</span>
+                    <i class="material-icons">exit_to_app</i>
+                </button>
             </form>
         </div>
     </nav>

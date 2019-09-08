@@ -35,9 +35,6 @@
             height: 100%;
             width: 100%;
             margin: 0px;
-        }
-
-        body, html {
             font-family: Arial, serif;
         }
 
@@ -269,7 +266,7 @@
             <br>
             <button>
                 <i class="spinner"></i>
-                <span class="state" type="submit" name="commit">Ingresar</span>
+                <span class="state" type="submit" name="commit" style="-webkit-appearance: none !important;">Ingresar</span>
             </button>
         </div>
     </form>
