@@ -70,7 +70,7 @@
             var curso = $('input[name="curso"]').val();
             if (!curso || curso === "") {
                 alert('Debes escoger un curso.');
-                window.location.href = "/SISAS/misCursos.jsp";
+                goToCursoSelect();
                 return false;
             }
             return true;
@@ -144,6 +144,10 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
+        function goToCursoSelect(){
+            window.location.href = "/SISAS/misCursos.jsp";
+        }
+
     </script>
     <style>
         body, html {
@@ -151,6 +155,8 @@
             width: 100%;
             margin: 0px;
             font-family: Arial, serif;
+            min-width: 800px;
+            min-height: 600px;
         }
 
         .wrapper {
@@ -190,7 +196,7 @@
     </style>
 
 </head>
-<div class="primary-data-content">
+<div class="primary-data-content d-flex flex-column h-100">
     <body>
     <input type="hidden" id="millis" name="millis" value="${millis}">
     <input type="hidden" id="message" name="message" value="${message}">
@@ -214,7 +220,7 @@
         <div class="btn-group-vertical" style="width: 100%">
             <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
                 <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
-                        onclick="window.location.href('/SISAS/misCursos.jsp')"
+                        onclick="goToCursoSelect();"
                         data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                 </button>
@@ -277,6 +283,21 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center h-75">
+        <div class="card text-center w-50 border-0 h-50" style="width: 18rem;">
+            <div class="card-title">
+                <h1>SISAS</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Sistema de control de asistencia y colaboraci&oacute;n.</p>
+            </div>
+            <img src="imagenes/LOGO_Firma.png" class="card-img-bottom p-3" alt="...">
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-end h-25">
+        <img src="imagenes/personaje2.png" class="img-fluid h-75 p-3" alt="...">
+        <img src="imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
     </div>
     </body>
 </div>

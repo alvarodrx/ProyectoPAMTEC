@@ -136,6 +136,8 @@
             width: 100%;
             margin: 0px;
             font-family: Arial, serif;
+            min-width: 800px;
+            min-height: 600px;
         }
 
         .wrapper {
