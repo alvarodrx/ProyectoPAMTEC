@@ -11,7 +11,7 @@
     <title>Loading</title>
 
     <style>
-        #primary-data-content {
+        .primary-data-content {
             display: none;
         }
 

@@ -57,8 +57,9 @@
                 showMessage(msg);
                 setTimeout(function () {
                     $('#loading-content-panel').css('display', 'none');
-                    $('#primary-data-content').css('display', 'block');
+                    $('.primary-data-content').css('display', 'block');
                 }, 1000);
+
             }
 
 
@@ -143,7 +144,6 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
-
     </script>
     <style>
         body, html {
@@ -167,13 +167,26 @@
             z-index: 0;
         }
 
-        .navbar {
+        .mainMenuBar {
             z-index: 1;
         }
 
         .logo {
             height: 40px;
+            width: available;
         }
+
+        .ico-sm {
+            width: 24px;
+            height: 24px;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            text-align: end;
+            width: max-content;
+        }
+
     </style>
 
 </head>
@@ -182,31 +195,90 @@
     <input type="hidden" id="millis" name="millis" value="${millis}">
     <input type="hidden" id="message" name="message" value="${message}">
     <input type="hidden" id="curso" name="curso" value="${curso}">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <img src="imagenes/logoBlanco.png" class="img-fluid logo">
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" action="/weblogin?tipo=SALIR">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-                    <span class="align-top">Salir</span>
-                    <i class="material-icons">exit_to_app</i>
+    <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="clearfix w-100" id="navbarColor02">
+                <ul class="navbar-nav mr-auto float-left">
+                    <li class="nav-item active">
+                        <img src="imagenes/logoBlanco.png" class="img-fluid logo">
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                        <span class="align-top">Salir</span>
+                        <i class="material-icons">exit_to_app</i>
+                    </button>
+                </form>
+            </div>
+        </nav>
+        <div class="btn-group-vertical" style="width: 100%">
+            <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
+                <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
+                        onclick="window.location.href('/SISAS/misCursos.jsp')"
+                        data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                    Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                 </button>
-            </form>
-        </div>
-    </nav>
-    <div class="btn-group btn-group-lg" role="group" aria-label="...">
-        <button type="button" id="dropdownMenuCurso" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg" aria-haspopup="true" aria-expanded="false">
-            Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
-        </button>
-        <div>
-            <h3 class="mt-2 ml-5">${cursoName}</h3>
+                <div>
+                    <h3 class="mt-2 ml-5">${cursoName}</h3>
+                </div>
+            </div>
+            <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
+                 style="text-align: right; width: 100%;" role="group" aria-label="...">
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Asistencia <img class="img-fluid ico-sm" src="imagenes/asistencia.svg">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                         aria-labelledby="dropdownMenuLista">
+                        <a class="dropdown-item">Pasar lista
+                            <img class="img-fluid ico-sm" src="imagenes/registrarAsistencia.svg">
+                        </a>
+                        <a class="dropdown-item" href="#">Modificar asistencia
+                            <img class="img-fluid ico-sm" src="imagenes/editarAsistencia.svg">
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Registro <img class="img-fluid ico-sm" src="imagenes/registro.svg">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                         aria-labelledby="dropdownMenuLista">
+                        <a class="dropdown-item">Action</a>
+                        <a class="dropdown-item float-right" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Informaci&oacute;n <img class="img-fluid ico-sm" src="imagenes/informacion.svg">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                         aria-labelledby="dropdownMenuLista">
+                        <a class="dropdown-item">Action</a>
+                        <a class="dropdown-item float-right" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Notas <img class="img-fluid ico-sm" src="imagenes/notas.svg">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                         aria-labelledby="dropdownMenuLista">
+                        <a class="dropdown-item">Action</a>
+                        <a class="dropdown-item float-right" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </body>
-
 </div>
 
 

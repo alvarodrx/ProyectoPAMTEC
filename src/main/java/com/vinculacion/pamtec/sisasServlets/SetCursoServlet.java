@@ -13,12 +13,11 @@ public class SetCursoServlet extends BaseServlet {
     @Override
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String curso = req.getParameter("curso");
+        String cursoName = req.getParameter("cursoName");
 
         HttpSession session = req.getSession(true);
         session.removeAttribute("message");
         session.setAttribute("curso", curso);
-
-        String cursoName = "Curso 1";
         session.setAttribute("cursoName", cursoName);
 
         resp.sendRedirect("/SISAS/");

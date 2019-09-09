@@ -47,7 +47,7 @@
                 showMessage(msg);
                 setTimeout(function () {
                     $('#loading-content-panel').css('display', 'none');
-                    $('#primary-data-content').css('display', 'block');
+                    $('.primary-data-content').css('display', 'block');
                 }, 1000);
             }
 
