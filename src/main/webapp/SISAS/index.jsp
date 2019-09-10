@@ -254,9 +254,12 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Action</a>
-                        <a class="dropdown-item float-right" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item">Registrar abandono
+                            <img class="img-fluid ico-sm" src="imagenes/abandono.svg">
+                        </a>
+                        <a class="dropdown-item" href="#">Registrar llamada
+                            <img class="img-fluid ico-sm" src="imagenes/llamada.svg">
+                        </a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -266,9 +269,12 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Action</a>
-                        <a class="dropdown-item float-right" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item">Curso
+                            <img class="img-fluid ico-sm" src="imagenes/abandono.svg">
+                        </a>
+                        <a class="dropdown-item" href="#">Estudiantes
+                            <img class="img-fluid ico-sm" src="imagenes/llamada.svg">
+                        </a>
                     </div>
                 </div>
                 <div class="dropdown">
