@@ -148,6 +148,8 @@
             window.location.href = "/SISAS/misCursos.jsp";
         }
 
+
+
     </script>
     <style>
         body, html {
