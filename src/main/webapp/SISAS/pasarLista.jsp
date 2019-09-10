@@ -147,9 +147,6 @@
         function goToCursoSelect(){
             window.location.href = "/SISAS/misCursos.jsp";
         }
-        function goToPasarLista(){
-            window.location.href = "/SISAS/pasarLista.jsp";
-        }
 
 
 
@@ -231,6 +228,7 @@
                 </button>
                 <div>
                     <h3 class="mt-2 ml-5">${cursoName}</h3>
+                    <h4> Pasar Lista</h4>
                 </div>
             </div>
             <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -248,7 +246,6 @@
                         <a class="dropdown-item" href="#">Modificar asistencia
                             <img class="img-fluid ico-sm" src="imagenes/editarAsistencia.svg">
                         </a>
-                        <button class="dropdown-item" type="button" onclick="goToPasarLista()">Action</button>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -258,12 +255,9 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Registrar abandono
-                            <img class="img-fluid ico-sm" src="imagenes/abandono.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Registrar llamada
-                            <img class="img-fluid ico-sm" src="imagenes/llamada.svg">
-                        </a>
+                        <a class="dropdown-item">Action</a>
+                        <a class="dropdown-item float-right" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -273,12 +267,9 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Curso
-                            <img class="img-fluid ico-sm" src="imagenes/abandono.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Estudiantes
-                            <img class="img-fluid ico-sm" src="imagenes/llamada.svg">
-                        </a>
+                        <a class="dropdown-item">Action</a>
+                        <a class="dropdown-item float-right" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -296,20 +287,126 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center h-75">
-        <div class="card text-center w-50 border-0 h-50" style="width: 18rem;">
-            <div class="card-title">
-                <h1>SISAS</h1>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Sistema de control de asistencia y colaboraci&oacute;n.</p>
-            </div>
-            <img src="imagenes/LOGO_Firma.png" class="card-img-bottom p-3" alt="...">
-        </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-end h-25">
-        <img src="imagenes/personaje2.png" class="img-fluid h-75 p-3" alt="...">
-        <img src="imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
+    <div class="d-flex justify-content-center align-items-center h-100 overflow-auto" >
+
+      <!-- Ejemplo tabla-->
+        <table class="table w-75">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+        <!-- fin ejemplo -->
+
+
+
+
+
     </div>
     </body>
 </div>
