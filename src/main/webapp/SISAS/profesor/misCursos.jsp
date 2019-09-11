@@ -133,6 +133,10 @@
             window.location.href = "/setCurso?curso="+cursoId + "&cursoName="+cursoName;
         }
 
+        function goToInformacionSelect() {
+            window.location.href = "informacionEstudiante.jsp";
+        }
+
 
     </script>
 

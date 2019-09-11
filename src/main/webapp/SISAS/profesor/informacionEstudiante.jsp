@@ -155,6 +155,10 @@
             window.location.href = "misCursos.jsp";
         }
 
+        function goToInformacioSelect() {
+            window.location.href = "informacionEstudiante.jsp";
+        }
+
         function justificarEstudiante(id, justificacion) {
             var rowId = 'row-' + id;
             var nameInp = 'justEst' + id;
@@ -347,61 +351,58 @@
                 </div>
             </div>
         </div>
-        <form action="/saveListaAsistencia" method="post" accept-charset="utf-8" onsubmit="return(validate());"
-              enctype="multipart/form-data" class="w-100 text-center">
+        <form action="#" method="post" accept-charset="utf-8" onsubmit="return(validate());" class="w-100 text-center">
             <!-- Informacion de estudiante -->
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
                     <h3>Informacion de estudiante PAM</h3>
-                    <form action="" method="post">
-                        <div class="text-left">
-                            <div class="row w-100">
-                                <div class="col float-left">
-                                    <label><b>Nombre del estudiante:</b></label>
-                                </div>
-                                <div class="col float-right">
-                                    <select class="custom-select custom-select-sm" name="">
-                                        <option>Nombre del estudiante</option>
-                                        <jsp:include page="/getFilterData">
-                                            <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                            <jsp:param name="curso" value="${curso}"/>
-                                            <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                        </jsp:include>
-                                    </select>
-                                </div>
+                    <div class="text-left">
+                        <div class="row w-100">
+                            <div class="col float-left">
+                                <label><b>Nombre del estudiante:</b></label>
                             </div>
-
-                            <div class="row w-100">
-                                <div class="col float-left">
-                                    <label><b>C&eacute;dula del estudiante:</b></label>
-                                </div>
-                                <div class="col float-right">
-                                    <div class="text-hide" id="cedulaEstudiante">${estudiantePAM}</div>
-                                </div>
-                            </div>
-                            <div class="row w-100">
-                                <div class="col float-left">
-                                    <label><b>Tel&eacute;fonos del estudiante:</b></label>
-                                </div>
-                                <div class="col float-right">
-                                    <select class="custom-select custom-select-sm">
-                                        <option>Nombre del estudiante</option>
-                                        <jsp:include page="/getFilterData">
-                                            <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
-                                            <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                        </jsp:include>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-center">
-                                <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"
-                                        type="submit">
-                                    Mostrar datos del estudiante PAM
-                                </button>
+                            <div class="col float-right">
+                                <select class="custom-select custom-select-sm" name="">
+                                    <option>Nombre del estudiante</option>
+                                    <jsp:include page="/getFilterData">
+                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
+                                        <jsp:param name="curso" value="${curso}"/>
+                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
+                                    </jsp:include>
+                                </select>
                             </div>
                         </div>
-                    </form>
+
+                        <div class="row w-100">
+                            <div class="col float-left">
+                                <label><b>C&eacute;dula del estudiante:</b></label>
+                            </div>
+                            <div class="col float-right">
+                                <div class="text-hide" id="cedulaEstudiante">${estudiantePAM}</div>
+                            </div>
+                        </div>
+                        <div class="row w-100">
+                            <div class="col float-left">
+                                <label><b>Tel&eacute;fonos del estudiante:</b></label>
+                            </div>
+                            <div class="col float-right">
+                                <select class="custom-select custom-select-sm">
+                                    <option>Nombre del estudiante</option>
+                                    <jsp:include page="/getFilterData">
+                                        <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
+                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
+                                    </jsp:include>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"
+                                    type="submit">
+                                Mostrar datos del estudiante PAM
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Informacion de estudiante end -->

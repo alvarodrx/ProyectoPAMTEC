@@ -5,5 +5,6 @@
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/GoToServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java
+/Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/GetFilterDataServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveListaAsistenciaServlet.java
 /Users/alvaro/ProyectoPAMTEC/pamtec/src/main/java/com/vinculacion/pamtec/sisasServlets/GetCursosServlet.java

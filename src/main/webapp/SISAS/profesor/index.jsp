@@ -153,6 +153,10 @@
             window.location.href = "pasarLista.jsp";
         }
 
+        function goToInformacion() {
+            window.location.href = "informacionEstudiante.jsp";
+        }
+
 
     </script>
     <style>
@@ -278,7 +282,7 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Estudiantes
+                            <a href="javascript:goToInformacion();"  class="dropdown-item" href="#">Estudiantes
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
