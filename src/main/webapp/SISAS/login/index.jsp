@@ -13,13 +13,17 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
     <!-- icon library -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <title>Iniciar Sesi&oacute;n</title>
 
     <%
-        String errorTxt = request.getParameter("errorTxt");
-        pageContext.setAttribute("errorTxt", errorTxt);
+        String message = "", millis = "";
+        Object attr = session.getAttribute("message");
+        if (attr != null)
+            message = attr.toString();
+        pageContext.setAttribute("message", message);
 
     %>
     <style>
@@ -227,9 +231,7 @@
         }
 
         .state {
-
             background: border-box;
-
         }
 
 
@@ -243,7 +245,7 @@
             <p class="title2">Iniciar sesi&oacute;n</p>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="username" placeholder="Usuario" aria-label="Username"
-                       aria-describedby="basic-addon1">
+                       required aria-describedby="basic-addon1">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">
                         <img class="responsive ico"
@@ -254,7 +256,7 @@
             <br>
             <div class="input-group mb-3">
                 <input type="password" class="form-control" name="password" placeholder="Contrase&ntilde;a"
-                       aria-label="Username" aria-describedby="basic-addon2">
+                       required aria-label="Username" aria-describedby="basic-addon2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">
                         <img class="responsive ico"
@@ -262,7 +264,7 @@
                     </span>
                 </div>
             </div>
-            <p class="center error">${errorTxt}</p>
+            <p class="text-warning text-center">${message}</p>
             <br>
             <button>
                 <i class="spinner"></i>

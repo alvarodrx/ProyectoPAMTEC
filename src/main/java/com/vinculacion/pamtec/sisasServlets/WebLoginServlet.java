@@ -22,7 +22,8 @@ public class WebLoginServlet extends BaseServlet {
 
         if (tipo!=null && tipo.equals("SALIR")){
             HttpSession session = req.getSession(true);
-            session.invalidate();
+            session.setAttribute("message","");
+            session.setAttribute("millis","");
             resp.sendRedirect("/");
             return;
         }
@@ -40,25 +41,42 @@ public class WebLoginServlet extends BaseServlet {
             resp.sendRedirect("/SISAS/login/");
         }
         
-        String query = "SELECT Id AS ID, Estado AS ESTADO FROM Usuario WHERE Usuario = '" + usuario + "' AND Password = '" + passw + "';";
+        String query = "SELECT PK_Usuarios AS ID, FK_Tipos_Usuarios AS Tipo, Estado AS ESTADO FROM Usuarios WHERE Nombre_Usuario = '" + usuario + "' AND Contrasenna = '" + passw + "';";
         ResultSet rs = executeQuery(query);
         if (rs.next()){
+            String userId = rs.getString("ID");
             if (rs.getInt("ESTADO") != 1){
                 session.setAttribute("message", "Esta cuenta se encuentra inactiva.");
                 log(usuario, passw, device, "CUENTA INACTIVA");
                 resp.sendRedirect("/SISAS/login/");
                 return;
             } else {
+                int userType = rs.getInt("Tipo");
                 session.setAttribute("userId", rs.getString("ID"));
                 //session.setAttribute("usuario", rs.getString("NOMBRE"));
-                session.setAttribute("millis", Calendar.getInstance().getTimeInMillis());
-                session.setMaxInactiveInterval(3600);
-                resp.sendRedirect("/SISAS/misCursos.jsp");
-                log(usuario, passw, device, "VALIDO");
+                session.setAttribute("tipoUsuario", userType);
+                if (userType == 1) {
+                    session.setAttribute("millis", Calendar.getInstance().getTimeInMillis());
+                    session.setMaxInactiveInterval(3600);
+                    resp.sendRedirect("/SISAS/administrador/");
+                } else if (userType > 1){
+                    query = "SELECT FK_Profesor_Id AS ID FROM Grupos WHERE FK_Profesor_Id = " + userId + ";";
+                    ResultSet rs2 = executeQuery(query);
+                    if (rs2.next()){
+                        session.setAttribute("millis", Calendar.getInstance().getTimeInMillis());
+                        session.setMaxInactiveInterval(3600);
+                        resp.sendRedirect("/SISAS/profesor/misCursos.jsp");
+                        log(usuario, passw, device, "VALIDO");
+                        return;
+                    }
+                    session.setAttribute("message", "Esta cuenta no tiene acceso al sistema.");
+                    log(usuario, passw, device, "CUENTA INACTIVA");
+                    resp.sendRedirect("/SISAS/login/");
+                }
                 return;
             }
         } else {
-            session.setAttribute("message", "Contrase&ntilde;a incorrecta.");
+            session.setAttribute("message", "Contrase&ntilde;a o cuenta incorrecta.");
             log(usuario, passw, device, "INVALIDO");
             resp.sendRedirect("/SISAS/login/");
         }

@@ -20,6 +20,6 @@ public class SetCursoServlet extends BaseServlet {
         session.setAttribute("curso", curso);
         session.setAttribute("cursoName", cursoName);
 
-        resp.sendRedirect("/SISAS/");
+        resp.sendRedirect("/SISAS/profesor/");
     }
 }

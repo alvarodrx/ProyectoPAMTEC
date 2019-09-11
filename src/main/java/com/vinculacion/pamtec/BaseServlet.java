@@ -90,7 +90,7 @@ public abstract class BaseServlet extends HttpServlet {
     
     private void startConnection() throws Exception {
         Class.forName("com.mysql.jdbc.GoogleDriver");
-        String url = "jdbc:google:mysql://pamtec-itcr:us-east4:pamtec/pamtec_db";
+        String url = "jdbc:google:mysql://pamtec-itcr:us-east4:pamtec/pruebas";
         connection = DriverManager.getConnection(url, "root","pamtec123");
     }
     
