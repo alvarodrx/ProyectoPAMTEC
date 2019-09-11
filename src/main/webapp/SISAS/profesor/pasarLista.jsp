@@ -344,9 +344,9 @@
             </div>
         </div>
         <form action="/saveListaAsistencia" method="post" accept-charset="utf-8"  onsubmit="return(validate());" enctype="multipart/form-data" class="w-100 text-center">
-        <div class="d-flex justify-content-center overflow-scroll p-lg-4">
+        <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
                 <input type="hidden" name="curso" value="${curso}">
-                <div class="overflow-scroll w-75 h-100 p-4">
+                <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
                     <!-- Ejemplo tabla-->
                     <table class="table h-auto w-100">
                         <thead class="thead-dark">
@@ -366,9 +366,9 @@
                     </table>
                     <!-- fin ejemplo -->
                 </div>
+            <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50">   Guardar   </button>
 
         </div>
-            <button type="submit" class="btn btn-outline-secondary w-25 btn-lg">Guardar</button>
         </form>
     </div>
     </body>

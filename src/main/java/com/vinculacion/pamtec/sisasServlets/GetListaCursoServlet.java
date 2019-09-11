@@ -65,21 +65,21 @@ public class GetListaCursoServlet extends BaseServlet {
                     "<tr class=\"table-success\" id=\"row-"+asistentePK+"\">\n" +
                     "   <th scope=\"row\">"+cont2+"</th>\n" +
                     "   <td>"+nombreAsistente+"</td>\n" +
-                    "       <td class=\"text-center\">\n" +
-                    "           <label class=\"container mx-auto\">\n" +
-                    "               <input type=\"radio\" id=\"radioAsis-"+asistentePK+"\" name=\"radioAsis-"+asistentePK+"\" value=\"Presente\">\n" +
-                    "               <span class=\"checkmark\"></span>\n" +
-                    "           </label>\n" +
-                    "       </td>\n" +
-                    "       <td class=\"text-center\">\n" +
-                    "           <label class=\"container mx-auto\">\n" +
-                    "               <input type=\"radio\" id=\"radioAsis-"+asistentePK+"\" name=\"radioAsis-"+asistentePK+"\" value=\"Ausente\">\n" +
-                    "               <span class=\"checkmark\"></span>\n" +
-                    "           </label>\n" +
+                    "   <td class=\"text-center\">\n" +
+                    "       <label class=\"container mx-auto\">\n" +
+                    "           <input required type=\"radio\" id=\"radioAsis-"+asistentePK+"\" name=\"radioAsis-"+asistentePK+"\" value=\"Presente\">\n" +
+                    "           <span class=\"checkmark\"></span>\n" +
+                    "       </label>\n" +
                     "   </td>\n" +
                     "   <td class=\"text-center\">\n" +
                     "       <label class=\"container mx-auto\">\n" +
-                    "           <input type=\"radio\" name=\"radioAsis-"+asistentePK+"\" name=\"radioAsis-"+asistentePK+"\" value=\"Justificado\" onclick=\"showModalJustificacion("+asistentePK+", '#asistenteModal');\">\n" +
+                    "           <input required type=\"radio\" id=\"radioAsis-"+asistentePK+"\" name=\"radioAsis-"+asistentePK+"\" value=\"Ausente\">\n" +
+                    "           <span class=\"checkmark\"></span>\n" +
+                    "       </label>\n" +
+                    "   </td>\n" +
+                    "   <td class=\"text-center\">\n" +
+                    "       <label class=\"container mx-auto\">\n" +
+                    "           <input required type=\"radio\" name=\"radioAsis-"+asistentePK+"\" name=\"radioAsis-"+asistentePK+"\" value=\"Justificado\" onclick=\"showModalJustificacion("+asistentePK+", '#asistenteModal');\">\n" +
                     "           <span class=\"checkmark\"></span>\n" +
                     "       </label>\n" +
                     "   </td>\n" +
