@@ -157,6 +157,10 @@
             window.location.href = "informacionEstudiante.jsp";
         }
 
+        function goToSubirNotas() {
+            window.location.href = "subirNotas.jsp";
+        }
+
 
     </script>
     <style>
@@ -294,7 +298,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a class="dropdown-item">Subir notas
+                            <a class="dropdown-item" href="javaScript:goToSubirNotas();">Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
                             <a class="dropdown-item" href="#">Editar notas
