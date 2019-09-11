@@ -33,19 +33,19 @@ public class GetListaCursoServlet extends BaseServlet {
                     "   <td>"+nombreEstudiante+"</td>\n" +
                     "       <td class=\"text-center\">\n" +
                     "           <label class=\"container mx-auto\">\n" +
-                    "               <input type=\"radio\" id=\"radio-"+estudianteId+"\" name=\"radio-"+estudianteId+"\" value=\"Presente\">\n" +
+                    "               <input required type=\"radio\" id=\"radio-"+estudianteId+"\" name=\"radio-"+estudianteId+"\" value=\"Presente\">\n" +
                     "               <span class=\"checkmark\"></span>\n" +
                     "           </label>\n" +
                     "       </td>\n" +
                     "       <td class=\"text-center\">\n" +
                     "           <label class=\"container mx-auto\">\n" +
-                    "               <input type=\"radio\" id=\"radio-"+estudianteId+"\" name=\"radio-"+estudianteId+"\" value=\"Ausente\">\n" +
+                    "               <input required type=\"radio\" id=\"radio-"+estudianteId+"\" name=\"radio-"+estudianteId+"\" value=\"Ausente\">\n" +
                     "               <span class=\"checkmark\"></span>\n" +
                     "           </label>\n" +
                     "   </td>\n" +
                     "   <td class=\"text-center\">\n" +
                     "       <label class=\"container mx-auto\">\n" +
-                    "           <input type=\"radio\" name=\"radio-"+estudianteId+"\" name=\"radio-"+estudianteId+"\" value=\"Justificado\" onclick=\"showModalJustificacion("+estudianteId+", '#estudianteModal');\">\n" +
+                    "           <input required type=\"radio\" name=\"radio-"+estudianteId+"\" name=\"radio-"+estudianteId+"\" value=\"Justificado\" onclick=\"showModalJustificacion("+estudianteId+", '#estudianteModal');\">\n" +
                     "           <span class=\"checkmark\"></span>\n" +
                     "       </label>\n" +
                     "   </td>\n" +

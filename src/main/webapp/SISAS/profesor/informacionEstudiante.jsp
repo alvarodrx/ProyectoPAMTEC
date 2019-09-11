@@ -155,7 +155,7 @@
             window.location.href = "misCursos.jsp";
         }
 
-        function goToInformacioSelect() {
+        function goToInformacionSelect() {
             window.location.href = "informacionEstudiante.jsp";
         }
 
@@ -328,7 +328,7 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Estudiantes
+                            <a href="javascript:goToPasarLista();" class="dropdown-item" href="#">Estudiantes
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -351,7 +351,7 @@
                 </div>
             </div>
         </div>
-        <form action="#" method="post" accept-charset="utf-8" onsubmit="return(validate());" class="w-100 text-center">
+        <form action="" method="post" accept-charset="utf-8" class="w-100 text-center">
             <!-- Informacion de estudiante -->
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
@@ -362,7 +362,7 @@
                                 <label><b>Nombre del estudiante:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="">
+                                <select class="custom-select custom-select-sm" name="estudiantePAM">
                                     <option>Nombre del estudiante</option>
                                     <jsp:include page="/getFilterData">
                                         <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
@@ -378,7 +378,7 @@
                                 <label><b>C&eacute;dula del estudiante:</b></label>
                             </div>
                             <div class="col float-right">
-                                <div class="text-hide" id="cedulaEstudiante">${estudiantePAM}</div>
+                                <div id="cedulaEstudiante">${estudiantePAM}</div>
                             </div>
                         </div>
                         <div class="row w-100">
