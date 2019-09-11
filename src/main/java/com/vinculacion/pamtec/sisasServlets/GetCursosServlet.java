@@ -25,18 +25,18 @@ public class GetCursosServlet extends BaseServlet {
             ps.setInt(1, Integer.parseInt(userId));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                String cursoId = rs.getString("PK_Grupos");
+                String grupoId = rs.getString("PK_Grupos");
                 String cursoNombre = rs.getString("Informacion_Curso");
-                out.print("<tr class=\"table-light\" onclick=\"goToCurso('" + cursoId + "', '" + cursoNombre + "');\">\n" +
+                out.print("<tr class=\"table-light\" onclick=\"goToCurso('" + grupoId + "', '" + cursoNombre + "');\">\n" +
                         "<td scope=\"row\">\n" +
                         "<i class=\"material-icons\">list_alt</i>\n" +
                         "</td>\n" +
                         "<td>" + cursoNombre + "</td>\n" +
                         "</tr>");
                 if (rs.next()) {
-                    cursoId = rs.getString("PK_Grupos");
+                    grupoId = rs.getString("PK_Grupos");
                     cursoNombre = rs.getString("Informacion_Curso");
-                    out.print("<tr class=\"table-dark\" onclick=\"goToCurso('" + cursoId + "', '" + cursoNombre + "');\">\n" +
+                    out.print("<tr class=\"table-dark\" onclick=\"goToCurso('" + grupoId + "', '" + cursoNombre + "');\">\n" +
                             "<td scope=\"row\">\n" +
                             "<i class=\"material-icons\">list_alt</i>\n" +
                             "</td>\n" +

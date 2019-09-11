@@ -17,6 +17,7 @@
         if (attr != null)
             userId = attr.toString();
         pageContext.setAttribute("userId", userId);
+        session.removeAttribute("message");
     %>
     -->
     <title>SISAS</title>

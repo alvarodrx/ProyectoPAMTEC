@@ -1,9 +1,8 @@
-<%@ page import="javax.mail.Session" %>
 <html>
 <head>
     <!--
     <%
-        String message = "", millis = "", curso = "", cursoName = "";
+        String message = "", millis = "", curso = "", cursoName = "", tipoUsuario = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -12,6 +11,15 @@
         if (attr != null)
             millis = attr.toString();
         pageContext.setAttribute("millis", millis);
+        session.removeAttribute("message");
+        attr = session.getAttribute("tipoUsuario");
+        if (attr != null)
+            tipoUsuario = attr.toString();
+        pageContext.setAttribute("tipoUsuario", tipoUsuario);
+        if (tipoUsuario == null || !tipoUsuario.equals("1")){
+            session.setAttribute("message", "Debe tener permisos de administrador para ingresar al sitio solicitado.");
+            response.sendRedirect("/SISAS/login/");
+        }
     %>
     -->
     <title>SISAS</title>
@@ -187,6 +195,8 @@
     <input type="hidden" id="millis" name="millis" value="${millis}">
     <input type="hidden" id="message" name="message" value="${message}">
     <input type="hidden" id="curso" name="curso" value="${curso}">
+    <input type="hidden" id="usuario" name="usuario" value="${usuario}">
+    <input type="hidden" id="tipoUsuario" name="tipoUsuario" value="${tipoUsuario}">
     <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="clearfix w-100" id="navbarColor02">
@@ -210,6 +220,9 @@
                         data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                 </button>
+                <div>
+                    <h3 class="mt-2 ml-5">${cursoName}</h3>
+                </div>
             </div>
             <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
                  style="text-align: right; width: 100%;" role="group" aria-label="...">
@@ -220,13 +233,12 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Pasar lista
+                        <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                             <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                         </a>
                         <a class="dropdown-item" href="#">Modificar asistencia
                             <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                         </a>
-                        <button class="dropdown-item" type="button" onclick="goToPasarLista()">Action</button>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -252,10 +264,10 @@
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
                         <a class="dropdown-item">Curso
-                            <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
+                            <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                         </a>
                         <a class="dropdown-item" href="#">Estudiantes
-                            <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
+                            <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                         </a>
                     </div>
                 </div>
@@ -266,9 +278,12 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Action</a>
-                        <a class="dropdown-item float-right" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item">Subir notas
+                            <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
+                        </a>
+                        <a class="dropdown-item" href="#">Editar notas
+                            <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
+                        </a>
                     </div>
                 </div>
             </div>

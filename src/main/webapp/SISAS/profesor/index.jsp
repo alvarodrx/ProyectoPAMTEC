@@ -2,7 +2,6 @@
 <head>
     <!--
     <%
-        HttpSession session1 = request.getSession();
         String message = "", millis = "", curso = "", cursoName = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
@@ -23,6 +22,7 @@
         if (attr != null)
             cursoName = attr.toString();
         pageContext.setAttribute("cursoName", cursoName);
+        session.removeAttribute("message");
     %>
     -->
     <title>SISAS</title>
@@ -145,13 +145,13 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
-        function goToCursoSelect(){
+        function goToCursoSelect() {
             window.location.href = "misCursos.jsp";
         }
-        function goToPasarLista(){
+
+        function goToPasarLista() {
             window.location.href = "pasarLista.jsp";
         }
-
 
 
     </script>
@@ -202,118 +202,123 @@
     </style>
 
 </head>
-<div class="primary-data-content d-flex flex-column h-100">
+<div class="primary-data-content">
     <body>
-    <input type="hidden" id="millis" name="millis" value="${millis}">
-    <input type="hidden" id="message" name="message" value="${message}">
-    <input type="hidden" id="curso" name="curso" value="${curso}">
-    <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="clearfix w-100" id="navbarColor02">
-                <ul class="navbar-nav mr-auto float-left">
-                    <li class="nav-item active">
-                        <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-                        <span class="align-top">Salir</span>
-                        <i class="material-icons">exit_to_app</i>
-                    </button>
-                </form>
-            </div>
-        </nav>
-        <div class="btn-group-vertical" style="width: 100%">
-            <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
-                <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
-                        onclick="goToCursoSelect();"
-                        data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                    Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
-                </button>
-                <div>
-                    <h3 class="mt-2 ml-5">${cursoName}</h3>
+    <div class="d-flex flex-column h-100">
+
+        <input type="hidden" id="millis" name="millis" value="${millis}">
+        <input type="hidden" id="message" name="message" value="${message}">
+        <input type="hidden" id="curso" name="curso" value="${curso}">
+        <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="clearfix w-100" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto float-left">
+                        <li class="nav-item active">
+                            <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                            <span class="align-top">Salir</span>
+                            <i class="material-icons">exit_to_app</i>
+                        </button>
+                    </form>
                 </div>
-            </div>
-            <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
-                 style="text-align: right; width: 100%;" role="group" aria-label="...">
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+            </nav>
+            <div class="btn-group-vertical" style="width: 100%">
+                <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
+                    <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
+                            onclick="goToCursoSelect();"
                             data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Asistencia <img class="img-fluid ico-sm" src="../imagenes/asistencia.svg">
+                        Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
-                            <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Modificar asistencia
-                            <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
-                        </a>
+                    <div>
+                        <h3 class="mt-2 ml-5">${cursoName}</h3>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Registro <img class="img-fluid ico-sm" src="../imagenes/registro.svg">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Registrar abandono
-                            <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Registrar llamada
-                            <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
-                        </a>
+                <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
+                     style="text-align: right; width: 100%;" role="group" aria-label="...">
+                    <div class="dropdown">
+                        <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Asistencia <img class="img-fluid ico-sm" src="../imagenes/asistencia.svg">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                             aria-labelledby="dropdownMenuLista">
+                            <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
+                                <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
+                            </a>
+                            <a class="dropdown-item" href="#">Modificar asistencia
+                                <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Informaci&oacute;n <img class="img-fluid ico-sm" src="../imagenes/informacion.svg">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Curso
-                            <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Estudiantes
-                            <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
-                        </a>
+                    <div class="dropdown">
+                        <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Registro <img class="img-fluid ico-sm" src="../imagenes/registro.svg">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                             aria-labelledby="dropdownMenuLista">
+                            <a class="dropdown-item">Registrar abandono
+                                <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
+                            </a>
+                            <a class="dropdown-item" href="#">Registrar llamada
+                                <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Notas <img class="img-fluid ico-sm" src="../imagenes/notas.svg">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Action</a>
-                        <a class="dropdown-item float-right" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown">
+                        <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Informaci&oacute;n <img class="img-fluid ico-sm" src="../imagenes/informacion.svg">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                             aria-labelledby="dropdownMenuLista">
+                            <a class="dropdown-item">Curso
+                                <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
+                            </a>
+                            <a class="dropdown-item" href="#">Estudiantes
+                                <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Notas <img class="img-fluid ico-sm" src="../imagenes/notas.svg">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
+                             aria-labelledby="dropdownMenuLista">
+                            <a class="dropdown-item">Subir notas
+                                <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
+                            </a>
+                            <a class="dropdown-item" href="#">Editar notas
+                                <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center h-75">
-        <div class="card text-center w-50 border-0 h-50" style="width: 18rem;">
-            <div class="card-title">
-                <h1>SISAS</h1>
+        <div class="d-flex justify-content-center align-items-center h-75">
+            <div class="card text-center w-50 border-0 h-50" style="width: 18rem;">
+                <div class="card-title">
+                    <h1>SISAS</h1>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Sistema de control de asistencia y colaboraci&oacute;n.</p>
+                </div>
+                <img src="../imagenes/LOGO_Firma.png" class="card-img-bottom p-3" alt="...">
             </div>
-            <div class="card-body">
-                <p class="card-text">Sistema de control de asistencia y colaboraci&oacute;n.</p>
-            </div>
-            <img src="../imagenes/LOGO_Firma.png" class="card-img-bottom p-3" alt="...">
         </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-end h-25">
-        <img src="../imagenes/personaje2.png" class="img-fluid h-75 p-3" alt="...">
-        <img src="../imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
+        <div class="d-flex justify-content-center align-items-end h-25">
+            <img src="../imagenes/personaje2.png" class="img-fluid h-75 p-3" alt="...">
+            <img src="../imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
+        </div>
     </div>
     </body>
 </div>
-
 
 
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>

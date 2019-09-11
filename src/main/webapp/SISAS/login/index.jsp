@@ -24,6 +24,7 @@
         if (attr != null)
             message = attr.toString();
         pageContext.setAttribute("message", message);
+        session.removeAttribute("message");
 
     %>
     <style>

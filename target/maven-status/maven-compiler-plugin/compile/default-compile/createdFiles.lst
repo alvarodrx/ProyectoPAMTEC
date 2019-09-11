@@ -1,7 +1,12 @@
+com/vinculacion/pamtec/sisasServlets/SaveListaAsistenciaServlet.class
 com/vinculacion/pamtec/sisasServlets/UpdateSessionServlet.class
+com/vinculacion/pamtec/sisasServlets/SaveListaAsistenciaServlet$Asistente.class
 com/vinculacion/pamtec/sisasServlets/WebLoginServlet.class
 com/vinculacion/pamtec/sisasServlets/SetCursoServlet.class
 com/vinculacion/pamtec/sisasServlets/GetCursosServlet.class
 com/vinculacion/pamtec/HelloAppEngine.class
 com/vinculacion/pamtec/BaseServlet.class
+com/vinculacion/pamtec/sisasServlets/GetListaCursoServlet.class
+com/vinculacion/pamtec/sisasServlets/SaveListaAsistenciaServlet$1.class
+com/vinculacion/pamtec/sisasServlets/SaveListaAsistenciaServlet$EstudiantePam.class
 com/vinculacion/pamtec/sisasServlets/GoToServlet.class
