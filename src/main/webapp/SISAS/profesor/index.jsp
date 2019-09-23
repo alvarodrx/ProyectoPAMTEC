@@ -161,6 +161,10 @@
             window.location.href = "subirNotas.jsp";
         }
 
+        function goToModificarAsistencia() {
+            window.location.href = "modificarAsistencia.jsp";
+        }
+
 
     </script>
     <style>
@@ -256,7 +260,7 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Modificar asistencia
+                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
