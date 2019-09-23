@@ -324,7 +324,7 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacioSelect();" class="dropdown-item" href="#">Estudiantes
+                            <a href="javascript:goToInformacioSelect();" class="dropdown-item" href="#">Estudiantes PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
