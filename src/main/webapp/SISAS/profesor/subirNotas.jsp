@@ -151,6 +151,22 @@
             window.location.href = "misCursos.jsp";
         }
 
+        function goToPasarLista() {
+            window.location.href = "pasarLista.jsp";
+        }
+
+        function goToInformacionEstudiante() {
+            window.location.href = "informacionEstudiante.jsp";
+        }
+
+        function goToSubirNotas() {
+            window.location.href = "subirNotas.jsp";
+        }
+
+        function goToModificarAsistencia() {
+            window.location.href = "modificarAsistencia.jsp";
+        }
+
         function justificarEstudiante(id, justificacion) {
             var rowId = 'row-' + id;
             var nameInp = 'justEst' + id;
@@ -191,9 +207,7 @@
             modal.find('.modal-body input').val(id);
         }
 
-        function goToInformacion() {
-            window.location.href = "informacionEstudiante.jsp";
-        }
+
 
 
     </script>
@@ -294,7 +308,7 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Modificar asistencia
+                            <a href="javascript:goToModificarAsistencia()" class="dropdown-item" href="#">Modificar asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -324,7 +338,7 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacioSelect();" class="dropdown-item" href="#">Estudiantes PAM
+                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>

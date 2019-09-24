@@ -153,7 +153,7 @@
             window.location.href = "pasarLista.jsp";
         }
 
-        function goToInformacion() {
+        function goToInformacionEstudiante() {
             window.location.href = "informacionEstudiante.jsp";
         }
 
@@ -290,7 +290,7 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacion();"  class="dropdown-item" href="#">Estudiantes PAM
+                            <a href="javascript:goToInformacionEstudiante();"  class="dropdown-item" href="#">Estudiantes PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -302,7 +302,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a class="dropdown-item" href="javaScript:goToSubirNotas();">Subir notas
+                            <a href="javaScript:goToSubirNotas();" class="dropdown-item" > Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
                             <a class="dropdown-item" href="#">Editar notas
