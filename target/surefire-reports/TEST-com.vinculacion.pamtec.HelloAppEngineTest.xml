@@ -63,6 +63,6 @@
     <property name="library.jansi.path" value="C:\Users\Luis\OneDrive\Documentos\apache-maven-3.6.2\bin\..\lib\jansi-native"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="doGet_writesResponse" classname="com.vinculacion.pamtec.HelloAppEngineTest" time="0.188"/>
+  <testcase name="doGet_writesResponse" classname="com.vinculacion.pamtec.HelloAppEngineTest" time="0.203"/>
   <testcase name="HelloInfo_test" classname="com.vinculacion.pamtec.HelloAppEngineTest" time="0"/>
 </testsuite>

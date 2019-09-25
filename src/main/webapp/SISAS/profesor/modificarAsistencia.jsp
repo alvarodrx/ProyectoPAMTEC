@@ -207,6 +207,10 @@
             window.location.href = "modificarAsistencia.jsp";
         }
 
+        function goToRegistrarAbandono() {
+            window.location.href = "registrarAbandono.jsp";
+        }
+
 
     </script>
     <style>
@@ -318,7 +322,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a class="dropdown-item">Registrar abandono
+                            <a href="javascript:goToRegistrarAbandono();" class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
                             <a class="dropdown-item" href="#">Registrar llamada
