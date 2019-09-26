@@ -16,7 +16,7 @@
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
+    <link rel="stylesheet" href="../css/estilosBase.css">
 
     <!--
     <%
@@ -217,56 +217,7 @@
 
 
     </script>
-    <style>
-        body, html {
-            height: 100%;
-            width: 100%;
-            margin: 0px;
-            font-family: Arial, serif;
-            min-width: 800px;
-            min-height: 600px;
-        }
 
-        .wrapper {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            position: absolute;
-            right: 0;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            background: #36a9daaa;
-            z-index: 0;
-        }
-
-        .mainMenuBar {
-            z-index: 1;
-        }
-
-        .logo {
-            height: 40px;
-            width: available;
-        }
-
-        .ico-sm {
-            width: 24px;
-            height: 24px;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            text-align: end;
-            width: max-content;
-        }
-
-        .overflow-scroll {
-            overflow: scroll;
-
-        }
-
-    </style>
 
 </head>
 <div class="primary-data-content">

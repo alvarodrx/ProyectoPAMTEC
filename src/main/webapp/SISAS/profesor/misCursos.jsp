@@ -33,6 +33,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
+    <link rel="stylesheet" href="../css/estiloMisCursos.css">
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -139,40 +140,6 @@
 
 
     </script>
-
-    <style>
-        body, html {
-            height: 100%;
-            width: 100%;
-            margin: 0px;
-            font-family: Arial, serif;
-            min-width: 800px;
-            min-height: 600px;
-        }
-
-        .wrapper {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            position: absolute;
-            right: 0;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            background: #36a9daaa;
-            z-index: 0;
-        }
-        .navbar{
-            z-index: 1;
-        }
-        .logo {
-            height: 40px;
-        }
-        tr{
-            cursor: pointer;
-        }
-    </style>
 
 
 </head>
