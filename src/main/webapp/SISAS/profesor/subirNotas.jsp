@@ -317,7 +317,7 @@
                 </div>
             </div>
         </div>
-        <form action="#" method="post" accept-charset="utf-8"  onsubmit="return(validate());" enctype="multipart/form-data" class="w-100 text-center">
+        <form action="/saveNotasCurso" method="post" accept-charset="utf-8"  onsubmit="return(validate());" enctype="multipart/form-data" class="w-100 text-center">
         <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
                 <input type="hidden" name="curso" value="${curso}">
                 <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
@@ -331,7 +331,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <jsp:include page="/setNotasCursoServlet">
+                        <jsp:include page="/getNotasCursoServlet">
                             <jsp:param name="curso" value="${curso}"/>
                         </jsp:include>
                         </tbody>
