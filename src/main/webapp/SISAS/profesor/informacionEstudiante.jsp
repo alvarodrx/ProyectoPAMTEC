@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/estilosBase.css">
     <script src="/SISAS/login/js/transiciones.js"></script>
+    <script src="/SISAS/login/js/funciones.js"></script>
 
     <!--
     <%
@@ -51,151 +52,7 @@
     <title>SISAS</title>
 
 
-    <script type="text/javascript">
-        function showMessage(msg) {
-            if (msg && msg !== "") {
-                alert(msg);
-            }
-        }
 
-        //Esta funcion se ejecuta al puro inicio, permite verificar la sesion o si hay un mensaje desde la llamada
-        jQuery(document).ready(function () {
-
-            var msg = $('input[name="message"]').val();
-            if (valSession() && valCurso()) {
-                showMessage(msg);
-                setTimeout(function () {
-                    $('#loading-content-panel').css('display', 'none');
-                    $('.primary-data-content').css('display', 'block');
-                }, 1000);
-            }
-
-
-        });
-
-        //Valida que se haya ingresado con un curso definido, de no ser asi, devuelve a la seleccion de curso
-        function valCurso() {
-            var curso = $('input[name="curso"]').val();
-            if (!curso || curso === "") {
-                alert('Debes escoger un curso.');
-                goToCursoSelect();
-                return false;
-            }
-            return true;
-        }
-
-        // permite validar la session del usuario y si no es valida redirecciona al indice
-        function valSession() {
-            var millisSession = $('input[name="millis"]').val();
-            if (!millisSession || millisSession === "") {
-                window.location.href = "../..";
-                return false;
-            }
-            var d = new Date();
-            var n = d.getTime();
-            var r = n - millisSession;
-
-            console.log('Tiempo restante de session: ' + r);
-
-            if (r > 3600000) {
-                alert('Se ha terminado la sesion');
-                window.location.href = "/weblogin?tipo=SALIR";
-                return false;
-            }
-
-            $.ajax({
-                url: '/updateSession',
-                type: 'POST'
-            });
-            return true;
-        }
-
-        function arrayToOptions(array) {
-            var html = "<option value=''>Seleccione una opci&oacute;n</option>";
-            for (key in array) {
-                html += "<option value='" + key + "'>" + array[key] + "</option>";
-            }
-            return html;
-        }
-
-        //Las siguientes dos funciones permiten obtener un conjunto de datos desde una llamada a un servlet usando ajax
-        function getHtmlData(url, callback) {
-            console.log(url);
-            $.ajax({
-                dataType: "html",
-                url: url,
-                success: function (data) {
-                    callback(data);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            });
-        }
-
-        function getJSONData(url, callback) {
-            console.log(url);
-            $.ajax({
-                dataType: "json",
-                url: url,
-                success: function (data) {
-                    callback(data);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            });
-        }
-
-        //Permite preguntar al usuario si desea continuar antes de realizar una accion
-        function validate() {
-            return confirm("Esta seguro que desea continuar?");
-        }
-
-
-        function justificarEstudiante(id, justificacion) {
-            var rowId = 'row-' + id;
-            var nameInp = 'justEst' + id;
-            var inputToAdd = document.createElement("input");
-            var existent = document.getElementById(nameInp);
-            if (existent)
-                existent.remove();
-            inputToAdd.type = "hidden";
-            inputToAdd.name = nameInp;
-            inputToAdd.id = nameInp;
-            inputToAdd.value = justificacion;
-            document.getElementById(rowId).appendChild(inputToAdd);
-            var modal = $('#estudianteModal');
-            modal.modal('toggle');
-        }
-
-        function justificarAsistente(id, justificacion) {
-            var rowId = 'row-' + id;
-            var nameInp = 'justAsi' + id;
-            var inputToAdd = document.createElement("input");
-            var existent = document.getElementById(nameInp);
-            if (existent)
-                existent.remove();
-            inputToAdd.type = "hidden";
-            inputToAdd.name = nameInp;
-            inputToAdd.id = nameInp;
-            inputToAdd.value = justificacion;
-            document.getElementById(rowId).appendChild(inputToAdd);
-            var modal = $('#asistenteModal');
-            modal.modal('toggle');
-        }
-
-        function showModalJustificacion(id, tipo) {
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(tipo);
-            modal.modal('toggle');
-            modal.find('.modal-body input').val(id);
-        }
-
-
-
-    </script>
 
 
 </head>
