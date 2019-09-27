@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/estilosBase.css">
+    <script src="/SISAS/login/js/transiciones.js"></script>
 
     <!--
     <%
@@ -151,29 +152,6 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
-        function goToCursoSelect() {
-            window.location.href = "misCursos.jsp";
-        }
-
-        function goToInformacionEstudiante() {
-            window.location.href = "informacionEstudiante.jsp";
-        }
-
-        function goToPasarLista() {
-            window.location.href = "pasarLista.jsp";
-        }
-
-        function goToSubirNotas() {
-            window.location.href = "subirNotas.jsp";
-        }
-
-        function goToModificarAsistencia() {
-            window.location.href = "modificarAsistencia.jsp";
-        }
-
-        function goToRegistrarAbandono() {
-            window.location.href = "registrarAbandono.jsp";
-        }
 
         function justificarEstudiante(id, justificacion) {
             var rowId = 'row-' + id;
@@ -214,6 +192,7 @@
             modal.modal('toggle');
             modal.find('.modal-body input').val(id);
         }
+
 
 
     </script>

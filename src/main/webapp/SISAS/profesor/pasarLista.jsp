@@ -13,6 +13,7 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estilosBase.css">
+    <script src="/SISAS/login/js/transiciones.js"></script>
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -148,9 +149,6 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
-        function goToCursoSelect() {
-            window.location.href = "misCursos.jsp";
-        }
 
         function justificarEstudiante(id, justificacion) {
             var rowId = 'row-' + id;
@@ -192,21 +190,6 @@
             modal.find('.modal-body input').val(id);
         }
 
-        function goToInformacionEstudiante() {
-            window.location.href = "informacionEstudiante.jsp";
-        }
-
-        function goToSubirNotas() {
-            window.location.href = "subirNotas.jsp";
-        }
-
-        function goToModificarAsistencia() {
-            window.location.href = "modificarAsistencia.jsp";
-        }
-
-        function goToRegistrarAbandono() {
-            window.location.href = "registrarAbandono.jsp";
-        }
 
 
     </script>

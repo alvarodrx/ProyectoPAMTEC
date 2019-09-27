@@ -1,6 +1,8 @@
 <html>
+
 <head>
     <!--
+
     <%
         String message = "", millis = "", curso = "", cursoName = "";
         Object attr = session.getAttribute("message");
@@ -39,6 +41,9 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estilosBase.css">
+    <script src="/SISAS/login/js/transiciones.js"></script>
+
+
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -146,37 +151,20 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
-        function goToCursoSelect() {
-            window.location.href = "misCursos.jsp";
-        }
 
-        function goToPasarLista() {
-            window.location.href = "pasarLista.jsp";
-        }
 
-        function goToInformacionEstudiante() {
-            window.location.href = "informacionEstudiante.jsp";
-        }
 
-        function goToSubirNotas() {
-            window.location.href = "subirNotas.jsp";
-        }
-
-        function goToModificarAsistencia() {
-            window.location.href = "modificarAsistencia.jsp";
-        }
-
-        function goToRegistrarAbandono() {
-            window.location.href = "registrarAbandono.jsp";
-        }
 
 
     </script>
 
 
 </head>
+
+
 <div class="primary-data-content">
     <body>
+
     <div class="d-flex flex-column h-100">
 
         <input type="hidden" id="millis" name="millis" value="${millis}">
@@ -218,7 +206,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
+                            <a  href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
                             <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar asistencia
@@ -236,7 +224,7 @@
                             <a href="javascript:goToRegistrarAbandono();" class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Registrar llamada
+                            <a  class="dropdown-item" href="#">Registrar llamada
                                 <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                             </a>
                         </div>
@@ -290,6 +278,9 @@
             <img src="../imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
         </div>
     </div>
+
+
+
     </body>
 </div>
 
