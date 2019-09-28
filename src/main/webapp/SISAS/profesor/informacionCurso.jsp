@@ -1,10 +1,28 @@
 <html>
-
 <head>
-    <!--
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/cosmos.min.css">
+
+    <!-- icon library -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/estilosBase.css">
+    <script src="/SISAS/login/js/transiciones.js"></script>
+    <script src="/SISAS/login/js/funciones.js"></script>
+
+    <!--
     <%
-        String message = "", millis = "", curso = "", cursoName = "";
+        String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -25,42 +43,22 @@
             cursoName = attr.toString();
         pageContext.setAttribute("cursoName", cursoName);
         session.removeAttribute("message");
+
+        estudiantePAM = request.getParameter("estudiantePAM");
+        pageContext.setAttribute("estudiantePAM", estudiantePAM);
+
     %>
     -->
     <title>SISAS</title>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/cosmos.min.css">
-    <link rel="stylesheet" href="../css/estilosBase.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funciones.js"></script>
-
-
-    <!-- icon library -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
 
 
 
 </head>
-
-
 <div class="primary-data-content">
     <body>
-
-    <div class="d-flex flex-column h-100">
-
+    <div class="d-flex flex-column h-100 align-items-stretch">
         <input type="hidden" id="millis" name="millis" value="${millis}">
         <input type="hidden" id="message" name="message" value="${message}">
         <input type="hidden" id="curso" name="curso" value="${curso}">
@@ -100,7 +98,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a  href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
+                            <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
                             <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar asistencia
@@ -118,7 +116,7 @@
                             <a href="javascript:goToRegistrarAbandono();" class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
-                            <a  class="dropdown-item" href="#">Registrar llamada
+                            <a class="dropdown-item" href="#">Registrar llamada
                                 <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                             </a>
                         </div>
@@ -130,10 +128,10 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a href="javascript:goToInformacionCurso();" class="dropdown-item">Curso
+                            <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacionEstudiante();"  class="dropdown-item" href="#">Estudiantes PAM
+                            <a  class="dropdown-item" href="#">Estudiantes PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -145,10 +143,10 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a href="javaScript:goToSubirNotas();" class="dropdown-item" > Subir notas
+                            <a href="javascript:goToSubirNotas();" class="dropdown-item">Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Editar notas
+                            <a  class="dropdown-item" href="#">Editar notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                             </a>
                         </div>
@@ -156,28 +154,52 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center align-items-center h-75">
-            <div class="card text-center w-50 border-0 h-50" style="width: 18rem;">
-                <div class="card-title">
-                    <h1>SISAS</h1>
+        <form action="" method="post" accept-charset="utf-8" class="w-100 text-center">
+            <!-- Informacion de Curso -->
+            <div class="d-flex justify-content-center  p-3 ">
+                <div class="jumbotron w-75 rounded-lg shadow ">
+                    <h3>Informaci&oacuten del Curso</h3>
+                    <br>
+                    <div class="row" >
+                        <div class="column">
+                            <b class="izquierda">Nombre del curso:</b>
+                            <label id="labelNombreCurso" class="derecha">Uso eficiente de dispositivos moviles</label>
+                            <br>
+                            <b class="izquierda">N&uacute;mero de grupo:</b>
+                            <label id="labelNumeroGrupo"  class="derecha">02</label>
+                            <br>
+                            <b class="izquierda">Lugar:</b>
+                            <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
+                            <br>
+                            <b class="izquierda">Horario:</b>
+                            <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
+                            <br>
+                            <b class="izquierda">Asistentes:</b>
+                            <label class="derecha">Luis Mora, Ana Zunhiga, Bernardo Soto</label>
+                        </div>
+                        <div class="column">
+                            <b class="izquierda">Profesor:</b>
+                            <label id="labelProfesor" class="derecha">Luis Antonio Mora hernandez</label>
+                            <br>
+                            <b class="izquierda">Inicio:</b>
+                            <label id="labelCInicio" class="derecha">05/02/2020</label>
+                            <br>
+                            <b class="izquierda">Fin:</b>
+                            <label id="labelFin" class="derecha">05/08/2020</label>
+                            <br>
+
+                        </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Sistema de control de asistencia y colaboraci&oacute;n.</p>
+
+                    <br>
                 </div>
-                <img src="../imagenes/LOGO_Firma.png" class="card-img-bottom p-3" alt="...">
             </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-end h-25">
-            <img src="../imagenes/personaje2.png" class="img-fluid h-75 p-3" alt="...">
-            <img src="../imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
-        </div>
+            <!-- Informacion de estudiante end -->
+
+        </form>
     </div>
-
-
-
     </body>
 </div>
-
 
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
 

@@ -129,7 +129,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a class="dropdown-item">Curso
+                            <a href="javascript:goToInformacionCurso();"class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
                             <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes PAM

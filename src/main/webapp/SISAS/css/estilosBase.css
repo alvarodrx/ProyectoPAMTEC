@@ -45,3 +45,21 @@ body, html {
     overflow: scroll;
 
 }
+
+.column {
+    flex: 50%;
+}
+
+.izquierda{
+    float: left;
+    width: 50%;
+}
+
+.derecha {
+    text-align: right;
+    width: 50%;
+}
+
+.row{
+display: flex;
+}

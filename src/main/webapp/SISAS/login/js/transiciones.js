@@ -22,6 +22,10 @@ function goToRegistrarAbandono() {
     window.location.href = "registrarAbandono.jsp";
 }
 
+function goToInformacionCurso() {
+    window.location.href = "informacionCurso.jsp";
+}
+
 function goToCurso(cursoId, cursoName){
     window.location.href = "/setCurso?curso="+cursoId + "&cursoName="+cursoName;
 }
