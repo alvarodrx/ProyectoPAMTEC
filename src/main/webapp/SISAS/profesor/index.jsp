@@ -4,7 +4,7 @@
     <!--
 
     <%
-        String message = "", millis = "", curso = "", cursoName = "";
+        String message = "", millis = "", curso = "", cursoName = "", usuario = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -24,6 +24,12 @@
         if (attr != null)
             cursoName = attr.toString();
         pageContext.setAttribute("cursoName", cursoName);
+        session.removeAttribute("message");
+
+        attr = session.getAttribute("usuario");
+        if (attr != null)
+            usuario = attr.toString();
+        pageContext.setAttribute("usuario", usuario);
         session.removeAttribute("message");
     %>
     -->
@@ -63,6 +69,7 @@
         <input type="hidden" id="curso" name="curso" value="${curso}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <h3 style="color:white; width: 100%" > Usuario: Luis </h3>
                 <div class="clearfix w-100" id="navbarColor02">
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item active">
