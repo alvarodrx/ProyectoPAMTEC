@@ -2,7 +2,7 @@
 <head>
     <!--
     <%
-        String message = "", millis = "", userId = "";
+        String message = "", millis = "", userId = "", usuario = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -18,6 +18,15 @@
             userId = attr.toString();
         pageContext.setAttribute("userId", userId);
         session.removeAttribute("message");
+
+        attr = session.getAttribute("usuario");
+        if (attr != null)
+            usuario = attr.toString();
+        pageContext.setAttribute("usuario", usuario);
+        session.removeAttribute("message");
+
+
+
     %>
     -->
     <title>SISAS</title>
@@ -34,19 +43,17 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estiloMisCursos.css">
-    <script src="/SISAS/login/js/funciones.js"></script>
     <script src="/SISAS/login/js/transiciones.js"></script>
+    <script src="/SISAS/login/js/funcionesMisCursos.js"></script>
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 
 
 </head>
 <body>
 <input type="hidden" id="millis" name="millis" value="${millis}">
 <input type="hidden" id="message" name="message" value="${message}">
-<input type="hidden" id="curso" name="curso" value="${curso}">
 <div class="primary-data-content">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarColor02">
@@ -65,9 +72,10 @@
     </nav>
 
     <div class="wrapper">
-        <div class="card bg-light mb-3 rounded-lg shadow" >
+        <div class="card bg-light mb-3 rounded-lg shadow">
             <div class="card-body" style="display: block; width: 400px; max-height: 400px;">
                 <h2 class="card-title mx-auto" style="text-align: center"><b>Mis cursos</b></h2>
+                <h3 style="text-align:center"> Usuario: ${usuario} </h3> <!-- este --->
                 <br>
                 <div class="table-responsive" style="max-height: 280px;overflow-y: scroll;">
                     <table class="table table-hover">

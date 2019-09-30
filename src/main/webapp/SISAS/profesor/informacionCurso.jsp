@@ -52,12 +52,10 @@
     <title>SISAS</title>
 
 
-
-
-
 </head>
+
+<body>
 <div class="primary-data-content">
-    <body>
     <div class="d-flex flex-column h-100 align-items-stretch">
         <input type="hidden" id="millis" name="millis" value="${millis}">
         <input type="hidden" id="message" name="message" value="${message}">
@@ -86,13 +84,13 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName}</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} / Informaci&oacute;n de Curso</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
                      style="text-align: right; width: 100%;" role="group" aria-label="...">
                     <div class="dropdown">
-                        <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                        <button type="button" class="btn btn-outline-secondary bg-color1 btn-lg"
                                 data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                             Asistencia <img class="img-fluid ico-sm" src="../imagenes/asistencia.svg">
                         </button>
@@ -101,7 +99,8 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar asistencia
+                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar
+                                                                                                           asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -131,7 +130,8 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a  href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes PAM
+                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes
+                                                                                                             PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -146,7 +146,7 @@
                             <a href="javascript:goToSubirNotas();" class="dropdown-item">Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
-                            <a  class="dropdown-item" href="#">Editar notas
+                            <a class="dropdown-item" href="#">Editar notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                             </a>
                         </div>
@@ -160,13 +160,13 @@
                 <div class="jumbotron w-75 rounded-lg shadow ">
                     <h3>Informaci&oacuten del Curso</h3>
                     <br>
-                    <div class="row" >
+                    <div class="row">
                         <div class="column">
                             <b class="izquierda">Nombre del curso:</b>
                             <label id="labelNombreCurso" class="derecha">Uso eficiente de dispositivos moviles</label>
                             <br>
                             <b class="izquierda">N&uacute;mero de grupo:</b>
-                            <label id="labelNumeroGrupo"  class="derecha">02</label>
+                            <label id="labelNumeroGrupo" class="derecha">02</label>
                             <br>
                             <b class="izquierda">Lugar:</b>
                             <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
@@ -189,7 +189,7 @@
                             <br>
 
                         </div>
-                </div>
+                    </div>
 
                     <br>
                 </div>
@@ -198,9 +198,9 @@
 
         </form>
     </div>
-    </body>
-</div>
 
+</div>
+</body>
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
 
 </html>

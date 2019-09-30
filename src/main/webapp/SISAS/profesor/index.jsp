@@ -50,9 +50,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
-
-
-
 </head>
 
 
@@ -100,10 +97,11 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a  href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
+                            <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar asistencia
+                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar
+                                                                                                           asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -118,7 +116,7 @@
                             <a href="javascript:goToRegistrarAbandono();" class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
-                            <a  class="dropdown-item" href="#">Registrar llamada
+                            <a class="dropdown-item" href="#">Registrar llamada
                                 <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                             </a>
                         </div>
@@ -133,7 +131,8 @@
                             <a href="javascript:goToInformacionCurso();" class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacionEstudiante();"  class="dropdown-item" href="#">Estudiantes PAM
+                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes
+                                                                                                             PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -145,7 +144,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                              aria-labelledby="dropdownMenuLista">
-                            <a href="javaScript:goToSubirNotas();" class="dropdown-item" > Subir notas
+                            <a href="javaScript:goToSubirNotas();" class="dropdown-item"> Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
                             <a class="dropdown-item" href="#">Editar notas
@@ -172,7 +171,6 @@
             <img src="../imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
         </div>
     </div>
-
 
 
     </body>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<!------------------------------------------------- Imports ------------------------------------------------------------>
+    <!------------------------------------------------- Imports ------------------------------------------------------------>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -49,9 +49,6 @@
     <title>SISAS</title>
 
 
-
-
-
 </head>
 <div class="primary-data-content">
     <body>
@@ -83,7 +80,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName}</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} / Modificar Asistencia</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -98,7 +95,8 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a href="javascript:goToModificarAsistencia()" class="dropdown-item" href="#">Modificar asistencia
+                            <a href="javascript:goToModificarAsistencia()" class="dropdown-item" href="#">Modificar
+                                                                                                          asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -128,7 +126,8 @@
                             <a href="javascript:goToInformacionCurso();" class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes PAM
+                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes
+                                                                                                             PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -151,8 +150,9 @@
                 </div>
             </div>
         </div>
-        <form action="/saveListaAsistencia" method="post" accept-charset="utf-8"  onsubmit="return(validate());" enctype="multipart/form-data" class="w-100 text-center">
-        <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
+        <form action="/saveListaAsistencia" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+              enctype="multipart/form-data" class="w-100 text-center">
+            <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
                 <input type="hidden" name="curso" value="${curso}">
                 <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
                     <!-- Ejemplo tabla-->
@@ -194,9 +194,9 @@
                     </table>
                     <!-- fin ejemplo -->
                 </div>
-            <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50">   Guardar Cambios   </button>
+                <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar Cambios</button>
 
-        </div>
+            </div>
         </form>
     </div>
     </body>
@@ -219,7 +219,9 @@
                     </div>
                     <div class="form-group">
                         <label for="justificacionEstudiante-text" class="col-form-label text-light">Ingrese la
-                            justificaci&oacute;n de la ausencia:</label>
+                                                                                                    justificaci&oacute;n
+                                                                                                    de la
+                                                                                                    ausencia:</label>
                         <textarea class="form-control" id="justificacionEstudiante-text"></textarea>
                     </div>
                 </form>
@@ -252,7 +254,9 @@
                     </div>
                     <div class="form-group">
                         <label for="justificacionAsistente-text" class="col-form-label text-light">Ingrese la
-                            justificaci&oacute;n de la ausencia:</label>
+                                                                                                   justificaci&oacute;n
+                                                                                                   de la
+                                                                                                   ausencia:</label>
                         <textarea class="form-control" id="justificacionAsistente-text"></textarea>
                     </div>
                 </form>

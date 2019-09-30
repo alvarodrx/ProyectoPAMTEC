@@ -52,9 +52,6 @@
     <title>SISAS</title>
 
 
-
-
-
 </head>
 <div class="primary-data-content">
     <body>
@@ -86,7 +83,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName}</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} / Informaci&oacute;n de estudiantes PAM</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -101,7 +98,8 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar asistencia
+                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar
+                                                                                                           asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -131,7 +129,7 @@
                             <a href="javascript:goToInformacionCurso();" class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a  class="dropdown-item" href="#">Estudiantes PAM
+                            <a class="dropdown-item" href="#">Estudiantes PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -146,7 +144,7 @@
                             <a href="javascript:goToSubirNotas();" class="dropdown-item">Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
-                            <a  class="dropdown-item" href="#">Editar notas
+                            <a class="dropdown-item" href="#">Editar notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                             </a>
                         </div>

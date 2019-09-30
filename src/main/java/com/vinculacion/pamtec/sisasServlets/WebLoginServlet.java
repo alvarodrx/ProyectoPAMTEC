@@ -41,7 +41,7 @@ public class WebLoginServlet extends BaseServlet {
             resp.sendRedirect("/SISAS/login/");
         }
         
-        String query = "SELECT PK_Usuarios AS ID, FK_Tipos_Usuarios AS Tipo, Estado AS ESTADO FROM Usuarios WHERE Nombre_Usuario = '" + usuario + "' AND Contrasenna = '" + passw + "';";
+        String query = "SELECT PK_Usuarios AS ID, FK_Tipos_Usuarios AS Tipo, Estado AS ESTADO, Nombre_Usuario AS NOMBRE FROM Usuarios WHERE Nombre_Usuario = '" + usuario + "' AND Contrasenna = '" + passw + "';";
         ResultSet rs = executeQuery(query);
         if (rs.next()){
             String userId = rs.getString("ID");
@@ -53,7 +53,7 @@ public class WebLoginServlet extends BaseServlet {
             } else {
                 int userType = rs.getInt("Tipo");
                 session.setAttribute("userId", rs.getString("ID"));
-                //session.setAttribute("usuario", rs.getString("NOMBRE"));
+                session.setAttribute("usuario", rs.getString("NOMBRE"));
                 session.setAttribute("tipoUsuario", userType);
                 if (userType == 1) {
                     session.setAttribute("millis", Calendar.getInstance().getTimeInMillis());
