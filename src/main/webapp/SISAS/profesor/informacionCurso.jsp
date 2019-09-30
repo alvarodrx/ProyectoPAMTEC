@@ -84,7 +84,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName} / Informaci&oacute;n de Curso</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} | Informaci&oacute;n de Curso</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -160,13 +160,12 @@
                 <div class="jumbotron w-75 rounded-lg shadow ">
                     <h3>Informaci&oacuten del Curso</h3>
                     <br>
+                    <jsp:include page="/getInfoCurso">
+                        <jsp:param name="curso" value="${curso}"/>
+                    </jsp:include>
                     <div class="row">
                         <div class="column">
-                            <b class="izquierda">Nombre del curso:</b>
-                            <label id="labelNombreCurso" class="derecha">Uso eficiente de dispositivos moviles</label>
-                            <br>
-                            <b class="izquierda">N&uacute;mero de grupo:</b>
-                            <label id="labelNumeroGrupo" class="derecha">02</label>
+
                             <br>
                             <b class="izquierda">Lugar:</b>
                             <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
@@ -178,8 +177,7 @@
                             <label class="derecha">Luis Mora, Ana Zunhiga, Bernardo Soto</label>
                         </div>
                         <div class="column">
-                            <b class="izquierda">Profesor:</b>
-                            <label id="labelProfesor" class="derecha">Luis Antonio Mora hernandez</label>
+
                             <br>
                             <b class="izquierda">Inicio:</b>
                             <label id="labelCInicio" class="derecha">05/02/2020</label>
@@ -194,7 +192,7 @@
                     <br>
                 </div>
             </div>
-            <!-- Informacion de estudiante end -->
+            <!-- Informacion de curso end -->
 
         </form>
     </div>

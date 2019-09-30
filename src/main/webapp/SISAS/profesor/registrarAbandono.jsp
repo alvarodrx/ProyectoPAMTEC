@@ -154,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <form action="" method="post" accept-charset="utf-8" class="w-100 text-center">
+        <form action="/saveAbandono" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
 
             <!-- Registrar Abandono-->
 
@@ -164,16 +164,9 @@
                     <br>
                     <div class="text-left">
                         <h4>Datos del curso</h4>
-                        <br>
-                        <b>Nombre:</b>
-                        <label id="labelNombreCurso" style="margin-right:2.5em">nombreCurso</label>
-                        <!-- estos se deben cambiar dinamicamente -->
-                        <b>C&oacute;digo:</b>
-                        <label id="labelCodigoCurso" style="margin-right:2.5em">codigoCurso</label>
-                        <b>Grupo:</b>
-                        <label id="labelNumeroGrupo" style="margin-right:2.5em">numeroGrupo</label>
-                        <b>Nombre de profesor(a):</b>
-                        <label id="labelnombreProfesor" style="margin-right:2.5em">nombreProfesor</label>
+                        <jsp:include page="/getInfoCurso">
+                            <jsp:param name="curso" value="${curso}"/>
+                        </jsp:include>
                         <br>
                         <br><h4>Datos del estudiante PAM</h4>
                         <br>
