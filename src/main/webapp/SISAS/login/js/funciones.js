@@ -19,6 +19,10 @@ jQuery(document).ready(function () {
 
 });
 
+function setInfoSelect(){
+
+}
+
 //Valida que se haya ingresado con un curso definido, de no ser asi, devuelve a la seleccion de curso
 function valCurso() {
     var curso = $('input[name="curso"]').val();

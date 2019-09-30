@@ -175,7 +175,7 @@
                                 <label><b>Nombre del estudiante:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM">
+                                <select class="custom-select custom-select-sm" name="estudiantePAM" >
                                     <option>Nombre del estudiante</option>
                                     <jsp:include page="/getFilterData">
                                         <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
@@ -188,7 +188,7 @@
 
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>C&eacute;dula del estudiante:</b></label>
+                                <label><b>C&eacute;dula del estudiante PA,:</b></label>
                             </div>
                             <div class="col float-right">
                                 <div id="cedulaEstudiante">${estudiantePAM}</div>
@@ -196,11 +196,11 @@
                         </div>
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>Tel&eacute;fonos del estudiante:</b></label>
+                                <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm">
-                                    <option>Nombre del estudiante</option>
+                                <select class="custom-select custom-select-sm" >
+                                    <option>Telefono del estudiante PAM</option>
                                     <jsp:include page="/getFilterData">
                                         <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
                                         <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
@@ -230,5 +230,8 @@
 </div>
 
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
+
+
+
 
 </html>

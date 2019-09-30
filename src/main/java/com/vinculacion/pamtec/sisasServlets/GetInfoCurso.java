@@ -28,20 +28,21 @@ public class GetInfoCurso  extends BaseServlet {
             out.print("<div class=\"row\"> " +
                       "<div class=\"column\"> " +
                       "<b class=\"izquierda\"> Nombre del curso:</b> " +
-                      "<label id=\"labelNombreCurso\" class=\"derecha\" style=\"margin-right:2.5em\" >" +nombreCurso+
+                      "<label id=\"labelNombreCurso\" class=\"derecha\"  >" +nombreCurso+
                       "</label> <br> " +
                       "<b class=\"izquierda\">N&uacute;mero de grupo:</b> " +
-                      "<label id=\"labelNumeroGrupo\" class=\"derecha\" style=\"margin-right:2.5em\" >" +Integer.toString(numeroGrupo)+
+                      "<label id=\"labelNumeroGrupo\" class=\"derecha\"  >" +Integer.toString(numeroGrupo)+
                       "</label> <br> </div>" +
                       "<div class=\"column\"> " +
                       "<b class=\"izquierda\"> C&oacute;digo:</b> " +
-                      "<label id=\"labelNombreCurso\" class=\"derecha\" style=\"margin-right:2.5em\" >" +codigoCurso+
+                      "<label id=\"labelNombreCurso\" class=\"derecha\"  >" +codigoCurso+
                       "</label> <br> " +
                       "<b class=\"izquierda\">Profesor:</b> " +
-                      "<label id=\"labelNumeroGrupo\" class=\"derecha\" style=\"margin-right:2.5em\" >" +nombreProfesor+
+                      "<label id=\"labelNumeroGrupo\" class=\"derecha\"  >" +nombreProfesor+
                       "</label> <br> </div>" +
                       " </div>");
         }
+
 
     }
 }

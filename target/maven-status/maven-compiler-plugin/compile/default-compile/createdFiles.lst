@@ -1,2 +1,3 @@
 com/vinculacion/pamtec/sisasServlets/SaveAbandono.class
 com/vinculacion/pamtec/sisasServlets/GetInfoCurso.class
+com/vinculacion/pamtec/sisasServlets/GetInfoCursoAsistentes.class

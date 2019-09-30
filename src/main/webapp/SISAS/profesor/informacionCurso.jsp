@@ -173,11 +173,8 @@
                             <b class="izquierda">Horario:</b>
                             <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
                             <br>
-                            <b class="izquierda">Asistentes:</b>
-                            <label class="derecha">Luis Mora, Ana Zunhiga, Bernardo Soto</label>
                         </div>
                         <div class="column">
-
                             <br>
                             <b class="izquierda">Inicio:</b>
                             <label id="labelCInicio" class="derecha">05/02/2020</label>
@@ -185,11 +182,14 @@
                             <b class="izquierda">Fin:</b>
                             <label id="labelFin" class="derecha">05/08/2020</label>
                             <br>
-
                         </div>
                     </div>
-
                     <br>
+                    <b class="izquierda">Asistentes del Curso</b>
+                    <br>
+                    <jsp:include page="/getInfoCursoAsistentes">
+                        <jsp:param name="curso" value="${curso}"/>
+                    </jsp:include>
                 </div>
             </div>
             <!-- Informacion de curso end -->
