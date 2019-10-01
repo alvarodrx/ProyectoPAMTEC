@@ -165,10 +165,8 @@
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" name="fechaClase">
                                     <option>Fecha</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
+                                    <jsp:include page="/getFechaAsistenciaGrupo">
                                         <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
                                     </jsp:include>
                                 </select>
                             </div>
