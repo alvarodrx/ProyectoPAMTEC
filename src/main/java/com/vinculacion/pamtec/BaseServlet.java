@@ -2,6 +2,11 @@ package com.vinculacion.pamtec;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,15 +14,15 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Date;
 
 public abstract class BaseServlet extends HttpServlet {
     
     private static final long MAX_SESSION = 3600000; //3,600,000 1h
     
-    private static final String SENDER = "info@example.com";
+    private static final String SENDER = "dev.vinculacion.itcr@gmail.com";
     protected Connection connection;
     
     
@@ -138,22 +143,130 @@ public abstract class BaseServlet extends HttpServlet {
         
         return false;
     }
-    
-    protected boolean sendMail(String mail1, String mail2, String titulo, String texto, PrintWriter out) throws Exception {
-        
+
+    protected boolean sendMail(String to, String titulo, String texto, PrintWriter out) throws Exception {
+
+        Properties props = new Properties();
+        Session session = Session.getDefaultInstance(props, null);
+        String msgBody = texto;
+
         try {
-//            String insert = "INSERT INTO Emails (Mail1, Mail2, Titulo, Texto) VALUES (?, ?, ?, ?);";
-//            PreparedStatement stmt = connection.prepareStatement(insert);
-//            stmt.setString(1, mail1);
-//            stmt.setString(2, mail2);
-//            stmt.setString(3, titulo);
-//            stmt.setString(4, texto);
-//            executeOperation(stmt);
-            
-        } catch (Exception ex2) {
-            
+            MimeMessage msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(SENDER));
+            InternetAddress[] address = InternetAddress.parse(to, true);
+            //Setting the recepients from the address variable
+            msg.setRecipients(Message.RecipientType.TO, address);
+//            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(RECIPIENT));
+            msg.setSubject(titulo, "UTF-8");
+            msg.setText(msgBody, "UTF-8");
+            Transport.send(msg);
+        } catch (Exception e) {
+            return false;
         }
+
         return true;
+    }
+
+    protected boolean sendHtmlMail(String to, String titulo, String htmlText, PrintWriter out) throws Exception {
+
+        Properties props = new Properties();
+        Session session = Session.getDefaultInstance(props, null);
+
+        try {
+            MimeMessage msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(SENDER));
+            InternetAddress[] address = InternetAddress.parse(to, true);
+            //Setting the recepients from the address variable
+            msg.setRecipients(Message.RecipientType.TO, address);
+//            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(RECIPIENT));
+            msg.setSubject(titulo, "UTF-8");
+            MimeMultipart multipart = new MimeMultipart("related");
+
+            // first part (the html)
+            BodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setContent(htmlText, "text/html");
+            // add it
+            multipart.addBodyPart(messageBodyPart);
+            msg.setContent(multipart);
+            Transport.send(msg);
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected boolean sendMail(String mail1, String mailCC, String titulo, String texto, PrintWriter out) throws Exception {
+
+        Properties props = new Properties();
+        Session session = Session.getDefaultInstance(props, null);
+        String msgBody = texto;
+
+        try {
+            MimeMessage msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(SENDER));
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(mail1));
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(mailCC));
+//            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(RECIPIENT));
+            msg.setSubject(titulo, "UTF-8");
+            msg.setText(msgBody, "UTF-8");
+            Transport.send(msg);
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected static <T> void writeCsv(List<List<T>> csv, char separator, PrintWriter writer, boolean finish, String etiqueta) throws IOException {
+        writer.append(etiqueta);
+        writer.append(separator);
+        writer.println("");
+
+        for (List<T> row : csv) {
+            for (Iterator<T> iter = row.iterator(); iter.hasNext(); ) {
+                String field = String.valueOf(iter.next()).replace("\"", "\"\"");
+                if (field.indexOf(separator) > -1 || field.indexOf('"') > -1) {
+                    field = '"' + field + '"';
+                }
+                writer.append(field);
+                if (iter.hasNext() || !finish) {
+                    writer.append(separator);
+                }
+            }
+            writer.println("");
+        }
+        if (finish)
+            writer.flush();
+        else {
+            writer.append("");
+            writer.append(separator);
+            writer.println("");
+        }
+
+    }
+
+
+    protected List<List<String>> resultSetToList(ResultSet rs) throws SQLException {
+        ResultSetMetaData md = rs.getMetaData();
+        int columns = md.getColumnCount();
+        List<List<String>> rows = new ArrayList<List<String>>();
+        List<String> firstRow = new ArrayList<String>(columns);
+        for (int i = 1; i <= columns; ++i) {
+            firstRow.add(md.getColumnLabel(i));
+        }
+        rows.add(firstRow);
+        while (rs.next()) {
+            List<String> row = new ArrayList<String>(columns);
+            for (int i = 1; i <= columns; ++i) {
+                if (rs.getObject(i) != null)
+                    row.add(rs.getObject(i).toString());
+                else
+                    row.add("");
+            }
+            rows.add(row);
+        }
+        return rows;
     }
     
     public boolean validateSession (HttpServletRequest req) {
