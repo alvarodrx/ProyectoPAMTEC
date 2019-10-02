@@ -105,7 +105,7 @@ function validate() {
 //Permite obtener el id de un estudiante seleccionado
 function getDataEstudiantePAM() {
     var  cedulaEstudiantePAM = $("select[name = 'estudiantePAM']").val();
-    document.getElementById("cedulaEstudiante").innerText(cedulaEstudiantePAM);
+    document.getElementById("cedulaEstudiante").innerText = cedulaEstudiantePAM;
 }
 
 
