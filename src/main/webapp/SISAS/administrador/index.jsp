@@ -39,7 +39,7 @@
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+    <script src="/SISAS/login/js/transiciones.js"></script>
 
     <script type="text/javascript">
         function showMessage(msg) {
@@ -133,12 +133,6 @@
             return confirm("Esta seguro que desea continuar?");
         }
 
-        function goToCursoSelect(){
-            window.location.href = "profesor/misCursos.jsp";
-        }
-        function goToPasarLista(){
-            window.location.href = "profesor/pasarLista.jsp";
-        }
 
 
 
@@ -194,7 +188,6 @@
     <body>
     <input type="hidden" id="millis" name="millis" value="${millis}">
     <input type="hidden" id="message" name="message" value="${message}">
-    <input type="hidden" id="curso" name="curso" value="${curso}">
     <input type="hidden" id="usuario" name="usuario" value="${usuario}">
     <input type="hidden" id="tipoUsuario" name="tipoUsuario" value="${tipoUsuario}">
     <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
@@ -216,12 +209,12 @@
         <div class="btn-group-vertical" style="width: 100%">
             <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
                 <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
-                        onclick="goToCursoSelect();"
+                        onclick="#"
                         data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                    Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
+                    ${usuario}
                 </button>
                 <div>
-                    <h3 class="mt-2 ml-5">${cursoName}</h3>
+                    <h3 class="mt-2 ml-5">Administrador SISAS</h3>
                 </div>
             </div>
             <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -229,62 +222,45 @@
                 <div class="dropdown">
                     <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
                             data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Asistencia <img class="img-fluid ico-sm" src="../imagenes/asistencia.svg">
+                        Estudiantes PAM <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
-                            <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Modificar asistencia
+                        <a href="#" class="dropdown-item">Editar Asistencia
                             <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
-                        </a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Registro <img class="img-fluid ico-sm" src="../imagenes/registro.svg">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Registrar abandono
-                            <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                         </a>
                         <a class="dropdown-item" href="#">Registrar llamada
                             <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                         </a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Informaci&oacute;n <img class="img-fluid ico-sm" src="../imagenes/informacion.svg">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Curso
-                            <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
-                        </a>
-                        <a class="dropdown-item" href="#">Estudiantes PAM
-                            <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
-                        </a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Notas <img class="img-fluid ico-sm" src="../imagenes/notas.svg">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
-                         aria-labelledby="dropdownMenuLista">
-                        <a class="dropdown-item">Subir notas
-                            <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
+                        <a class="dropdown-item">Registrar abandono
+                            <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                         </a>
                         <a class="dropdown-item" href="#">Editar notas
                             <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                         </a>
+                        <a class="dropdown-item" href="#">Estudiante PAM
+                            <img class="img-fluid ico-sm" src="../imagenes/registro.svg">
+                        </a>
                     </div>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
+                    </button>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Estadisticas <img class="img-fluid ico-sm" src="../imagenes/statistics.svg">
+                    </button>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                            onclick="goToPermisos()">
+                        Permisos <img class="img-fluid ico-sm" src="../imagenes/key.svg">
+                    </button>
                 </div>
             </div>
         </div>

@@ -17,19 +17,28 @@ public class SaveAbandono extends BaseServlet {
         PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession(true);
         session.removeAttribute("message");
-        String grupoId = (String) session.getAttribute("curso");
-        String cedula_user = (String) session.getAttribute("userId");
-        String cedula_estudiantePAM = req.getParameter("estudiantePAM");
-        String comentario = req.getParameter("textAreaMotivo");
-        if(comentario == null)
-            comentario = " ";
-        PreparedStatement ps = connection.prepareStatement("{call spRegistros_Abandono_setAbandono(?,?,?,?)}");
-        ps.setInt(1, Integer.parseInt(cedula_user));
-        ps.setInt(2, Integer.parseInt(cedula_estudiantePAM));
-        ps.setInt(3, Integer.parseInt(grupoId));
-        ps.setString(4, comentario);
+        try {
+            String grupoId = (String) session.getAttribute("curso");
+            String cedula_user = (String) session.getAttribute("userId");
+            String cedula_estudiantePAM = req.getParameter("estudiantePAM");
+            String comentario = req.getParameter("textAreaMotivo");
+            if (comentario == null)
+                comentario = " ";
+            PreparedStatement ps = connection.prepareStatement("{call spRegistros_Abandono_setAbandono(?,?,?,?)}");
+            ps.setInt(1, Integer.parseInt(cedula_user));
+            ps.setInt(2, Integer.parseInt(cedula_estudiantePAM));
+            ps.setInt(3, Integer.parseInt(grupoId));
+            ps.setString(4, comentario);
 
 
-        executeOperation(ps);
+            executeOperation(ps);
+
+            session.setAttribute("message", "El abandono del curso se ha guardado con exito.");
+            resp.sendRedirect("/SISAS/profesor/");
+
+        }catch (Exception e){
+            session.setAttribute("message", "No se pudo registrar el abandono del curso.");
+            resp.sendRedirect("/SISAS/profesor/");
+        }
     }
 }

@@ -176,7 +176,7 @@
                             </div>
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
-                                    <option>Nombre del estudiante PAM</option>
+                                    <option value=" " >Nombre del estudiante PAM</option>
                                     <jsp:include page="/getFilterData">
                                         <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
                                         <jsp:param name="curso" value="${curso}"/>

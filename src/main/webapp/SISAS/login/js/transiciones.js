@@ -33,3 +33,7 @@ function goToCurso(cursoId, cursoName){
 function goToInformacionSelect() {
     window.location.href = "informacionEstudiante.jsp";
 }
+
+function goToPermisos() {
+    window.location.href = "permisos.jsp";
+}

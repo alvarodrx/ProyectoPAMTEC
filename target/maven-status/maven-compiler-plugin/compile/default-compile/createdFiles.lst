@@ -1,3 +1,9 @@
 com/vinculacion/pamtec/sisasServlets/SaveAbandono.class
+com/vinculacion/pamtec/sisasServlets/SavePermisosAsistentesServlet.class
+com/vinculacion/pamtec/sisasServlets/SendMailServlet.class
+com/vinculacion/pamtec/sisasServlets/SavePermisosAsistentesServlet$Asistente.class
+com/vinculacion/pamtec/sisasServlets/GetFechasAsistenciaGrupo.class
 com/vinculacion/pamtec/sisasServlets/GetInfoCurso.class
 com/vinculacion/pamtec/sisasServlets/GetInfoCursoAsistentes.class
+com/vinculacion/pamtec/sisasServlets/GetPermisosAsistentesServlet.class
+com/vinculacion/pamtec/sisasServlets/SavePermisosAsistentesServlet$1.class
