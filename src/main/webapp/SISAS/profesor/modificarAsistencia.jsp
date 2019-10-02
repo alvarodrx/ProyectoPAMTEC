@@ -23,7 +23,7 @@
 
     <!--
     <%
-        String message = "", millis = "", curso = "", cursoName = "";
+        String message = "", millis = "", curso = "", cursoName = "", fecha = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -44,6 +44,9 @@
             cursoName = attr.toString();
         pageContext.setAttribute("cursoName", cursoName);
         session.removeAttribute("message");
+
+        fecha = (String) request.getParameter("fecha");
+        pageContext.setAttribute("fecha", fecha);
     %>
     -->
     <title>SISAS</title>
@@ -56,6 +59,7 @@
         <input type="hidden" id="millis" name="millis" value="${millis}">
         <input type="hidden" id="message" name="message" value="${message}">
         <input type="hidden" id="curso" name="curso" value="${curso}">
+        <input type="hidden" id="fecha" name="fecha" value="${fecha}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="clearfix w-100" id="navbarColor02">
@@ -96,7 +100,7 @@
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
                             <a href="javascript:goToModificarAsistencia()" class="dropdown-item" href="#">Modificar
-                                                                                                          asistencia
+                                asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -127,7 +131,7 @@
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
                             <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes
-                                                                                                             PAM
+                                PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>
@@ -150,29 +154,35 @@
                 </div>
             </div>
         </div>
-        <form action="#" method="post" accept-charset="utf-8" onsubmit="return(validate());"
-              enctype="multipart/form-data" class="w-100 text-center">
-            <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
-                <input type="hidden" name="curso" value="${curso}">
-                <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
-                    <!-- Ejemplo tabla-->
+        <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
+            <input type="hidden" name="curso" value="${curso}">
+            <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
+                <!-- Ejemplo tabla-->
 
-                    <div class="text-left">
-                        <div class="row w-150">
-                            <div class="col float-left">
-                                <label><b>Seleccionar fecha de clase que desea modificar:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="fechaClase">
-                                    <option>Fecha</option>
+                <div class="text-left">
+                    <div class="row w-150">
+                        <div class="col float-left">
+                            <label><b>Seleccionar fecha de clase que desea modificar:</b></label>
+                        </div>
+                        <div class="col float-right">
+                            <form action="" method="post">
+                                <select class="custom-select custom-select-sm" name="fecha" onchange="$('#changeFechas').click();">
+                                    <option value="">Fecha</option>
                                     <jsp:include page="/getFechaAsistenciaGrupo">
                                         <jsp:param name="curso" value="${curso}"/>
+                                        <jsp:param name="fecha" value="${fecha}"/>
                                     </jsp:include>
                                 </select>
-                            </div>
+                                <button type="submit" hidden id="changeFechas"></button>
+                            </form>
                         </div>
                     </div>
-                    &nbsp
+                </div>
+                &nbsp
+
+
+                <form action="#" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+                      enctype="multipart/form-data" class="w-100 text-center">
 
                     <table class="table h-auto w-100">
                         <thead class="thead-dark">
@@ -185,17 +195,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <jsp:include page="/getListaCurso">
+                        <jsp:include page="/getListaCursoActualizar">
                             <jsp:param name="curso" value="${curso}"/>
+                            <jsp:param name="fecha" value="${fecha}"/>
                         </jsp:include>
                         </tbody>
                     </table>
-                    <!-- fin ejemplo -->
-                </div>
-                <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar Cambios</button>
-
+                </form>
+                <!-- fin ejemplo -->
             </div>
-        </form>
+            <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar Cambios</button>
+
+        </div>
     </div>
     </body>
 </div>
@@ -217,9 +228,9 @@
                     </div>
                     <div class="form-group">
                         <label for="justificacionEstudiante-text" class="col-form-label text-light">Ingrese la
-                                                                                                    justificaci&oacute;n
-                                                                                                    de la
-                                                                                                    ausencia:</label>
+                            justificaci&oacute;n
+                            de la
+                            ausencia:</label>
                         <textarea class="form-control" id="justificacionEstudiante-text"></textarea>
                     </div>
                 </form>
@@ -252,9 +263,9 @@
                     </div>
                     <div class="form-group">
                         <label for="justificacionAsistente-text" class="col-form-label text-light">Ingrese la
-                                                                                                   justificaci&oacute;n
-                                                                                                   de la
-                                                                                                   ausencia:</label>
+                            justificaci&oacute;n
+                            de la
+                            ausencia:</label>
                         <textarea class="form-control" id="justificacionAsistente-text"></textarea>
                     </div>
                 </form>

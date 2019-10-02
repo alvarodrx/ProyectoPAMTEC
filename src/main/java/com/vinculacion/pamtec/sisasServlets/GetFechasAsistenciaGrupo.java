@@ -16,6 +16,7 @@ public class GetFechasAsistenciaGrupo extends BaseServlet {
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         PrintWriter out = resp.getWriter();
         String curso = req.getParameter("curso");
+        String fecha = req.getParameter("fecha");
         String query = "{CALL spGet_Fecha_Asistencia_Grupo(?) }";
         CallableStatement ps = connection.prepareCall(query);
         ps.setInt(1, Integer.parseInt(curso));
@@ -23,7 +24,7 @@ public class GetFechasAsistenciaGrupo extends BaseServlet {
 
         while(rs.next()){
             Date fechaClases = rs.getDate(1);
-            out.print("<option>"+fechaClases.toString()+"</option>");
+            out.print("<option value='"+fechaClases.toString()+"' "+(fecha.equals(fechaClases.toString())? "selected" : "")+" >"+fechaClases.toString()+"</option>");
         }
     }
 }

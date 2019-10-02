@@ -266,7 +266,7 @@
         </div>
     </div>
 
-    <form action="#" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+    <form action="/savePermisosAsistentes" method="post" accept-charset="utf-8" onsubmit="return(validate());"
           enctype="multipart/form-data" class="w-100 text-center">
         <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
             <div class="overflow-scroll w-75 h-100 p-4 mx-auto">

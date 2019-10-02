@@ -83,7 +83,7 @@ public class SaveListaAsistenciaServlet extends BaseServlet {
             int estado = 1;
             if (e.estado.equals("Ausente")){
                 estado = 2;
-            } else {
+            } else if (e.estado.equals("Justificado")){
                 estado = 3;
             }
 
@@ -105,7 +105,7 @@ public class SaveListaAsistenciaServlet extends BaseServlet {
             int estado = 1;
             if (e.estado.equals("Ausente")){
                 estado = 2;
-            } else {
+            } else if (e.estado.equals("Justificado")){
                 estado = 3;
             }
 
