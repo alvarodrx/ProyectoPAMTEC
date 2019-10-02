@@ -84,7 +84,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName} / Registrar Abandono</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} | Registrar Abandono</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -157,7 +157,7 @@
         <form action="/saveAbandono" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
 
             <!-- Registrar Abandono-->
-
+            <input type="hidden" name="cedula_estudiantePAM" value="">
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
                     <h3>Boleta de retiro de estudiantes PAM</h3>
@@ -172,11 +172,11 @@
                         <br>
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>Nombre del estudiante:</b></label>
+                                <label><b>Nombre del estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" >
-                                    <option>Nombre del estudiante</option>
+                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
+                                    <option>Nombre del estudiante PAM</option>
                                     <jsp:include page="/getFilterData">
                                         <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
                                         <jsp:param name="curso" value="${curso}"/>
@@ -188,10 +188,10 @@
 
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>C&eacute;dula del estudiante PA,:</b></label>
+                                <label><b>C&eacute;dula del estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <div id="cedulaEstudiante">${estudiantePAM}</div>
+                                <div id="cedulaEstudiante" ></div>
                             </div>
                         </div>
                         <div class="row w-100">
@@ -212,7 +212,7 @@
                         <label>En caso de que el estudiante indique el motivo, por favor anotarlo en el siguiente
                                espacio: </label>
                         <br>
-                        <textarea id="textAreaMotivo" rows="5" class="w-100"></textarea>
+                        <textarea id="textAreaMotivo" rows="5" class="w-100" name="textAreaMotivo"></textarea>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"
                                     type="submit">

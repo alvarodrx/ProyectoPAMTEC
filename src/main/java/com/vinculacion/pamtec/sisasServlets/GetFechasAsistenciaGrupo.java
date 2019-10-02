@@ -16,7 +16,7 @@ public class GetFechasAsistenciaGrupo extends BaseServlet {
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         PrintWriter out = resp.getWriter();
         String curso = req.getParameter("curso");
-        String query = "{CALLspGet_Fecha_Asistencia_Grupo(?) }";
+        String query = "{CALL spGet_Fecha_Asistencia_Grupo(?) }";
         CallableStatement ps = connection.prepareCall(query);
         ps.setInt(1, Integer.parseInt(curso));
         ResultSet rs = ps.executeQuery();

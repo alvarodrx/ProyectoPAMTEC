@@ -102,6 +102,12 @@ function validate() {
     return confirm("Esta seguro que desea continuar?");
 }
 
+//Permite obtener el id de un estudiante seleccionado
+function getDataEstudiantePAM() {
+    var  cedulaEstudiantePAM = $("select[name = 'estudiantePAM']").val();
+    document.getElementById("cedulaEstudiante").innerText(cedulaEstudiantePAM);
+}
+
 
 
 
