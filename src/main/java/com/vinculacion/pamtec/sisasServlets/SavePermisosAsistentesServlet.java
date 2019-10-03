@@ -21,7 +21,7 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
     @Override
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         PrintWriter out = resp.getWriter();
-/*
+
         try {
             listaAsistentes = new ArrayList<>();
             ServletFileUpload upload = new ServletFileUpload();
@@ -37,7 +37,12 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
                         String idGrupo = arrOfStr[2];
                         SavePermisosAsistentesServlet.Asistente r = listaAsistentes.get(getAsistente(idAsis));
                         r.grupoID = idGrupo;
-                        //Aqui debe de ir la parte de ver si está seleccionado o no
+                        String valor = req.getParameter(idForm);
+                        r.setEstado(valor);
+                        out.println("<p>Hola es una prueba</p>");
+                        out.println("<p>/"+idAsis+"</p>");
+                        out.println("<p>/"+valor+"</p>");
+
                     }
                 }
             }
@@ -49,16 +54,16 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
             return;
         }
 
-        //for (Asistente a : listaAsistentes){
+        for (Asistente a : listaAsistentes){
 
-        //    PreparedStatement ps = connection.prepareStatement("{call spSet_Asistentes_Permisos(?,?,?)}");
-        //    ps.setInt(1, Integer.parseInt(a.grupoID));
-        //    ps.setInt(2, Integer.parseInt(a.cedula));
-        //    ps.setBoolean(3, a.getEstado());
+            PreparedStatement ps = connection.prepareStatement("{call spSet_Asistentes_Permisos(?,?,?)}");
+            ps.setInt(1, Integer.parseInt(a.grupoID));
+            ps.setInt(2, Integer.parseInt(a.cedula));
+            ps.setBoolean(3, a.getEstado());
 
-        //    executeOperation(ps);
-        //}
-*/
+           executeOperation(ps);
+        }
+
         HttpSession session = req.getSession(true);
         session.setAttribute("message", "Los permisos de acceso se han guardado con exito.");
         resp.sendRedirect("/SISAS/administrador/");
@@ -70,11 +75,11 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
         String cedula;
         private Boolean estado;
         String grupoID;
-        public void setEstado(Boolean estado){
+        public void setEstado(String estado){
             if(estado == null){
-                estado = false;
+                this.estado = false;
             }else{
-                this.estado = estado;
+                this.estado = true;
             }
 
         }
