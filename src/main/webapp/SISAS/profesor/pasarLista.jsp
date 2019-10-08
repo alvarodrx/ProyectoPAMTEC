@@ -46,6 +46,16 @@
         session.removeAttribute("message");
     %>
     -->
+
+    <script>
+        function showModalJustificacion(id, tipo) {
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(tipo);
+            modal.modal('toggle');
+            modal.find('.modal-body input').val(id);
+        }
+    </script>
     <title>SISAS</title>
 
 

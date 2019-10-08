@@ -31,7 +31,7 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
                 InputStream stream = item.openStream();
                 if (item.isFormField()) {
                     String idForm = item.getFieldName();
-                    if (idForm.startsWith("chek-")) {
+                    if (idForm.startsWith("check-")) {
                         String[] arrOfStr = idForm.split("-",5);
                         String idAsis = arrOfStr[1];
                         String idGrupo = arrOfStr[2];
@@ -39,9 +39,10 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
                         r.grupoID = idGrupo;
                         String valor = req.getParameter(idForm);
                         r.setEstado(valor);
-                        out.println("<p>Hola es una prueba</p>");
-                        out.println("<p>/"+idAsis+"</p>");
-                        out.println("<p>/"+valor+"</p>");
+                        out.print("<p>Hola es una prueba</p>");
+                        out.print("<p>/"+idAsis+"</p>");
+                        out.print("<p>/"+valor+"</p>");
+                        out.print("<br>");
 
                     }
                 }
@@ -66,7 +67,7 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
 
         HttpSession session = req.getSession(true);
         session.setAttribute("message", "Los permisos de acceso se han guardado con exito.");
-        resp.sendRedirect("/SISAS/administrador/");
+        //resp.sendRedirect("/SISAS/administrador/");
 
 
     }
