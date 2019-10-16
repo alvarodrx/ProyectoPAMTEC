@@ -1,5 +1,6 @@
 package com.vinculacion.pamtec;
 
+import com.google.appengine.api.utils.SystemProperty;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import javax.mail.*;
@@ -94,8 +95,17 @@ public abstract class BaseServlet extends HttpServlet {
     // UTILITY METHODS
     
     private void startConnection() throws Exception {
-        Class.forName("com.mysql.jdbc.GoogleDriver");
-        String url = "jdbc:google:mysql://pamtec-itcr:us-east4:pamtec/pruebas";
+        String url;
+        if (SystemProperty.environment.value() ==
+                SystemProperty.Environment.Value.Production) {
+            // Load the class that provides the new "jdbc:google:mysql://" prefix.
+            Class.forName("com.mysql.jdbc.GoogleDriver");
+            url = "jdbc:google:mysql://pamtec-itcr:us-east4:pamtec/pruebas";
+        } else {
+            // Local MySQL instance to use during development.
+            Class.forName("com.mysql.jdbc.Driver");
+            url = "jdbc:mysql://35.245.1.55:3306/pruebas";
+        }
         connection = DriverManager.getConnection(url, "root","pamtec123");
     }
     
