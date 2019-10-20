@@ -115,7 +115,7 @@
                             <a class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Registrar llamada
+                            <a class="dropdown-item" href="javascript:goToRegistrarLlamada();">Registrar llamada
                                 <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                             </a>
                         </div>

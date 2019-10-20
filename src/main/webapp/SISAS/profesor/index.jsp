@@ -69,7 +69,7 @@
         <input type="hidden" id="curso" name="curso" value="${curso}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <h3 style="color:white; width: 100%" > Usuario: Luis </h3>
+                <h3 style="color:white; width: 100%" > Usuario: ${usuario} </h3>
                 <div class="clearfix w-100" id="navbarColor02">
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item active">
@@ -123,7 +123,7 @@
                             <a href="javascript:goToRegistrarAbandono();" class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Registrar llamada
+                            <a class="dropdown-item" href="javascript:goToRegistrarLlamada();">Registrar llamada
                                 <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                             </a>
                         </div>

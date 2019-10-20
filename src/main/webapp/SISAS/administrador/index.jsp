@@ -226,27 +226,27 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left bg-color1"
                          aria-labelledby="dropdownMenuLista">
-                        <a href="#" class="dropdown-item">Editar Asistencia
+                        <a href="javascript:goToModificarAsistenciaAdmin();" class="dropdown-item">Editar Asistencia
                             <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                         </a>
-                        <a class="dropdown-item" href="#">Registrar llamada
+                        <a class="dropdown-item" href="javascript:goToRegistrarLlamadaAdmin()">Registrar llamada
                             <img class="img-fluid ico-sm" src="../imagenes/llamada.svg">
                         </a>
-                        <a class="dropdown-item">Registrar abandono
+                        <a href="javascript:goToRegistrarAbandonoAdmin();" class="dropdown-item">Registrar abandono
                             <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                         </a>
-                        <a class="dropdown-item" href="#">Editar notas
+                        <a class="dropdown-item" href="javascript:goToEditarNotaAdmin()">Editar notas
                             <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                         </a>
-                        <a class="dropdown-item" href="#">Estudiante PAM
+                        <a class="dropdown-item" href="javascript:goToInformacionEstudiantesAdmin()">Estudiante PAM
                             <img class="img-fluid ico-sm" src="../imagenes/registro.svg">
                         </a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" onclick="goToInformacionCursosAdmin()">
+                        Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg" >
                     </button>
                 </div>
                 <div class="dropdown">
