@@ -39,7 +39,7 @@
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/SISAS/login/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
 
     <script type="text/javascript">
         function showMessage(msg) {
@@ -184,8 +184,10 @@
     </style>
 
 </head>
+<%@ include file="/loadingPage/loadingWrapper.jsp" %>
+<body>
 <div class="primary-data-content d-flex flex-column h-100">
-    <body>
+
     <input type="hidden" id="millis" name="millis" value="${millis}">
     <input type="hidden" id="message" name="message" value="${message}">
     <input type="hidden" id="usuario" name="usuario" value="${usuario}">
@@ -251,7 +253,7 @@
                 </div>
                 <div class="dropdown">
                     <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" onclick="goToEstadisticasAdmin()">
                         Estadisticas <img class="img-fluid ico-sm" src="../imagenes/statistics.svg">
                     </button>
                 </div>
@@ -280,11 +282,6 @@
         <img src="../imagenes/personaje2.png" class="img-fluid h-75 p-3" alt="...">
         <img src="../imagenes/personaje3.png" class="img-fluid h-75 p-3" alt="...">
     </div>
-    </body>
 </div>
-
-
-
-<%@ include file="/loadingPage/loadingWrapper.jsp" %>
-
+</body>
 </html>

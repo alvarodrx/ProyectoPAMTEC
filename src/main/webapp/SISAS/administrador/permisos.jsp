@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <script src="/SISAS/login/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script type="text/javascript">
         function showMessage(msg) {
             if (msg && msg !== "") {
@@ -209,7 +209,7 @@
         <div class="btn-group-vertical" style="width: 100%">
             <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
                 <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
-                        onclick="#"
+                        onclick=""
                         data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     ${usuario}
                 </button>
@@ -251,7 +251,8 @@
                 </div>
                 <div class="dropdown">
                     <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                            onclick="goToEstadisticasAdmin()">
                         Estadisticas <img class="img-fluid ico-sm" src="../imagenes/statistics.svg">
                     </button>
                 </div>

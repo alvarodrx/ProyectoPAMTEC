@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/estilosBase.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
     <!--
     <%
@@ -99,7 +99,7 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" href="#">Modificar
+                            <a href="javascript:goToModificarAsistencia();" class="dropdown-item" >Modificar
                                                                                                            asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
@@ -130,7 +130,7 @@
                             <a class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes
+                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item">Estudiantes
                                                                                                              PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>

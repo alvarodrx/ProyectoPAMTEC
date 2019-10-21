@@ -13,8 +13,8 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estilosBase.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,8 +53,8 @@
 
 
 </head>
+<body>
 <div class="primary-data-content">
-    <body>
     <div class="d-flex flex-column h-100 align-items-stretch">
         <input type="hidden" id="millis" name="millis" value="${millis}">
         <input type="hidden" id="message" name="message" value="${message}">
@@ -99,7 +99,7 @@
                             <a href="javascript:goToPasarLista();" class="dropdown-item">Pasar lista
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
-                            <a href="javascript:goToModificarAsistencia()" class="dropdown-item" href="#">Modificar
+                            <a href="javascript:goToModificarAsistencia()" class="dropdown-item">Modificar
                                 asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
@@ -130,7 +130,7 @@
                             <a href="javascript:goToInformacionCurso();" class="dropdown-item">Curso
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
-                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item" href="#">Estudiantes
+                            <a href="javascript:goToInformacionEstudiante();" class="dropdown-item">Estudiantes
                                 PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
@@ -208,8 +208,8 @@
 
         </div>
     </div>
-    </body>
 </div>
+</body>
 
 <div class="modal fade" id="estudianteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">

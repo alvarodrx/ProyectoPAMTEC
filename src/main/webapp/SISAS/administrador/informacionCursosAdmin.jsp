@@ -17,12 +17,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/estilosBase.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
     <!--
     <%
-        String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "";
+        String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "", fecha = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -38,6 +38,7 @@
             curso = attr.toString();
         pageContext.setAttribute("curso", curso);
 
+
         attr = session.getAttribute("cursoName");
         if (attr != null)
             cursoName = attr.toString();
@@ -46,6 +47,9 @@
 
         estudiantePAM = request.getParameter("estudiantePAM");
         pageContext.setAttribute("estudiantePAM", estudiantePAM);
+
+        fecha = request.getParameter("fecha");
+        pageContext.setAttribute("fecha", fecha);
 
     %>
     -->
@@ -84,7 +88,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 Informaci&oacute;n de Cursos</h3>
+                        <h3>Informaci&oacute;n de Cursos</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -115,13 +119,15 @@
                     </div>
                     <div class="dropdown">
                         <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" onclick="goToInformacionCursosAdmin()">
-                            Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg" >
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                                onclick="goToInformacionCursosAdmin()">
+                            Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                         </button>
                     </div>
                     <div class="dropdown">
                         <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                                onclick="goToEstadisticasAdmin()">
                             Estadisticas <img class="img-fluid ico-sm" src="../imagenes/statistics.svg">
                         </button>
                     </div>
@@ -133,90 +139,92 @@
                         </button>
                     </div>
                 </div>
-        </div>
-        <form action="" method="post" accept-charset="utf-8" class="w-100 text-center">
-            <!-- Informacion de Curso -->
-            <div class="d-flex justify-content-center  p-3 ">
-                <div class="jumbotron w-75 rounded-lg shadow ">
-
-                    <div class="text-left">
-                        <div class="row w-150">
-                            <div class="col float-left">
-                                <label><b>Seleccionar Curso:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="fecha" onchange="$('#changeFechas').click();">
-                                        <option value="">Curso</option>
-                                        <jsp:include page="/getFechaAsistenciaGrupo">
-                                            <jsp:param name="curso" value="${curso}"/>
-                                            <jsp:param name="fecha" value="${fecha}"/>
-                                        </jsp:include>
-                                    </select>
-                                    <button type="submit" hidden id="changeFechas"></button>
-                                </form>
-                            </div>
-
-
-                            <div class="col float-left">
-                                <label><b>Seleccionar Grupo:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="fecha" onchange="$('#changeFechas').click();">
-                                        <option value="">Grupo</option>
-                                        <jsp:include page="/getFechaAsistenciaGrupo">
-                                            <jsp:param name="curso" value="${curso}"/>
-                                            <jsp:param name="fecha" value="${fecha}"/>
-                                        </jsp:include>
-                                    </select>
-                                    <button type="submit" hidden id="changeFechas"></button>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                    &nbsp
-
-                    <h3>Informaci&oacuten del Curso</h3>
-                    <br>
-                    <jsp:include page="/getInfoCurso">
-                        <jsp:param name="curso" value="${curso}"/>
-                    </jsp:include>
-                    <div class="row">
-                        <div class="column">
-
-                            <br>
-                            <b class="izquierda">Lugar:</b>
-                            <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
-                            <br>
-                            <b class="izquierda">Horario:</b>
-                            <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
-                            <br>
-                        </div>
-                        <div class="column">
-                            <br>
-                            <b class="izquierda">Inicio:</b>
-                            <label id="labelCInicio" class="derecha">05/02/2020</label>
-                            <br>
-                            <b class="izquierda">Fin:</b>
-                            <label id="labelFin" class="derecha">05/08/2020</label>
-                            <br>
-                        </div>
-                    </div>
-                    <br>
-                    <b class="izquierda">Asistentes del Curso</b>
-                    <br>
-                    <jsp:include page="/getInfoCursoAsistentes">
-                        <jsp:param name="curso" value="${curso}"/>
-                    </jsp:include>
-                </div>
             </div>
-            <!-- Informacion de curso end -->
+            <form action="" method="post" accept-charset="utf-8" class="w-100 text-center">
+                <!-- Informacion de Curso -->
+                <div class="d-flex justify-content-center  p-3 ">
+                    <div class="jumbotron w-75 rounded-lg shadow ">
 
-        </form>
+                        <div class="text-left">
+                            <div class="row w-150">
+                                <div class="col float-left">
+                                    <label><b>Seleccionar Curso:</b></label>
+                                </div>
+                                <div class="col float-right">
+                                    <form action="" method="post">
+                                        <select class="custom-select custom-select-sm" name="fecha"
+                                                onchange="$('#changeFechas').click();">
+                                            <option value="">Curso</option>
+                                            <jsp:include page="/getFechaAsistenciaGrupo">
+                                                <jsp:param name="curso" value="${curso}"/>
+                                                <jsp:param name="fecha" value="${fecha}"/>
+                                            </jsp:include>
+                                        </select>
+                                        <button type="submit" hidden id="changeFechas"></button>
+                                    </form>
+                                </div>
+
+
+                                <div class="col float-left">
+                                    <label><b>Seleccionar Grupo:</b></label>
+                                </div>
+                                <div class="col float-right">
+                                    <form action="" method="post">
+                                        <select class="custom-select custom-select-sm" name="fecha"
+                                                onchange="$('#changeFechas').click();">
+                                            <option value="">Grupo</option>
+                                            <jsp:include page="/getFechaAsistenciaGrupo">
+                                                <jsp:param name="curso" value="${curso}"/>
+                                                <jsp:param name="fecha" value="${fecha}"/>
+                                            </jsp:include>
+                                        </select>
+                                        <button type="submit" hidden id="changeFechas"></button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        &nbsp
+
+                        <h3>Informaci&oacuten del Curso</h3>
+                        <br>
+                        <jsp:include page="/getInfoCurso">
+                            <jsp:param name="curso" value="${curso}"/>
+                        </jsp:include>
+                        <div class="row">
+                            <div class="column">
+
+                                <br>
+                                <b class="izquierda">Lugar:</b>
+                                <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
+                                <br>
+                                <b class="izquierda">Horario:</b>
+                                <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
+                                <br>
+                            </div>
+                            <div class="column">
+                                <br>
+                                <b class="izquierda">Inicio:</b>
+                                <label id="labelCInicio" class="derecha">05/02/2020</label>
+                                <br>
+                                <b class="izquierda">Fin:</b>
+                                <label id="labelFin" class="derecha">05/08/2020</label>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        <b class="izquierda">Asistentes del Curso</b>
+                        <br>
+                        <jsp:include page="/getInfoCursoAsistentes">
+                            <jsp:param name="curso" value="${curso}"/>
+                        </jsp:include>
+                    </div>
+                </div>
+                <!-- Informacion de curso end -->
+
+            </form>
+        </div>
     </div>
-
 </div>
 </body>
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>

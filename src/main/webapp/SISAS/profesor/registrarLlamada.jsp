@@ -13,8 +13,8 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estilosBase.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -54,8 +54,8 @@
 
 
 </head>
+<body>
 <div class="primary-data-content">
-    <body>
     <div class="d-flex flex-column h-100 align-items-stretch">
         <input type="hidden" id="millis" name="millis" value="${millis}">
         <input type="hidden" id="message" name="message" value="${message}">
@@ -200,8 +200,8 @@
 
         </form>
     </div>
-    </body>
 </div>
+</body>
 
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
 

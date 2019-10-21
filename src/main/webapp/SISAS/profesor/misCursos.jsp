@@ -43,8 +43,8 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estiloMisCursos.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funcionesMisCursos.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funcionesMisCursos.js"></script>
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

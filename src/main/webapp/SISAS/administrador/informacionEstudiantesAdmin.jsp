@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/estilosBase.css">
-    <script src="/SISAS/login/js/transiciones.js"></script>
-    <script src="/SISAS/login/js/funciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
     <!--
     <%
@@ -53,8 +53,8 @@
 
 
 </head>
+<body>
 <div class="primary-data-content">
-    <body>
     <div class="d-flex flex-column h-100 align-items-stretch">
         <input type="hidden" id="millis" name="millis" value="${millis}">
         <input type="hidden" id="message" name="message" value="${message}">
@@ -120,7 +120,8 @@
                     </div>
                     <div class="dropdown">
                         <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                                onclick="goToEstadisticasAdmin()">
                             Estadisticas <img class="img-fluid ico-sm" src="../imagenes/statistics.svg">
                         </button>
                     </div>
@@ -192,8 +193,8 @@
 
         </form>
     </div>
-    </body>
 </div>
+</body>
 
 <%@ include file="/loadingPage/loadingWrapper.jsp" %>
 
