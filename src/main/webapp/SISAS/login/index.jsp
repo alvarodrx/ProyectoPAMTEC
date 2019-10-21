@@ -16,6 +16,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
+    <script src="js/index.js"></script>
+
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
+
     <title>Iniciar Sesi&oacute;n</title>
 
     <%
@@ -84,6 +90,7 @@
             max-height: 100%;
             padding-top: 50px;
             position: absolute;
+            z-index: 3;
         }
 
         .login.loading button .spinner {
@@ -188,6 +195,7 @@
             border-radius: 0 0 2px 2px;
             transform: rotateZ(0deg);
             transition: all 0.1s ease-out;
+            z-index: 3;
         }
 
         .login button .spinner {
@@ -206,14 +214,17 @@
             animation: spinner 0.6s infinite linear;
             transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
             box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.4);
+            z-index: 3;
         }
 
         .login:not(.loading) button:hover {
             box-shadow: 0px 1px 3px #2196F3;
+            z-index: 3;
         }
 
         .login:not(.loading) button:focus {
             border-bottom-width: 4px;
+            z-index: 3;
         }
 
         footer {
@@ -240,6 +251,7 @@
 </head>
 <body>
 <div class="wrapper">
+    <input type="hidden" name="message" id="message" value="${message}">
     <form method="post" action="/weblogin" class="login">
         <p class="title">SISAS PAMTEC</p>
         <div>
@@ -265,7 +277,7 @@
                     </span>
                 </div>
             </div>
-            <p class="text-warning text-center">${message}</p>
+            <p class="text-warning text-center" id="errormessage"></p>
             <br>
             <button>
                 <i class="spinner"></i>
@@ -273,12 +285,10 @@
             </button>
         </div>
     </form>
-    </p>
 </div>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
-<script src="js/index.js"></script>
 </body>
 </html>

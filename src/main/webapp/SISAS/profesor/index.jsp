@@ -50,6 +50,9 @@
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -69,14 +72,17 @@
         <input type="hidden" id="curso" name="curso" value="${curso}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <h3 style="color:white; width: 100%" > Usuario: ${usuario} </h3>
-                <div class="clearfix w-100" id="navbarColor02">
+
+                <div id="navbarColor02" class="clearfix w-100 text-center">
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item active">
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
+                    <span style="color:white; font-size:24px;">
+                        <i class="material-icons" style="vertical-align: sub;"> person_outline </i> ${usuario}
+                    </span>
+                    <form class="form-inline my-auto float-right" action="/weblogin?tipo=SALIR">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                             <span class="align-top">Salir</span>
                             <i class="material-icons">exit_to_app</i>
@@ -108,7 +114,7 @@
                                 <img class="img-fluid ico-sm" src="../imagenes/registrarAsistencia.svg">
                             </a>
                             <a href="javascript:goToModificarAsistencia();" class="dropdown-item">Modificar
-                                                                                                           asistencia
+                                asistencia
                                 <img class="img-fluid ico-sm" src="../imagenes/editarAsistencia.svg">
                             </a>
                         </div>
@@ -139,7 +145,7 @@
                                 <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                             </a>
                             <a href="javascript:goToInformacionEstudiante();" class="dropdown-item">Estudiantes
-                                                                                                             PAM
+                                PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/estudiantesPAM.svg">
                             </a>
                         </div>

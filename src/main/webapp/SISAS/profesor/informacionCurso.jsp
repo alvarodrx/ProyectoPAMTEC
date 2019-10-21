@@ -20,6 +20,9 @@
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
     <!--
     <%
         String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "";
@@ -68,7 +71,7 @@
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
+                    <form class="form-inline my-auto float-right" action="/weblogin?tipo=SALIR">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                             <span class="align-top">Salir</span>
                             <i class="material-icons">exit_to_app</i>

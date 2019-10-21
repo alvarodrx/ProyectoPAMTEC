@@ -20,6 +20,9 @@
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
     <!--
     <%
         String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "", fecha;
@@ -70,7 +73,7 @@
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
+                    <form class="form-inline my-auto float-right" action="/weblogin?tipo=SALIR">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                             <span class="align-top">Salir</span>
                             <i class="material-icons">exit_to_app</i>
@@ -166,7 +169,7 @@
                                 <label><b>Nombre del estudiante:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM">
+                                <select required class="custom-select custom-select-sm" name="estudiantePAM">
                                     <option>Nombre del estudiante</option>
                                     <jsp:include page="/getFilterData">
                                         <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
@@ -185,6 +188,7 @@
                                 <div id="cedulaEstudiante">${estudiantePAM}</div>
                             </div>
                         </div>
+                        <!--
                         <div class="row w-100">
                             <div class="col float-left">
                                 <label><b>Tel&eacute;fonos del estudiante:</b></label>
@@ -199,6 +203,7 @@
                                 </select>
                             </div>
                         </div>
+                        -->
 
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"

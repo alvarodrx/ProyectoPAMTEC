@@ -41,19 +41,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <!-- icon library -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
     <link rel="stylesheet" href="../css/estiloMisCursos.css">
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script src="${pageContext.request.contextPath}/SISAS/js/funcionesMisCursos.js"></script>
-    <!-- icon library -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
 
 </head>
 <body>
 <input type="hidden" id="millis" name="millis" value="${millis}">
 <input type="hidden" id="message" name="message" value="${message}">
+<%@ include file="/loadingPage/loadingWrapper.jsp" %>
 <div class="primary-data-content">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarColor02">
@@ -62,7 +66,7 @@
                     <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="/weblogin?tipo=SALIR">
+            <form class="form-inline my-auto" action="/weblogin?tipo=SALIR">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                     <span class="align-top">Salir</span>
                     <i class="material-icons">exit_to_app</i>
@@ -73,9 +77,11 @@
 
     <div class="wrapper">
         <div class="card bg-light mb-3 rounded-lg shadow">
-            <div class="card-body" style="display: block; width: 400px; max-height: 400px;">
+            <div class="card-body text-center" style="display: block; width: 400px; max-height: 400px;">
                 <h2 class="card-title mx-auto" style="text-align: center"><b>Mis cursos</b></h2>
-                <h3 style="text-align:center"> Usuario: ${usuario} </h3> <!-- este --->
+                <span style="font-size:24px;">
+                    <i class="material-icons" style="vertical-align: sub;"> person_outline </i> ${usuario}
+                </span> <!-- este --->
                 <br>
                 <div class="table-responsive" style="max-height: 280px;overflow-y: scroll;">
                     <table class="table table-hover">
@@ -90,8 +96,6 @@
             </div>
         </div>
     </div>
-
 </div>
 </body>
-<%@ include file="/loadingPage/loadingWrapper.jsp" %>
 </html>

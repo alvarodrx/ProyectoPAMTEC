@@ -73,7 +73,7 @@
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                        <button class="btn btn-secondary my-auto" type="submit">
                             <span class="align-top">Salir</span>
                             <i class="material-icons">exit_to_app</i>
                         </button>

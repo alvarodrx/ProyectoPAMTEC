@@ -203,7 +203,7 @@
                         <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 float-right" action="/weblogin?tipo=SALIR">
+                <form class="form-inline my-auto float-right" action="/weblogin?tipo=SALIR">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                         <span class="align-top">Salir</span>
                         <i class="material-icons">exit_to_app</i>
@@ -271,32 +271,7 @@
         </div>
     </div>
 
-    <form action="/savePermisosAsistentes" method="post" accept-charset="utf-8" onsubmit="return(validate());"
-          enctype="multipart/form-data" class="w-100 text-center">
-        <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
-            <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
-                <!-- Ejemplo tabla-->
-                <table class="table h-auto w-100">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Grupo </th>
-                        <th scope="col">Nombre Asistente</th>
-                        <th scope="col" class="text-center">Permiso</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <jsp:include page="/getPermisosAsistentes">
-                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                    </jsp:include>
-                    </tbody>
-                </table>
-                <!-- fin ejemplo -->
-            </div>
-            <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar cambios</button>
 
-        </div>
-    </form>
 
 </div>
 </body>

@@ -16,3 +16,13 @@ $('.login').on('submit', function (e) {
         }, 2000);
     }, 10000);
 });
+
+function main () {
+    var msg = $('input[name="message"]').val();
+    document.getElementById('errormessage').innerHTML = msg;
+    if (msg && msg !== "") {
+        alert(msg);
+    }
+}
+
+window.onload = main;

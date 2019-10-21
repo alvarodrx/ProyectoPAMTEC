@@ -5,21 +5,6 @@ function showMessage(msg) {
     }
 }
 
-//Esta funcion se ejecuta al puro inicio, permite verificar la sesion o si hay un mensaje desde la llamada
-jQuery(document).ready(function () {
-    var msg = $('input[name="message"]').val();
-    if (valSession()) {
-        showMessage(msg);
-        setTimeout(function () {
-            $('#loading-content-panel').css('display', 'none');
-            $('.primary-data-content').css('display', 'block');
-        }, 1000);
-    }
-
-
-});
-
-
 // permite validar la session del usuario y si no es valida redirecciona al indice
 function valSession() {
     var millisSession = $('input[name="millis"]').val();
@@ -95,3 +80,16 @@ function goToCurso(cursoId, cursoName){
 function goToInformacionSelect() {
     window.location.href = "informacionEstudiante.jsp";
 }
+
+function main () {
+    var msg = $('input[name="message"]').val();
+    if (valSession()) {
+        showMessage(msg);
+        setTimeout(function () {
+            $('#loading-content-panel').css('display', 'none');
+            $('.primary-data-content').css('display', 'block');
+        }, 1000);
+    }
+}
+
+window.onload = main;
