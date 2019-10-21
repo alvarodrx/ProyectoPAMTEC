@@ -22,9 +22,10 @@ public class WebLoginServlet extends BaseServlet {
 
         if (tipo!=null && tipo.equals("SALIR")){
             HttpSession session = req.getSession(true);
+            session.setAttribute("errormessage", "");
             session.invalidate();
-            req.setAttribute("message", "");
-            resp.sendRedirect("/");
+            req.setAttribute("errormessage", "");
+            resp.sendRedirect("/SISAS/login/");
             return;
         }
 
@@ -36,7 +37,7 @@ public class WebLoginServlet extends BaseServlet {
         session.removeAttribute("message");
         
         if (usuario == null || usuario.isEmpty() || passw == null || passw.isEmpty()) {
-            req.setAttribute("message", "Usuario o contrase&ntilde;a incorrecta.");
+            session.setAttribute("errormessage", "Usuario o contrase&ntilde;a incorrecta.");
             log(usuario, passw, device, "INVALIDO");
             resp.sendRedirect("/SISAS/login/");
         }
@@ -46,7 +47,7 @@ public class WebLoginServlet extends BaseServlet {
         if (rs.next()){
             String userId = rs.getString("ID");
             if (rs.getInt("ESTADO") != 1){
-                req.setAttribute("message", "Esta cuenta se encuentra inactiva.");
+                session.setAttribute("errormessage", "Esta cuenta se encuentra inactiva.");
                 log(usuario, passw, device, "CUENTA INACTIVA");
                 resp.sendRedirect("/SISAS/login/");
                 return;
@@ -69,14 +70,14 @@ public class WebLoginServlet extends BaseServlet {
                         log(usuario, passw, device, "VALIDO");
                         return;
                     }
-                    req.setAttribute("message", "Esta cuenta no tiene acceso al sistema.");
+                    session.setAttribute("errormessage", "Esta cuenta no tiene acceso al sistema.");
                     log(usuario, passw, device, "CUENTA INACTIVA");
                     resp.sendRedirect("/SISAS/login/");
                 }
                 return;
             }
         } else {
-            req.setAttribute("message", "Contrase&ntilde;a o cuenta incorrecta.");
+            session.setAttribute("errormessage", "Contrase&ntilde;a o cuenta incorrecta.");
             log(usuario, passw, device, "INVALIDO");
             resp.sendRedirect("/SISAS/login/");
         }

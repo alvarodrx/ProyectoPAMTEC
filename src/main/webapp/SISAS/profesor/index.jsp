@@ -82,7 +82,8 @@
                     <span style="color:white; font-size:24px;">
                         <i class="material-icons" style="vertical-align: sub;"> person_outline </i> ${usuario}
                     </span>
-                    <form class="form-inline my-auto float-right" action="/weblogin?tipo=SALIR">
+                    <form class="form-inline my-auto float-right" action="/weblogin">
+                        <input type="hidden" name="tipo" value="SALIR">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                             <span class="align-top">Salir</span>
                             <i class="material-icons">exit_to_app</i>

@@ -1,3 +1,9 @@
+<%
+    String errormessage = request.getParameter("errormessage");
+    pageContext.setAttribute("message", errormessage);
+
+
+%>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -24,11 +30,6 @@
 
     <title>Iniciar Sesi&oacute;n</title>
 
-    <%
-        String message = request.getParameter("message");
-        pageContext.setAttribute("message", message);
-
-    %>
     <style>
 
         body {
@@ -247,7 +248,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <input type="hidden" name="message" id="message" value="${message}">
+    <input type="hidden" name="message" id="message" value="${errormessage}">
     <form method="post" action="/weblogin" class="login">
         <p class="title">SISAS PAMTEC</p>
         <div>
@@ -285,6 +286,12 @@
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+<div class="alert alert-danger alert-dismissible fade" role="alert">
+    <p id="errormessage-alert"></p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 </body>
 </html>
