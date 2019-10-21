@@ -25,12 +25,8 @@
     <title>Iniciar Sesi&oacute;n</title>
 
     <%
-        String message = "", millis = "";
-        Object attr = session.getAttribute("message");
-        if (attr != null)
-            message = attr.toString();
+        String message = request.getParameter("message");
         pageContext.setAttribute("message", message);
-        session.removeAttribute("message");
 
     %>
     <style>
