@@ -92,7 +92,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName} / Informaci&oacute;n de estudiantes PAM</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} | Informaci&oacute;n de estudiantes PAM</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -148,59 +148,38 @@
             <!-- Informacion de estudiante -->
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
-                    <h3>Informacion de estudiante PAM</h3>
+                    <h3>Información de estudiantes PAM</h3>
                     <div class="text-left">
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>Nombre del estudiante:</b></label>
+                                <label><b>Estado de los estudiantes a buscar:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM">
-                                    <option>Nombre del estudiante</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                        <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
+                                <select class="custom-select custom-select-sm" name="estudiantePAM" >
+                                    <option>Activos</option>
+                                    <option>Inactivos</option>
                                 </select>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary btn-sm"
+                                        type="submit">
+                                    Mostrar datos del estudiante PAM
+                                </button>
                             </div>
                         </div>
 
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>C&eacute;dula del estudiante:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <div id="cedulaEstudiante">${estudiantePAM}</div>
-                            </div>
-                        </div>
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>Tel&eacute;fonos del estudiante:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm">
-                                    <option>Nombre del estudiante</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"
-                                    type="submit">
-                                Mostrar datos del estudiante PAM
-                            </button>
-                        </div>
                     </div>
+                    <jsp:include page="/getInformacionEstudiantesPAMServlet">
+                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
+                    </jsp:include>
                 </div>
+
             </div>
             <!-- Informacion de estudiante end -->
 
+
         </form>
+
     </div>
 </div>
 </body>
