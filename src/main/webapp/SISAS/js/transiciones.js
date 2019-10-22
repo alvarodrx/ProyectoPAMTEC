@@ -67,5 +67,5 @@ function goToRegistrarLlamadaAdmin() {
 }
 
 function goToEstadisticasAdmin() {
-    window.location.href = "registrarLlamadaAdmin.jsp"
+    window.location.href = "estadisticas.jsp"
 }

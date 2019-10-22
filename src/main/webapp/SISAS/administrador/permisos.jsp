@@ -7,11 +7,13 @@
         if (attr != null)
             message = attr.toString();
         pageContext.setAttribute("message", message);
+
         attr = session.getAttribute("millis");
         if (attr != null)
             millis = attr.toString();
         pageContext.setAttribute("millis", millis);
         session.removeAttribute("message");
+
         attr = session.getAttribute("tipoUsuario");
         if (attr != null)
             tipoUsuario = attr.toString();
@@ -20,6 +22,10 @@
             session.setAttribute("message", "Debe tener permisos de administrador para ingresar al sitio solicitado.");
             response.sendRedirect("/SISAS/login/");
         }
+
+        pageContext.setAttribute("curso", -1);
+
+        pageContext.setAttribute("cursoName", "Administrador");
     %>
     -->
     <title>SISAS</title>
@@ -35,12 +41,19 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
+    <link rel="stylesheet" href="../css/estilosBase.css">
+    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
+
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
+
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script type="text/javascript">
         function showMessage(msg) {
             if (msg && msg !== "") {

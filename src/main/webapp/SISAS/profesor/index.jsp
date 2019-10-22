@@ -52,7 +52,7 @@
 
     <!-- Favicons -->
     <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
-    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
+        <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
 
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

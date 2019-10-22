@@ -24,6 +24,10 @@
         if (attr != null)
             usuario = attr.toString();
         pageContext.setAttribute("usuario", usuario);
+
+        pageContext.setAttribute("curso", -1);
+
+        pageContext.setAttribute("cursoName", "Administrador");
     %>
     -->
     <title>SISAS</title>
@@ -40,107 +44,60 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
+
+
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/xepOnline.jqPlugin.js"></script>
+
+
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        <!-- This adds the proper namespace on the generated SVG -->
+        function AddNamespace(){
+            var svg = $('#chart_div svg');
+            svg.attr("xmlns", "http://www.w3.org/2000/svg");
+            svg.css('overflow','visible');
+        }
+        <!-- This generates the google chart -->
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work',     10],
+                ['Eat',      2],
+                ['Commute',  3],
+                ['Watch TV', 1],
+                ['Exercise', 2],
+                ['Sleep',    6]
+            ]);
+
+            var options = {
+                title: 'My Daily Activities',
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            google.visualization.events.addListener(chart, 'ready', AddNamespace);
+            chart.draw(data, options);
+        }
+    </script>
 
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
-    <script type="text/javascript">
-        function showMessage(msg) {
-            if (msg && msg !== "") {
-                msg = $('<span/>').html(msg).text();
-                alert(msg);
-            }
-        }
-
-        //Esta funcion se ejecuta al puro inicio, permite verificar la sesion o si hay un mensaje desde la llamada
-        jQuery(document).ready(function () {
-            var msg = $('input[name="message"]').val();
-            if (valSession()) {
-                showMessage(msg);
-                setTimeout(function () {
-                    $('#loading-content-panel').css('display', 'none');
-                    $('.primary-data-content').css('display', 'block');
-                }, 1000);
-
-            }
-
-
-        });
-
-        // permite validar la session del usuario y si no es valida redirecciona al indice
-        function valSession() {
-            var millisSession = $('input[name="millis"]').val();
-            if (!millisSession || millisSession === "") {
-                showMessage('Debe iniciar sesi&oacute;n');
-                window.location.href = "/SISAS/login/";
-                return false;
-            }
-            var d = new Date();
-            var n = d.getTime();
-            var r = n - millisSession;
-
-            console.log('Tiempo restante de session: ' + r);
-
-            if (r > 3600000) {
-                alert('Se ha terminado la sesion');
-                window.location.href = "/weblogin?tipo=SALIR";
-                return false;
-            }
-
-            $.ajax({
-                url: '/updateSession',
-                type: 'POST'
-            });
-            return true;
-        }
-
-        function arrayToOptions(array) {
-            var html = "<option value=''>Seleccione una opci&oacute;n</option>";
-            for (key in array) {
-                html += "<option value='" + key + "'>" + array[key] + "</option>";
-            }
-            return html;
-        }
-
-        //Las siguientes dos funciones permiten obtener un conjunto de datos desde una llamada a un servlet usando ajax
-        function getHtmlData(url, callback) {
-            console.log(url);
-            $.ajax({
-                dataType: "html",
-                url: url,
-                success: function (data) {
-                    callback(data);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            });
-        }
-
-        function getJSONData(url, callback) {
-            console.log(url);
-            $.ajax({
-                dataType: "json",
-                url: url,
-                success: function (data) {
-                    callback(data);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            });
-        }
-
-        //Permite preguntar al usuario si desea continuar antes de realizar una accion
-        function validate() {
-            return confirm("Esta seguro que desea continuar?");
-        }
-
-
-
-
-    </script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
     <style>
         body, html {
             height: 100%;
@@ -185,6 +142,37 @@
             width: max-content;
         }
 
+        /*    */
+
+        #buttons button:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        #buttons buttons button:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        #buttons button {
+            color:#111;
+            background-image: linear-gradient(to bottom,#ffffff 0,#777777 100%);
+            background-repeat: repeat-x;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.5;
+            cursor: pointer;
+            border-width:1px;
+            border-color: #777;
+            text-shadow: 0 -1px 0 rgba(0,0,0,.1);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+        }
+        #buttons button:hover{
+            color:#fff;
+            background-image: linear-gradient(to top,#337ab7 0,#265a88 100%);
+        }
+
+
     </style>
 
 </head>
@@ -194,8 +182,9 @@
     <input type="hidden" id="millis" name="millis" value="${millis}">
     <input type="hidden" id="message" name="message" value="${message}">
     <input type="hidden" id="usuario" name="usuario" value="${usuario}">
+    <input type="hidden" id="usuario" name="curso" value="${curso}">
     <input type="hidden" id="tipoUsuario" name="tipoUsuario" value="${tipoUsuario}">
-    <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
+    <div id="mainMenuBar" class="mainMenuBar w-100 shadow position-fixed">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="clearfix w-100" id="navbarColor02">
                 <ul class="navbar-nav mr-auto float-left">
@@ -203,7 +192,7 @@
                         <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                     </li>
                 </ul>
-                <form class="form-inline my-auto" action="/weblogin">
+                <form class="form-inline my-auto float-right" action="/weblogin">
                     <input type="hidden" name="tipo" value="SALIR">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                         <span class="align-top">Salir</span>
@@ -251,8 +240,9 @@
                 </div>
                 <div class="dropdown">
                     <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" onclick="goToInformacionCursosAdmin()">
-                        Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg" >
+                            data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                            onclick="goToInformacionCursosAdmin()">
+                        Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                     </button>
                 </div>
                 <div class="dropdown">
@@ -272,12 +262,56 @@
         </div>
     </div>
 
+    <div id="charts-content" class="w-100 text-center" style="margin-top: 160px;">
+        <div id="buttons" class="buttons">
+            <button onclick="return xepOnline.Formatter.Format('JSFiddle', {render:'download', srctype:'svg'})">PDF</button>
+        </div>
+        <hr/>
+        <div id="JSFiddle">
+            <div id="chart_div" style="width: 1100px; height: 500px;"></div>
+        </div>
+
+
+
+        <div class="btn-group">
+            <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" id="printit" href="#">
+                <i class="fa fa-download"></i><span> Download</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"
+                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',filename:'Google2DPieCharts'});">As
+                        PDF</a></li>
+                <li>
+                    <a href="#"
+                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'image/svg+xml',filename:'Google2DPieCharts'});">As
+                        SVG</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                    <a href="#"
+                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'application/postscript',filename:'Google2DPieCharts'});">As
+                        Postscript</a>
+                </li>
+                <li>
+                    <a href="#"
+                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'application/vnd.ms-xpsdocument',filename:'Google2DPieCharts'});">As
+                        XPS</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                    <a href="#"
+                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'application/xep',filename:'Google2DPieCharts'});">As
+                        XEPOUT</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
 
 
 </div>
 </body>
-
-
 
 
 </html>

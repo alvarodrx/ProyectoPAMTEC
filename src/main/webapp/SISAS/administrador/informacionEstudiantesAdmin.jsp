@@ -13,6 +13,11 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/cosmos.min.css">
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
+
+
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -22,7 +27,7 @@
 
     <!--
     <%
-        String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "";
+        String message = "", millis = "", curso = "", cursoName = "", estudiantePAM = "", tipoUsuario = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -33,16 +38,19 @@
             millis = attr.toString();
         pageContext.setAttribute("millis", millis);
 
-        attr = session.getAttribute("curso");
-        if (attr != null)
-            curso = attr.toString();
-        pageContext.setAttribute("curso", curso);
 
-        attr = session.getAttribute("cursoName");
+        attr = session.getAttribute("tipoUsuario");
         if (attr != null)
-            cursoName = attr.toString();
-        pageContext.setAttribute("cursoName", cursoName);
-        session.removeAttribute("message");
+            tipoUsuario = attr.toString();
+        pageContext.setAttribute("tipoUsuario", tipoUsuario);
+        if (tipoUsuario == null || !tipoUsuario.equals("1")){
+            session.setAttribute("message", "Debe tener permisos de administrador para ingresar al sitio solicitado.");
+            response.sendRedirect("/SISAS/login/");
+        }
+
+        pageContext.setAttribute("curso", -1);
+
+        pageContext.setAttribute("cursoName", "Administrador");
 
         estudiantePAM = request.getParameter("estudiantePAM");
         pageContext.setAttribute("estudiantePAM", estudiantePAM);

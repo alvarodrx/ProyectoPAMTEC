@@ -16,6 +16,11 @@
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
     <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
+    <!-- Favicons -->
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="icon">
+    <link href="${pageContext.request.contextPath}/img/favicon.ico" rel="apple-touch-icon">
+
+
     <!-- icon library -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -23,7 +28,7 @@
 
     <!--
     <%
-        String message = "", millis = "", curso = "", cursoName = "";
+        String message = "", millis = "", curso = "", cursoName = "", tipoUsuario = "";
         Object attr = session.getAttribute("message");
         if (attr != null)
             message = attr.toString();
@@ -34,15 +39,19 @@
             millis = attr.toString();
         pageContext.setAttribute("millis", millis);
 
-        attr = session.getAttribute("curso");
+        attr = session.getAttribute("tipoUsuario");
         if (attr != null)
-            curso = attr.toString();
-        pageContext.setAttribute("curso", curso);
+            tipoUsuario = attr.toString();
+        pageContext.setAttribute("tipoUsuario", tipoUsuario);
+        if (tipoUsuario == null || !tipoUsuario.equals("1")){
+            session.setAttribute("message", "Debe tener permisos de administrador para ingresar al sitio solicitado.");
+            response.sendRedirect("/SISAS/login/");
+        }
 
-        attr = session.getAttribute("cursoName");
-        if (attr != null)
-            cursoName = attr.toString();
-        pageContext.setAttribute("cursoName", cursoName);
+        pageContext.setAttribute("curso", -1);
+
+        pageContext.setAttribute("cursoName", "Administrador");
+
         session.removeAttribute("message");
     %>
     -->
