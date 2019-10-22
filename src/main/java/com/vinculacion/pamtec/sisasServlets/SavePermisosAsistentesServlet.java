@@ -4,7 +4,6 @@ import com.vinculacion.pamtec.BaseServlet;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.fileupload.util.Streams;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -90,18 +89,6 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
             this.grupoID = grupoID;
         }
 
-        public void setEstado(String estado){
-            if(estado == null){
-                this.estado = false;
-            }else{
-                this.estado = true;
-            }
-
-        }
-
-        public void setEstado(Boolean estado){
-            this.estado = estado;
-        }
         public Boolean getEstado(){
             return estado;
         }
