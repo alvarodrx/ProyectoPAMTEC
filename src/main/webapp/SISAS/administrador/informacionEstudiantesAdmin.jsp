@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/estilosBase.css">
     <script src="${pageContext.request.contextPath}/SISAS/js/transiciones.js"></script>
-    <script src="\${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
+    <script src="${pageContext.request.contextPath}/SISAS/js/funciones.js"></script>
 
     <!--
     <%
