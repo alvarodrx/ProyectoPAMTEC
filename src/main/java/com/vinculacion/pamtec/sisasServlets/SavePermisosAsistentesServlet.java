@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 @WebServlet(name = "SavePermisosAsistentes", value = "/savePermisosAsistentes")
@@ -20,10 +22,23 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
     private ArrayList<Asistente> listaAsistentes;
     @Override
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+
+        String query = "{CALL spGet_Asistentes_Permisos() }";
+        CallableStatement ps = connection.prepareCall(query);
+        ResultSet rs = ps.executeQuery();
+
+        listaAsistentes = new ArrayList<>();
+
+        while (rs.next()) { //Agrega los asistentes a la lista
+            String grupoID = rs.getString("FK_Grupos");
+            String cedula = rs.getString("FK_Asitente_Id");
+            setAsistenteLista(cedula, false, grupoID); //nos evitamos
+        }
+
         PrintWriter out = resp.getWriter();
 
         try {
-            listaAsistentes = new ArrayList<>();
+
             ServletFileUpload upload = new ServletFileUpload();
             FileItemIterator iterator = upload.getItemIterator(req);
             while (iterator.hasNext()) {
@@ -33,17 +48,9 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
                     String idForm = item.getFieldName();
                     if (idForm.startsWith("check-")) {
                         String[] arrOfStr = idForm.split("-",5);
-                        String idAsis = arrOfStr[1];
-                        String idGrupo = arrOfStr[2];
-                        SavePermisosAsistentesServlet.Asistente r = listaAsistentes.get(getAsistente(idAsis));
-                        r.grupoID = idGrupo;
-                        String valor = req.getParameter(idForm);
-                        r.setEstado(valor);
-                        out.print("<p>Hola es una prueba</p>");
-                        out.print("<p>/"+idAsis+"</p>");
-                        out.print("<p>/"+valor+"</p>");
-                        out.print("<br>");
-
+                        String idGrupo = arrOfStr[1];
+                        String idAsis = arrOfStr[2];
+                        setAsistenteNuevoEstado(idAsis,idGrupo);
                     }
                 }
             }
@@ -57,17 +64,17 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
 
         for (Asistente a : listaAsistentes){
 
-            PreparedStatement ps = connection.prepareStatement("{call spSet_Asistentes_Permisos(?,?,?)}");
-            ps.setInt(1, Integer.parseInt(a.grupoID));
-            ps.setInt(2, Integer.parseInt(a.cedula));
-            ps.setBoolean(3, a.getEstado());
+            PreparedStatement ps2 = connection.prepareStatement("{call spSet_Asistentes_Permisos(?,?,?)}");
+            ps2.setInt(1, Integer.parseInt(a.grupoID));
+            ps2.setInt(2, Integer.parseInt(a.cedula));
+            ps2.setBoolean(3, a.getEstado());
 
-           executeOperation(ps);
+           executeOperation(ps2);
         }
 
         HttpSession session = req.getSession(true);
         session.setAttribute("message", "Los permisos de acceso se han guardado con exito.");
-        //resp.sendRedirect("/SISAS/administrador/");
+        resp.sendRedirect("/SISAS/administrador/");
 
 
     }
@@ -76,6 +83,13 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
         String cedula;
         private Boolean estado;
         String grupoID;
+
+        public Asistente(String cedula, Boolean estado, String grupoID) {
+            this.cedula = cedula;
+            this.estado = estado;
+            this.grupoID = grupoID;
+        }
+
         public void setEstado(String estado){
             if(estado == null){
                 this.estado = false;
@@ -84,21 +98,28 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
             }
 
         }
+
+        public void setEstado(Boolean estado){
+            this.estado = estado;
+        }
         public Boolean getEstado(){
             return estado;
         }
     }
 
-    private int getAsistente(String cedula) {
+
+    private void setAsistenteNuevoEstado(String cedula,String grupo) { //actualiza el nuevo estado
         for (Asistente i : listaAsistentes) {
-            if (i.cedula.equals(cedula)) {
-                return listaAsistentes.indexOf(i);
+            if (i.cedula.equals(cedula) && i.grupoID.equals(grupo)) {
+                i.estado = true; //Si se encuentra en la lista,
             }
         }
-        Asistente nuevo = new Asistente();
-        nuevo.cedula = cedula;
+    }
+
+    //Agrega un nuevo asistente a la lista
+    private void setAsistenteLista(String cedula, Boolean estado, String grupoID){
+        Asistente nuevo = new Asistente(cedula, estado, grupoID);
         listaAsistentes.add(nuevo);
-        return listaAsistentes.indexOf(nuevo);
     }
 }
 

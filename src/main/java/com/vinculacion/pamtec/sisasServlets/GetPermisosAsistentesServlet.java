@@ -35,7 +35,7 @@ public class GetPermisosAsistentesServlet extends BaseServlet {
                     "   <td>"+nombreAsistente+"</td>\n" +
                     "   <td class=\"text-center\">\n" +
                     "<div>\n"+
-                    "<input type=\"checkbox\"  id=\"chek-"+idGrupo+"-"+asistentePK+"\" name=\"check-"+idGrupo+"-"+asistentePK+"\" value=\"Permiso\" "+permisoAsistente+" >\n"+
+                    "<input type=\"checkbox\"  id=\"chek-"+idGrupo+"-"+asistentePK+"-\" name=\"check-"+idGrupo+"-"+asistentePK+"\" value=\"Permiso\" "+permisoAsistente+" >\n"+
                     "<label> Permiso de uso </label>\n"+
                     "</div> </td>\n" +
                     "</tr>");
