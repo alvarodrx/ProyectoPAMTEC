@@ -33,6 +33,14 @@ public class GetFilterDataServlet extends BaseServlet {
                 out.print("<option value=\""+estudianteId+"\""+(estudiantePAM.equals(estudianteId)? " selected " : "")+">"+nombreEstudiante+"</option>");
             }
         }
+        if (tipo != null && tipo.equals("SEMESTRES")){
+            String query = "SELECT CONCAT('Semestre ',Semestre, ' - ', Anno) as Sem FROM Grupos GROUP BY Sem, Anno ORDER BY Sem DESC, Anno DESC;";
+            ResultSet rs = executeQuery(query);
+            while (rs.next()){
+                String sem = rs.getString("Sem");
+                out.print("<option value=\""+sem+"\" >"+sem+"</option>");
+            }
+        }
 
     }
 }

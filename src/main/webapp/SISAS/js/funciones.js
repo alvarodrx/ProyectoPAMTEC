@@ -111,7 +111,7 @@ function getDataEstudiantePAM() {
 //P
 function getYearCurso(){
     var cursoSelect = $('select[name="cursoSelect"]').val();
-    var annoSelect= $('select[name="annoSelect"]').val();
+    var annoSelect= $('select[name="annoSelect"]');
     getHtmlData(
         "/getYearCursoAdmiServlet?cursoSelect="+cursoSelect,
         function (data) {

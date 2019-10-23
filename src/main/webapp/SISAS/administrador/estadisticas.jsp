@@ -32,6 +32,10 @@
     -->
     <title>SISAS</title>
 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -59,40 +63,103 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-        // Load the Visualization API and the corechart package.
-        google.charts.load('current', {'packages':['corechart']});
 
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart);
+        function crearGrafico1(){
+            var semestreSelect = $('#selectSemestre').val();
+            if (semestreSelect === ""){
+                alert("Debe seleccionar un semestre");
+                return false;
+            }
+            // Load the Visualization API and the corechart package.
+            google.charts.load('current', {'packages':['corechart']});
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart1);
+        }
 
         // Callback that creates and populates a data table,
         // instantiates the pie chart, passes in the data and
         // draws it.
         <!-- This adds the proper namespace on the generated SVG -->
-        function AddNamespace(){
-            var svg = $('#chart_div svg');
+        function AddNamespace1(){
+            var svg = $('#chart1_div svg');
+            svg.attr("xmlns", "http://www.w3.org/2000/svg");
+            svg.css('overflow','visible');
+        }
+        function AddNamespace2(){
+            var svg = $('#chart2_div svg');
             svg.attr("xmlns", "http://www.w3.org/2000/svg");
             svg.css('overflow','visible');
         }
         <!-- This generates the google chart -->
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     10],
-                ['Eat',      2],
-                ['Commute',  3],
-                ['Watch TV', 1],
-                ['Exercise', 2],
-                ['Sleep',    6]
-            ]);
+        function drawChart1() {
+            var semestreSelect = $('#selectSemestre').val();
+            getJSONData("/getChartData?tipo=CHART1&semestre="+semestreSelect,
+                function(data){
+                    var dataChart = google.visualization.arrayToDataTable([
+                        ['Genero', 'Matriculas por semestre'],
+                        ['Hombres', data.Hombres],
+                        ['Mujeres', data.Mujeres]
+                    ]);
 
-            var options = {
-                title: 'My Daily Activities',
-            };
+                    var options = {
+                        title: 'Matriculas por genero: ' + semestreSelect
+                    };
 
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-            google.visualization.events.addListener(chart, 'ready', AddNamespace);
-            chart.draw(data, options);
+                    var chart = new google.visualization.PieChart(document.getElementById('chart1_div'));
+                    google.visualization.events.addListener(chart, 'ready', AddNamespace1);
+                    chart.draw(dataChart, options);
+                });
+
+        }
+
+        function crearGrafico2(){
+            var semestreSelect = $('#selectSemestre2').val();
+            if (semestreSelect === ""){
+                alert("Debe seleccionar un semestre");
+                return false;
+            }
+            // Load the Visualization API and the corechart package.
+            google.charts.load('current', {'packages':['corechart']});
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart2);
+        }
+
+        <!-- This generates the google chart -->
+        function drawChart2() {
+            var semestreSelect = $('#selectSemestre2').val();
+            getJSONData("/getChartData?tipo=CHART2&semestre="+semestreSelect,
+                function(data){
+                    var dataChart = google.visualization.arrayToDataTable([
+                        ['Estado', 'Matriculas vs abandonos'],
+                        ['Activos', data.Activos],
+                        ['Abandonos', data.Abandonos]
+                    ]);
+
+                    var options = {
+                        title: 'Matriculas vs abandonos: ' + semestreSelect
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('chart2_div'));
+                    google.visualization.events.addListener(chart, 'ready', AddNamespace2);
+                    chart.draw(dataChart, options);
+                });
+
+        }
+
+        function downloadCsv(chart) {
+            var url;
+            if (chart === 1){
+                var semestreSelect = $('#selectSemestre').val();
+                url = '/getChartData?tipo=CHART1_DOWNLOAD&semestre='+semestreSelect;
+            }
+            if (chart === 2){
+                var semestreSelect = $('#selectSemestre2').val();
+                url = '/getChartData?tipo=CHART2_DOWNLOAD&semestre='+semestreSelect;
+            }
+            window.location.href = url;
+
         }
     </script>
 
@@ -201,7 +268,7 @@
                 </form>
             </div>
         </nav>
-        <div class="btn-group-vertical" style="width: 100%">
+        <div class="btn-group-vertical bg-white" style="width: 100%">
             <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
                 <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
                         onclick="#"
@@ -262,50 +329,96 @@
         </div>
     </div>
 
-    <div id="charts-content" class="w-100 text-center" style="margin-top: 160px;">
-        <div id="buttons" class="buttons">
-            <button onclick="return xepOnline.Formatter.Format('JSFiddle', {render:'download', srctype:'svg'})">PDF</button>
-        </div>
-        <hr/>
-        <div id="JSFiddle">
-            <div id="chart_div" style="width: 1100px; height: 500px;"></div>
+    <div id="charts-content" class="w-100 text-center p-3" style="margin-top: 160px;">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Matricula por g&eacute;nero</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile" aria-selected="false">Matr&iacute;cula vs abandonos</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+                <div class="form-group w-25 mx-auto my-2">
+                    <label for="selectSemestre">Seleccione un semestre:</label>
+                    <select class="custom-select custom-select-sm" id="selectSemestre" >
+                        <option value=""> </option>
+                        <jsp:include page="/getFilterData">
+                            <jsp:param name="tipo" value="SEMESTRES"/>
+                        </jsp:include>
+                    </select>
+                    <br>
+                    <button type="button" class="btn btn-success my-3" onclick="crearGrafico1();">Generar gr&aacute;fico</button>
+                </div>
+                <div id="chart1-space">
+                    <div id="chart1_div" class="w-75 mx-auto" style="height: 300px; text-align: center;">
+                        <p>No se ha generado el gr&aacute;fico.</p>
+                    </div>
+                </div>
+                <hr/>
+                <div id="" class="">
+                    <div class="dropdown ">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">
+                                get_app
+                            </i>
+                            Descargar
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"
+                               onclick="return xepOnline.Formatter.Format('chart1-space', {render:'download',filename:'grafico1'});">
+                                PDF</a>
+                            <a class="dropdown-item" href="#"
+                               onclick="return xepOnline.Formatter.Format('chart1-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico1'});">
+                                SVG</a>
+                            <a class="dropdown-item" onclick="downloadCsv(1);" download >CSV</a>
+                        </div>
+                    </div>
+                    <a class="" onclick="downloadCsv(1);" download >CSV</a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+                <div class="form-group w-25 mx-auto my-2">
+                    <label for="selectSemestre2">Seleccione un semestre:</label>
+                    <select class="custom-select custom-select-sm" id="selectSemestre2" >
+                        <option value=""> </option>
+                        <jsp:include page="/getFilterData">
+                            <jsp:param name="tipo" value="SEMESTRES"/>
+                        </jsp:include>
+                    </select>
+                    <br>
+                    <button type="button" class="btn btn-success my-3" onclick="crearGrafico2();">Generar gr&aacute;fico</button>
+                </div>
+                <div id="chart2-space">
+                    <div id="chart2_div" class="w-75 mx-auto" style="height: 300px; text-align: center;">
+                        <p>No se ha generado el gr&aacute;fico.</p>
+                    </div>
+                </div>
+                <hr/>
+                <div id="" class="">
+                    <div class="dropdown ">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">
+                                get_app
+                            </i>
+                            Descargar
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"
+                               onclick="return xepOnline.Formatter.Format('chart2-space', {render:'download',filename:'grafico2'});">
+                                PDF</a>
+                            <a class="dropdown-item" href="#"
+                               onclick="return xepOnline.Formatter.Format('chart2-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico2'});">
+                                SVG</a>
+                            <a class="dropdown-item" onclick="downloadCsv(2);" download >CSV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
-
-        <div class="btn-group">
-            <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" id="printit" href="#">
-                <i class="fa fa-download"></i><span> Download</span>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#"
-                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',filename:'Google2DPieCharts'});">As
-                        PDF</a></li>
-                <li>
-                    <a href="#"
-                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'image/svg+xml',filename:'Google2DPieCharts'});">As
-                        SVG</a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                    <a href="#"
-                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'application/postscript',filename:'Google2DPieCharts'});">As
-                        Postscript</a>
-                </li>
-                <li>
-                    <a href="#"
-                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'application/vnd.ms-xpsdocument',filename:'Google2DPieCharts'});">As
-                        XPS</a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                    <a href="#"
-                       onclick="return xepOnline.Formatter.Format('Google2DPieCharts', {render:'download',mimeType:'application/xep',filename:'Google2DPieCharts'});">As
-                        XEPOUT</a>
-                </li>
-            </ul>
-        </div>
 
     </div>
 
