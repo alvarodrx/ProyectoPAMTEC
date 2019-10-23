@@ -95,7 +95,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">${cursoName} / Pasar Lista</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} | Pasar Lista</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "

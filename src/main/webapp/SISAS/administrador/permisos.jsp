@@ -228,7 +228,7 @@
                     ${usuario}
                 </button>
                 <div>
-                    <h3 class="mt-2 ml-5">Administrador SISAS | Permisos</h3>
+                    <h3 class="mt-2 ml-5">${cursoName} | Permisos</h3>
                 </div>
             </div>
             <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "

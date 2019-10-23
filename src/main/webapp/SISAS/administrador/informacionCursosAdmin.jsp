@@ -89,12 +89,12 @@
             <div class="btn-group-vertical" style="width: 100%">
                 <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
                     <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
-                            onclick="goToCursoSelect();"
+                            onclick="#"
                             data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
+                        ${usuario}
                     </button>
                     <div>
-                        <h3>Informaci&oacute;n de Cursos</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} |Informaci&oacute;n de Cursos</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -158,33 +158,12 @@
                                 </div>
                                 <div class="col float-right">
                                     <form action="" method="post">
-                                        <select class="custom-select custom-select-sm" name="fecha"
-                                                onchange="$('#changeFechas').click();">
+                                        <select class="custom-select custom-select-sm" name="cursoSelect" onchange="getYearCurso();" >
                                             <option value="">Curso</option>
-                                            <jsp:include page="/getFechaAsistenciaGrupo">
+                                            <jsp:include page="/getAdminCursos">
                                                 <jsp:param name="curso" value="${curso}"/>
-                                                <jsp:param name="fecha" value="${fecha}"/>
                                             </jsp:include>
                                         </select>
-                                        <button type="submit" hidden id="changeFechas"></button>
-                                    </form>
-                                </div>
-
-
-                                <div class="col float-left">
-                                    <label><b>Seleccionar Grupo:</b></label>
-                                </div>
-                                <div class="col float-right">
-                                    <form action="" method="post">
-                                        <select class="custom-select custom-select-sm" name="fecha"
-                                                onchange="$('#changeFechas').click();">
-                                            <option value="">Grupo</option>
-                                            <jsp:include page="/getFechaAsistenciaGrupo">
-                                                <jsp:param name="curso" value="${curso}"/>
-                                                <jsp:param name="fecha" value="${fecha}"/>
-                                            </jsp:include>
-                                        </select>
-                                        <button type="submit" hidden id="changeFechas"></button>
                                     </form>
                                 </div>
 

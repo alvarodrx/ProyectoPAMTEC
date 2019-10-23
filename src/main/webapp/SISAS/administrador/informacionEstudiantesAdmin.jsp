@@ -89,7 +89,7 @@
                     <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
                             onclick="goToCursoSelect();"
                             data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
+                        ${usuario}
                     </button>
                     <div>
                         <h3 class="mt-2 ml-5">${cursoName} | Informaci&oacute;n de estudiantes PAM</h3>

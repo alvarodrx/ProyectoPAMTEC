@@ -85,9 +85,9 @@
             <div class="btn-group-vertical" style="width: 100%">
                 <div class="btn-group btn-group-lg w-auto" role="group" aria-label="...">
                     <button type="button" class="btn btn-outline-secondary border-0 bg-gray1 btn-lg"
-                            onclick="goToCursoSelect();"
+                            onclick="#"
                             data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                        Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
+                        ${usuario}<i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
                         <h3 class="mt-2 ml-5">${cursoName} | Editar Notas</h3>
