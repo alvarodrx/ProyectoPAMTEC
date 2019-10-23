@@ -144,7 +144,7 @@
                 </div>
             </div>
         </div>
-        <form action="/saveAbandono" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
+        <form action="/saveAbandonoAdmin" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
 
             <!-- Registrar Abandono-->
             <input type="hidden" name="cedula_estudiantePAM" value="">
@@ -153,57 +153,34 @@
                     <h3>Boleta de retiro de estudiantes PAM</h3>
                     <br>
                     <div class="text-left">
+
                         <br><h4>Datos del estudiante PAM</h4>
                         <br>
-
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>Curso:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
-                                    <option value=" " >Curso</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                        <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>Grupo:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
-                                    <option value=" " >Grupo</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                        <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="row w-100">
                             <div class="col float-left">
                                 <label><b>Nombre del estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
+                                <select class="custom-select custom-select-sm" name="estudiantePAM" onclick="getGruposEstudiantesAdmi();" >
                                     <option value=" " >Nombre del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
+                                    <jsp:include page="/getEstudiantesActivosServlet">
                                         <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
                                     </jsp:include>
                                 </select>
                             </div>
                         </div>
 
+                        <div class="row w-100">
+                            <div class="col float-left">
+                                <label><b>Grupo del Estudiante PAM:</b></label>
+                            </div>
+                            <div class="col float-right">
+                                <select class="custom-select custom-select-sm" name="gruposActualesSelect">
+                                    <option value="" >Grupos de Estudiante PAM</option>
+                                </select>
+                            </div>
+                        </div>
+<!--
                         <div class="row w-100">
                             <div class="col float-left">
                                 <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
@@ -211,13 +188,10 @@
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" >
                                     <option>Telefono del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
                                 </select>
                             </div>
                         </div>
+   -->
                         <br>
                         <label>En caso de que el estudiante indique el motivo, por favor anotarlo en el siguiente
                                espacio: </label>

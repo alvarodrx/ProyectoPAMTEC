@@ -147,7 +147,7 @@
                 </div>
             </div>
         </div>
-        <form action="/saveAbandono" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
+        <form action="/saveLlamadaAdmin" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
 
             <!-- Registrar Abandono-->
             <input type="hidden" name="cedula_estudiantePAM" value="">
@@ -159,15 +159,14 @@
 
                         <br><h4>Datos del estudiante PAM</h4>
                         <br>
-
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>Nombre del Curso:</b></label>
+                                <label><b>Nombre del estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="cursosLlamada" onchange="getGruposActualesCurso()" >
-                                    <option value="" >Cursos</option>
-                                    <jsp:include page="/getAdminCursos">
+                                <select class="custom-select custom-select-sm" name="estudiantePAM" onclick="getGruposEstudiantesAdmi();" >
+                                    <option value=" " >Nombre del estudiante PAM</option>
+                                    <jsp:include page="/getEstudiantesActivosServlet">
                                         <jsp:param name="curso" value="${curso}"/>
                                     </jsp:include>
                                 </select>
@@ -176,26 +175,15 @@
 
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>Grupo:</b></label>
+                                <label><b>Grupo del Estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="gruposActualesSelect" onchange="getListaEstudiantesAdmi();">
-                                    <option value="" >Grupo</option>
+                                <select class="custom-select custom-select-sm" name="gruposActualesSelect">
+                                    <option value="" >Grupos de Estudiante PAM</option>
                                 </select>
                             </div>
                         </div>
-
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>Nombre del estudiante PAM:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM"  >
-                                    <option value=" " >Nombre del estudiante PAM</option>
-                                </select>
-                            </div>
-                        </div>
-
+<!--
                         <div class="row w-100">
                             <div class="col float-left">
                                 <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
@@ -206,6 +194,7 @@
                                 </select>
                             </div>
                         </div>
+-->
                         <br>
                         <label>Anotar informacion relevante de la llamada en el siguiente espacio: </label>
                         <br>

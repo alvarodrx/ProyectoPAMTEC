@@ -140,9 +140,9 @@
                 </div>
             </div>
         </div>
-        <form action="/saveAbandono" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
+        <form action="/saveLlamada" method="post" accept-charset="utf-8" class="w-100 text-center" onsubmit="return(validate());">
 
-            <!-- Registrar Abandono-->
+            <!-- Registrar Llamada-->
             <input type="hidden" name="cedula_estudiantePAM" value="">
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
@@ -173,7 +173,7 @@
                                 </select>
                             </div>
                         </div>
-
+                        <!--
                         <div class="row w-100">
                             <div class="col float-left">
                                 <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
@@ -181,13 +181,10 @@
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" >
                                     <option>Telefono del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
                                 </select>
                             </div>
                         </div>
+                        -->
                         <br>
                         <label>Anotar informacion relevante de la llamada en el siguiente espacio: </label>
                         <br>

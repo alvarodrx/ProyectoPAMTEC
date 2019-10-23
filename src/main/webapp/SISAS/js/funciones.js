@@ -195,5 +195,19 @@ function getListaEstudiantesAdmi(){
     );
 }
 
+function getGruposEstudiantesAdmi(){
+    var estPAMSelect = $('select[name="estudiantePAM"]').val();
+    var gruposSelect = $('select[name="gruposActualesSelect"]');
+    getHtmlData( "/getGruposEstudiantePAMServelt?estudiantePAM="+estPAMSelect ,
+        function (data) {
+            var i, len, text;
+            var html = " <option value='' >Grupos de Estudiante PAM</option>";
+            gruposSelect.html(html+data);
+        }
+
+    );
+
+}
+
 
 

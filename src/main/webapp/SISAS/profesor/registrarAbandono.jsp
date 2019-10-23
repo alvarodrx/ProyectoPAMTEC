@@ -199,6 +199,7 @@
                                 <div id="cedulaEstudiante" ></div>
                             </div>
                         </div>
+                        <!--
                         <div class="row w-100">
                             <div class="col float-left">
                                 <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
@@ -206,13 +207,10 @@
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" >
                                     <option>Telefono del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
                                 </select>
                             </div>
                         </div>
+                        -->
                         <br>
                         <label>En caso de que el estudiante indique el motivo, por favor anotarlo en el siguiente
                                espacio: </label>
