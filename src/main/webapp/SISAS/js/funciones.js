@@ -123,7 +123,77 @@ function getYearCurso(){
     );
 }
 
+function getSemesterYearCurso(){
+    var cursoSelect = $('select[name="cursoSelect"]').val();
+    var annoSelect= $('select[name="annoSelect"]').val();
+    var semestreSelect = $('select[name="semestreSelect"]');
+    getHtmlData(
+        "/getSemestresCursoAdmiServlet?cursoSelect="+cursoSelect+"&annoSelect="+annoSelect,
+        function (data) {
+            var i, len, text;
+            var html = "<option value=''>Semestre</option>";
+            semestreSelect.html(html + data);
+        }
 
+    );
+}
+//
+function getGruposSemesterYearCurso(){
+    var cursoSelect = $('select[name="cursoSelect"]').val();
+    var annoSelect= $('select[name="annoSelect"]').val();
+    var semestreSelect = $('select[name="semestreSelect"]').val();
+    var gruposSelect = $('select[name="gruposSelect"]');
+    getHtmlData( "/getGruposAdminServlet?cursoSelect="+cursoSelect+"&annoSelect="+annoSelect+"&semestreSelect="+semestreSelect,
+        function (data) {
+            var i, len, text;
+            var html = "<option value=''>Grupo</option>";
+            gruposSelect.html(html + data);
+        }
+
+    );
+}
+
+function getNotasGrupoAdmin(){
+    var gruposSelect = $('select[name="gruposSelect"]').val();
+    var tablaCuerpo = $('select[name="cuerpoTabla"]');
+    getHtmlData( "/getNotasCursoServlet?curso="+gruposSelect,
+        function (data) {
+            var i, len, text;
+            tablaCuerpo.html(data);
+
+        }
+
+    );
+}
+
+function getGruposActualesCurso(){
+    var cursoSelect = $('select[name="cursosLlamada"]').val();
+    var gruposActuales = $('select[name="gruposActualesSelect"]');
+
+    getHtmlData( "/getGruposActualesCursosServlet?curso="+cursoSelect,
+        function (data) {
+            var i, len, text;
+            var html = "<option value=''>Grupo</option>";
+            gruposActuales.html(html+data);
+
+        }
+
+    );
+}
+
+function getListaEstudiantesAdmi(){
+    var gruposActual = $('select[name="gruposActualesSelect"]').val();
+    var estPAMSelect = $('select[name="estudiantePAM"]');
+    getHtmlData( "/getStudentsAdminServlet?curso="+gruposActual,
+        function (data) {
+            var i, len, text;
+            var html = "<option value='' >Nombre del estudiante PAM</option>";
+            estPAMSelect.html(html+data);
+
+        }
+
+    );
+}
 
 
 

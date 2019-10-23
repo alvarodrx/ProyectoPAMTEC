@@ -159,15 +159,13 @@
 
                         <div class="row w-100">
                             <div class="col float-left">
-                                <label><b>Curso:</b></label>
+                                <label><b>Nombre del Curso:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
-                                    <option value=" " >Curso</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
+                                <select class="custom-select custom-select-sm" name="cursosLlamada" onchange="getGruposActualesCurso()" >
+                                    <option value=" " >Cursos</option>
+                                    <jsp:include page="/getAdminCursos">
                                         <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
                                     </jsp:include>
                                 </select>
                             </div>
@@ -178,13 +176,8 @@
                                 <label><b>Grupo:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
+                                <select class="custom-select custom-select-sm" name="gruposActualesSelect" onchange="getListaEstudiantesAdmi();">
                                     <option value=" " >Grupo</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                        <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
                                 </select>
                             </div>
                         </div>
@@ -194,13 +187,8 @@
                                 <label><b>Nombre del estudiante PAM:</b></label>
                             </div>
                             <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
+                                <select class="custom-select custom-select-sm" name="estudiantePAM"  >
                                     <option value=" " >Nombre del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                        <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
                                 </select>
                             </div>
                         </div>
@@ -212,10 +200,6 @@
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" >
                                     <option>Telefono del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Telefonos"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
                                 </select>
                             </div>
                         </div>

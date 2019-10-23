@@ -17,7 +17,8 @@ public class GetNotasCursoServlet extends BaseServlet {
         PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession(true);
         session.removeAttribute("message");
-        String grupoId = (String) session.getAttribute("curso");
+        //String grupoId = (String) session.getAttribute("curso");
+        String grupoId = req.getParameter("curso");
 
         String query = "{CALL spEstudiantes_PAM_getNotasCurso(?) }";
         CallableStatement ps = connection.prepareCall(query);

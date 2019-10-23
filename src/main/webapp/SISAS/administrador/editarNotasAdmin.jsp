@@ -155,7 +155,7 @@
                             </div>
                             <div class="col float-right">
                                 <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="cursoSelect" onchange="getYearCurso();" >
+                                    <select class="custom-select custom-select-sm" name="cursoSelect" onclick="getYearCurso();" >
                                         <option value="">Curso</option>
                                         <jsp:include page="/getAdminCursos">
                                             <jsp:param name="curso" value="${curso}"/>
@@ -167,22 +167,22 @@
 
 
                             <div class="col float-left">
-                                <label><b>Seleccionar año:</b></label>
+                                <label><b>Seleccionar a&ntilde;o:</b></label>
                             </div>
                             <div class="col float-right">
                                 <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="annoSelect" >
+                                    <select class="custom-select custom-select-sm" name="annoSelect" onclick="getSemesterYearCurso();" >
                                         <option value="">Año</option>
                                     </select>
                                 </form>
                             </div>
 
                             <div class="col float-left">
-                                <label><b>Seleccionear semestre:</b></label>
+                                <label><b>Seleccionar semestre:</b></label>
                             </div>
                             <div class="col float-right">
                                 <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="fecha" >
+                                    <select class="custom-select custom-select-sm" name="semestreSelect"  onclick="getGruposSemesterYearCurso();" >
                                         <option value="">Semestre</option>
                                     </select>
                                 </form>
@@ -193,7 +193,7 @@
                             </div>
                             <div class="col float-right">
                                 <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="fecha" >
+                                    <select class="custom-select custom-select-sm" name="gruposSelect" onclick="getNotasGrupoAdmin();">
                                         <option value="">Grupo</option>
                                     </select>
                                 </form>
@@ -212,10 +212,7 @@
                             <th scope="col" class="text-center">Nota a registrar</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <jsp:include page="/getNotasCursoServlet">
-                            <jsp:param name="curso" value="${curso}"/>
-                        </jsp:include>
+                        <tbody name="cuerpoTabla">
                         </tbody>
                     </table>
                     <!-- fin ejemplo -->

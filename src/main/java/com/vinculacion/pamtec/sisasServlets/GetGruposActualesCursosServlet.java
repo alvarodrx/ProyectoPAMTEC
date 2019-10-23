@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.sql.CallableStatement;
-import java.sql.Date;
 import java.sql.ResultSet;
 
-@WebServlet(name = "/GetYearCursoAdmiServlet", value = "/getYearCursoAdmiServlet")
-public class GetYearCursoAdmiServlet extends BaseServlet {
+@WebServlet(name = "GetGruposActualesCursosServlet", value = "/getGruposActualesCursosServlet")
+public class GetGruposActualesCursosServlet extends BaseServlet {
     @Override
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         PrintWriter out = resp.getWriter();
@@ -21,15 +20,16 @@ public class GetYearCursoAdmiServlet extends BaseServlet {
         session.removeAttribute("message");
 
 
-        String cursoSelect = req.getParameter("cursoSelect");
-        String query = "{CALL spGet_Years_Curso(?) }";
+        String cursoSelect = req.getParameter("curso");
+        String query = "{CALL spGet_Grupos_Curso(?) }";
         CallableStatement ps = connection.prepareCall(query);
         ps.setString(1, cursoSelect);
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()){
-            String anno = rs.getString("Anno").split("-")[0];
-            out.print("<option value=\""+anno+"\""+(anno.equals(anno)? " selected " : "")+">"+anno+"</option>");
+            String PK_Grupo = rs.getString("PK_Grupos");
+            String grupoNombre = rs.getString("Informacion_Curso");
+            out.print("<option value=\""+PK_Grupo+"\""+(PK_Grupo.equals(PK_Grupo)? " selected " : "")+">"+grupoNombre+"</option>");
 
         }
     }
