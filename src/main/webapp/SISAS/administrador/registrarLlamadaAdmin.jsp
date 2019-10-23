@@ -71,13 +71,16 @@
         <input type="hidden" id="message" name="message" value="${message}">
         <input type="hidden" id="curso" name="curso" value="${curso}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="clearfix w-100" id="navbarColor02">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+                <div class="clearfix w-100 text-center" id="navbarColor02">
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item active">
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                         </li>
                     </ul>
+                    <span style="color:white; font-size:24px;">
+                        <i class="material-icons" style="vertical-align: sub;"> person_outline </i> ${usuario}
+                    </span>
                     <form class="form-inline my-auto float-right" action="/weblogin">
                         <input type="hidden" name="tipo" value="SALIR">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
