@@ -73,9 +73,9 @@
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
                         </li>
                     </ul>
-                    <form class="form-inline my-auto" action="/weblogin">
+                    <form class="form-inline my-auto float-right" action="/weblogin">
                         <input type="hidden" name="tipo" value="SALIR">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                        <button class="btn btn-secondary my-auto" type="submit">
                             <span class="align-top">Salir</span>
                             <i class="material-icons">exit_to_app</i>
                         </button>
@@ -90,7 +90,7 @@
                         Mis cursos <i class="material-icons my-auto align-text-bottom">list_alt</i>
                     </button>
                     <div>
-                        <h3 class="mt-2 ml-5">Editar Notas</h3>
+                        <h3 class="mt-2 ml-5">${cursoName} | Editar Notas</h3>
                     </div>
                 </div>
                 <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -142,11 +142,10 @@
             </div>
         </div>
 
-        <form action="/saveNotasCurso" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+        <form action="" method="post" accept-charset="utf-8" onsubmit="return(validate());"
               enctype="multipart/form-data" class="w-100 text-center">
             <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
                 <input type="hidden" name="curso" value="${curso}">
-
                 <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
 
                     <div class="text-left">
@@ -156,31 +155,47 @@
                             </div>
                             <div class="col float-right">
                                 <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="fecha" onchange="$('#changeFechas').click();">
+                                    <select class="custom-select custom-select-sm" name="cursoSelect" onchange="getYearCurso();" >
                                         <option value="">Curso</option>
-                                        <jsp:include page="/getFechaAsistenciaGrupo">
+                                        <jsp:include page="/getAdminCursos">
                                             <jsp:param name="curso" value="${curso}"/>
-                                            <jsp:param name="fecha" value="${fecha}"/>
                                         </jsp:include>
                                     </select>
-                                    <button type="submit" hidden id="changeFechas"></button>
+
                                 </form>
                             </div>
 
 
                             <div class="col float-left">
-                                <label><b>Seleccionar Grupo:</b></label>
+                                <label><b>Seleccionar año:</b></label>
                             </div>
                             <div class="col float-right">
                                 <form action="" method="post">
-                                    <select class="custom-select custom-select-sm" name="fecha" onchange="$('#changeFechas').click();">
-                                        <option value="">Grupo</option>
-                                        <jsp:include page="/getFechaAsistenciaGrupo">
-                                            <jsp:param name="curso" value="${curso}"/>
-                                            <jsp:param name="fecha" value="${fecha}"/>
-                                        </jsp:include>
+                                    <select class="custom-select custom-select-sm" name="annoSelect" >
+                                        <option value="">Año</option>
                                     </select>
-                                    <button type="submit" hidden id="changeFechas"></button>
+                                </form>
+                            </div>
+
+                            <div class="col float-left">
+                                <label><b>Seleccionear semestre:</b></label>
+                            </div>
+                            <div class="col float-right">
+                                <form action="" method="post">
+                                    <select class="custom-select custom-select-sm" name="fecha" >
+                                        <option value="">Semestre</option>
+                                    </select>
+                                </form>
+                            </div>
+
+                            <div class="col float-left">
+                                <label><b>Seleccionar grupo:</b></label>
+                            </div>
+                            <div class="col float-right">
+                                <form action="" method="post">
+                                    <select class="custom-select custom-select-sm" name="fecha" >
+                                        <option value="">Grupo</option>
+                                    </select>
                                 </form>
                             </div>
 

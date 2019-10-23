@@ -108,6 +108,21 @@ function getDataEstudiantePAM() {
     document.getElementById("cedulaEstudiante").innerHTML = cedulaEstudiantePAM;
 }
 
+//P
+function getYearCurso(){
+    var cursoSelect = $('select[name="cursoSelect"]').val();
+    var annoSelect= $('select[name="annoSelect"]').val();
+    getHtmlData(
+        "/getYearCursoAdmiServlet?cursoSelect="+cursoSelect,
+        function (data) {
+            var i, len, text;
+            var html = "<option value=''>Anno</option>";
+            annoSelect.html(html + data);
+        }
+
+    );
+}
+
 
 
 

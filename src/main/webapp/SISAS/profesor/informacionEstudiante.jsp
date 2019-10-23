@@ -163,7 +163,7 @@
             <!-- Informacion de estudiante -->
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
-                    <h3>Informacion de estudiante PAM</h3>
+                    <h3>Informaci&oacute;n de estudiantes PAM</h3>
                     <div class="text-left">
                         <div class="row w-100">
                             <div class="col float-left">

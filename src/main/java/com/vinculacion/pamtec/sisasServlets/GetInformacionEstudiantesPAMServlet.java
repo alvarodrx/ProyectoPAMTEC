@@ -34,6 +34,8 @@ public class GetInformacionEstudiantesPAMServlet extends BaseServlet {
                 String correo = rs.getString("Correo_Electronico");
 
                 out.print(
+                        "<div > </div>"+
+                        "<div class=\"jumbotron w-75 rounded-lg shadow \">"+
                         "<div class=\"row\"> " +
                         "<div class=\"column\"> " +
                         "<b class=\"izquierda\"> Nombre de Estudiante:</b> " +
@@ -43,7 +45,7 @@ public class GetInformacionEstudiantesPAMServlet extends BaseServlet {
                         "<b class=\"izquierda\"> C&eacute;dula:</b> " +
                         "<label id=\"labelNombreCurso\" class=\"derecha\"  >" + nombreEstudiante +
                         "</label> <br> </div>" +
-                        " </div>");
+                        " </div>" + "</div>");
             }
         }
 

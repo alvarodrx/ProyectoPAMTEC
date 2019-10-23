@@ -148,7 +148,7 @@
             <!-- Informacion de estudiante -->
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
-                    <h3>Información de estudiantes PAM</h3>
+                    <h3>Informaci&oacute;n de estudiantes PAM</h3>
                     <div class="text-left">
                         <div class="row w-100">
                             <div class="col float-left">
@@ -169,14 +169,14 @@
                         </div>
 
                     </div>
-                    <jsp:include page="/getInformacionEstudiantesPAMServlet">
-                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                    </jsp:include>
+
                 </div>
+                <jsp:include page="/getInformacionEstudiantesPAMServlet">
+                    <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
+                </jsp:include>
 
             </div>
             <!-- Informacion de estudiante end -->
-
 
         </form>
 
