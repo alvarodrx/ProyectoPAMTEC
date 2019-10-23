@@ -1,4 +1,7 @@
 <html>
+
+<%@ include file="/loadingPage/loadingWrapper.jsp" %>
+
 <head>
     <!------------------------------------------------- Imports ------------------------------------------------------------>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -306,7 +309,4 @@
         </div>
     </div>
 </div>
-
-<%@ include file="/loadingPage/loadingWrapper.jsp" %>
-
 </html>

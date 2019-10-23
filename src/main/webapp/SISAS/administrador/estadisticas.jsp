@@ -354,7 +354,7 @@
                         </jsp:include>
                     </select>
                     <br>
-                    <button type="button" class="btn btn-success my-3" onclick="crearGrafico1();">Generar gr&aacute;fico</button>
+                    <button type="button" class="btn btn-secondary my-3" onclick="crearGrafico1();">Generar gr&aacute;fico</button>
                 </div>
                 <div id="chart1-space">
                     <div id="chart1_div" class="w-75 mx-auto" style="height: 300px; text-align: center;">
@@ -392,7 +392,7 @@
                         </jsp:include>
                     </select>
                     <br>
-                    <button type="button" class="btn btn-success my-3" onclick="crearGrafico2();">Generar gr&aacute;fico</button>
+                    <button type="button" class="btn btn-secondary my-3" onclick="crearGrafico2();">Generar gr&aacute;fico</button>
                 </div>
                 <div id="chart2-space">
                     <div id="chart2_div" class="w-75 mx-auto" style="height: 300px; text-align: center;">

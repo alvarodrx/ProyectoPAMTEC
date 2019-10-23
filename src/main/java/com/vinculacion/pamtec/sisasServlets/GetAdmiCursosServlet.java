@@ -15,6 +15,7 @@ public class GetAdmiCursosServlet extends BaseServlet {
     @Override
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         PrintWriter out = resp.getWriter();
+        String curso = req.getParameter("curso");
 
         HttpSession session = req.getSession(true);
         session.removeAttribute("message");
@@ -25,7 +26,7 @@ public class GetAdmiCursosServlet extends BaseServlet {
         while (rs.next()){
             String idCurso = rs.getString("PK_Codigo_Curso");
             String nombreCurso = rs.getString("Nombre_Curso");
-            out.print("<option value=\""+idCurso+"\""+(idCurso.equals(idCurso)? " selected " : "")+">"+nombreCurso+"</option>");
+            out.print("<option value=\""+idCurso+"\""+(idCurso.equals(curso)? " selected " : "")+">"+nombreCurso+"</option>");
 
         }
     }

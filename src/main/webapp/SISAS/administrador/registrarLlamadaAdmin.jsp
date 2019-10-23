@@ -1,4 +1,7 @@
 <html>
+
+<%@ include file="/loadingPage/loadingWrapper.jsp" %>
+
 <head>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -163,7 +166,7 @@
                             </div>
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" name="cursosLlamada" onchange="getGruposActualesCurso()" >
-                                    <option value=" " >Cursos</option>
+                                    <option value="" >Cursos</option>
                                     <jsp:include page="/getAdminCursos">
                                         <jsp:param name="curso" value="${curso}"/>
                                     </jsp:include>
@@ -177,7 +180,7 @@
                             </div>
                             <div class="col float-right">
                                 <select class="custom-select custom-select-sm" name="gruposActualesSelect" onchange="getListaEstudiantesAdmi();">
-                                    <option value=" " >Grupo</option>
+                                    <option value="" >Grupo</option>
                                 </select>
                             </div>
                         </div>
@@ -222,10 +225,4 @@
     </div>
 </div>
 </body>
-
-<%@ include file="/loadingPage/loadingWrapper.jsp" %>
-
-
-
-
 </html>

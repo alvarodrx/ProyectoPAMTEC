@@ -29,7 +29,7 @@ public class GetStudentsAdminServlet extends BaseServlet {
         while (rs.next()){
             String PK_Student = rs.getString("PK_Cedula_Estudiantes_PAM");
             String nombreStudent = rs.getString("Nombre");
-            out.print("<option value=\""+PK_Student+"\""+(PK_Student.equals(PK_Student)? " selected " : "")+">"+nombreStudent+"</option>");
+            out.print("<option value=\""+PK_Student+"\">"+nombreStudent+"</option>");
 
         }
     }
