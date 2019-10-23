@@ -150,13 +150,18 @@
 
         function downloadCsv(chart) {
             var url;
+            var semestreSelect;
             if (chart === 1){
-                var semestreSelect = $('#selectSemestre').val();
+                semestreSelect = $('#selectSemestre').val();
                 url = '/getChartData?tipo=CHART1_DOWNLOAD&semestre='+semestreSelect;
             }
             if (chart === 2){
-                var semestreSelect = $('#selectSemestre2').val();
+                semestreSelect = $('#selectSemestre2').val();
                 url = '/getChartData?tipo=CHART2_DOWNLOAD&semestre='+semestreSelect;
+            }
+            if (semestreSelect === ""){
+                alert("Debe seleccionar un semestre");
+                return false;
             }
             window.location.href = url;
 
@@ -375,7 +380,6 @@
                             <a class="dropdown-item" onclick="downloadCsv(1);" download >CSV</a>
                         </div>
                     </div>
-                    <a class="" onclick="downloadCsv(1);" download >CSV</a>
                 </div>
             </div>
             <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
