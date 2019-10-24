@@ -116,7 +116,7 @@ function getYearCurso(){
         "/getYearCursoAdmiServlet?cursoSelect="+cursoSelect,
         function (data) {
             var i, len, text;
-            var html = "<option value=''>Anno</option>";
+            var html = "<option value=''>A&ntilde;o</option>";
             annoSelect.html(html + data);
         }
 
@@ -155,7 +155,7 @@ function getGruposSemesterYearCurso(){
 
 function getNotasGrupoAdmin(){
     var gruposSelect = $('select[name="gruposSelect"]').val();
-    var tablaCuerpo = $('select[name="cuerpoTabla"]');
+    var tablaCuerpo = $('#cuerpoTabla');
     getHtmlData( "/getNotasCursoServlet?curso="+gruposSelect,
         function (data) {
             var i, len, text;
@@ -167,13 +167,13 @@ function getNotasGrupoAdmin(){
 }
 
 function getGruposActualesCurso(){
-    var cursoSelect = $('select[name="cursosLlamada"]').val();
+    var cursoSelect = $('select[name="cursoSelect"]').val();
     var gruposActuales = $('select[name="gruposActualesSelect"]');
 
     getHtmlData( "/getGruposActualesCursosServlet?curso="+cursoSelect,
         function (data) {
             var i, len, text;
-            var html = "<option value=''>Grupo</option>";
+            var html = "<option value=''>Grupos del curso</option>";
             gruposActuales.html(html+data);
 
         }
@@ -205,6 +205,25 @@ function getGruposEstudiantesAdmi(){
             gruposSelect.html(html+data);
         }
 
+    );
+
+}
+
+function getInfoGrupo(){
+    var gruposSelect = $('select[name="gruposActualesSelect"]').val();
+    var diveTextAsis = $('#idAsistenteInfo');
+    var diveTextGroup = $('#grupoInfo');
+    getHtmlData( "/getInfoCurso?curso="+gruposSelect ,
+        function (data) {
+            var i, len, text;
+            diveTextGroup.html(data);
+        }
+    );
+    getHtmlData( "/getInfoCursoAsistentes?curso="+gruposSelect ,
+        function (data) {
+            var i, len, text;
+            diveTextAsis.html(data);
+        }
     );
 
 }

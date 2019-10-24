@@ -145,7 +145,7 @@
             </div>
         </div>
 
-        <form action="" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+        <form action="/saveNotasCursoAdmi" method="post" accept-charset="utf-8" onsubmit="return(validate());"
               enctype="multipart/form-data" class="w-100 text-center">
             <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
                 <input type="hidden" name="curso" value="${curso}">
@@ -175,7 +175,7 @@
                             <div class="col float-right">
                                 <form action="" method="post">
                                     <select class="custom-select custom-select-sm" name="annoSelect" onclick="getSemesterYearCurso();" >
-                                        <option value="">Año</option>
+                                        <option value="">A&ntilde;o</option>
                                     </select>
                                 </form>
                             </div>
@@ -215,12 +215,12 @@
                             <th scope="col" class="text-center">Nota a registrar</th>
                         </tr>
                         </thead>
-                        <tbody name="cuerpoTabla">
+                        <tbody name="cuerpoTabla" id="cuerpoTabla">
                         </tbody>
                     </table>
                     <!-- fin ejemplo -->
                 </div>
-                <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Registrar notas</button>
+                <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar notas</button>
 
             </div>
         </form>

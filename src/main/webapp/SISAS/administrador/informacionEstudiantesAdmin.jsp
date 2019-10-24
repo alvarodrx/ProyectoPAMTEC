@@ -170,13 +170,13 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
+                    <jsp:include page="/getInformacionEstudiantesPAMServlet">
+                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
+                    </jsp:include>
 
                 </div>
-                <jsp:include page="/getInformacionEstudiantesPAMServlet">
-                    <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                </jsp:include>
+
 
             </div>
             <!-- Informacion de estudiante end -->

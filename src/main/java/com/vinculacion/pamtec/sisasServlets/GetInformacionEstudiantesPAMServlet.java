@@ -24,9 +24,9 @@ public class GetInformacionEstudiantesPAMServlet extends BaseServlet {
             CallableStatement ps = connection.prepareCall(query);
             ps.setBoolean(1, estadoEst);
             ResultSet rs = ps.executeQuery();
-            out.print("<label><b>Estudiantes PAM "+estadoEstudiantes+"</b></label>");
+            out.print("<label text-left><b>Estudiantes PAM "+estadoEstudiantes+"</b></label>");
             while (rs.next()) {
-                String asistentePK = rs.getString("PK_Cedula_Estudiantes_PAM");
+                String estudiantePK = rs.getString("PK_Cedula_Estudiantes_PAM");
                 String nombreEstudiante = rs.getString("Nombre");
                 int edad = rs.getInt("Edad");
                 String sexo = rs.getString("Sexo");
@@ -34,18 +34,20 @@ public class GetInformacionEstudiantesPAMServlet extends BaseServlet {
                 String correo = rs.getString("Correo_Electronico");
 
                 out.print(
-                        "<div > </div>"+
-                        "<div class=\"jumbotron w-75 rounded-lg shadow \">"+
-                        "<div class=\"row\"> " +
-                        "<div class=\"column\"> " +
-                        "<b class=\"izquierda\"> Nombre de Estudiante:</b> " +
-                        "<label id=\"labelNombreCurso\" class=\"derecha\"  >" + asistentePK +
-                        "</label> <br>  </div>" +
-                        "<div class=\"column\"> " +
-                        "<b class=\"izquierda\"> C&eacute;dula:</b> " +
-                        "<label id=\"labelNombreCurso\" class=\"derecha\"  >" + nombreEstudiante +
-                        "</label> <br> </div>" +
-                        " </div>" + "</div>");
+                        "<div class=\"card\" w-75 rounded-lg shadow \" >"
+                                +"<div class=\"card-body\">"
+                                +"<h5 class=\"card-title\">"+nombreEstudiante+"</h5>"
+                                +"<h6 class=\"card-subtitle mb-2 text-muted\"> Cedula:"+estudiantePK+"</h6>"
+                                +"<div class=\"row\">"
+                                +"<div class=\"column\">"
+                                +"<p class=\"card-text text-left \"> Edad: "+edad+"<p>"
+                                +"<p class=\"card-text text-left \"> Sexo: "+sexo+"<p>"
+                                +"</div> <div class=\"column\">"
+                                +"<p class=\"card-text text-left \"> Lugar de Procedencia: "+lugar+"<p>"
+                                +"<p class=\"card-text text-left \"> Correo: "+correo+"<p>"
+                                +"</div>"
+                                +"</div>"
+                                +" </div> </div>");
             }
         }
 

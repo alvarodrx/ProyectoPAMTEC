@@ -153,15 +153,15 @@
                 <!-- Informacion de Curso -->
                 <div class="d-flex justify-content-center  p-3 ">
                     <div class="jumbotron w-75 rounded-lg shadow ">
-
+                        <h3>Informaci&oacuten del Curso</h3>
                         <div class="text-left">
                             <div class="row w-150">
                                 <div class="col float-left">
                                     <label><b>Seleccionar Curso:</b></label>
                                 </div>
-                                <div class="col float-right">
+                                <div class="col float-left">
                                     <form action="" method="post">
-                                        <select class="custom-select custom-select-sm" name="cursoSelect" onchange="getYearCurso();" >
+                                        <select class="custom-select custom-select-sm" name="cursoSelect" onclick="getGruposActualesCurso();" >
                                             <option value="">Curso</option>
                                             <jsp:include page="/getAdminCursos">
                                                 <jsp:param name="curso" value="${curso}"/>
@@ -169,18 +169,26 @@
                                         </select>
                                     </form>
                                 </div>
-
+                            </div>
+                            <div class="row w-150">
+                                <div class="col float-left">
+                                    <label><b>Grupos disponibles:</b></label>
+                                </div>
+                                <div class="col float-left">
+                                    <select class="custom-select custom-select-sm" name="gruposActualesSelect" onclick="getInfoGrupo();">
+                                        <option value="" >Grupos del curso</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        &nbsp
 
-                        <h3>Informaci&oacuten del Curso</h3>
+                        <b class="izquierda">Profesor del Curso</b>
+                        <div class="col float-left" name="grupoInfo"  id="grupoInfo" >
+                        </div>
                         <br>
-                        <jsp:include page="/getInfoCurso">
-                            <jsp:param name="curso" value="${curso}"/>
-                        </jsp:include>
-                        <div class="row">
-                            <div class="column">
+
+                        <div class="row w-150">
+                            <div class="col float-left">
 
                                 <br>
                                 <b class="izquierda">Lugar:</b>
@@ -190,7 +198,7 @@
                                 <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
                                 <br>
                             </div>
-                            <div class="column">
+                            <div class="col float-left">
                                 <br>
                                 <b class="izquierda">Inicio:</b>
                                 <label id="labelCInicio" class="derecha">05/02/2020</label>
@@ -202,10 +210,9 @@
                         </div>
                         <br>
                         <b class="izquierda">Asistentes del Curso</b>
+                        <div class="col float-left" name="asistentesInfo" id="idAsistenteInfo">
+                        </div>
                         <br>
-                        <jsp:include page="/getInfoCursoAsistentes">
-                            <jsp:param name="curso" value="${curso}"/>
-                        </jsp:include>
                     </div>
                 </div>
                 <!-- Informacion de curso end -->

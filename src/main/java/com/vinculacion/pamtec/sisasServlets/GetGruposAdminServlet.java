@@ -35,7 +35,7 @@ public class GetGruposAdminServlet extends BaseServlet {
         while (rs.next()){
             String PK_Grupo = rs.getString("PK_Grupos");
             String grupoNombre = rs.getString("Informacion_Curso");
-            out.print("<option value=\""+PK_Grupo+"\""+(PK_Grupo.equals(PK_Grupo)? " selected " : "")+">"+grupoNombre+"</option>");
+            out.print("<option name=\"groupS\" value=\""+PK_Grupo+"\""+(PK_Grupo.equals(PK_Grupo)? " selected " : "")+">"+grupoNombre+"</option>");
 
         }
     }
