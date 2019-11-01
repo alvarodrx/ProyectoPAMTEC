@@ -6,12 +6,14 @@
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveNotasCursoServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetEstudiantesActivosServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java
+/home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMGrupoServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposEstudiantePAMServelt.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/BaseServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetStudentsAdminServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposAdminServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GoToServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetFilterDataServlet.java
+/home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveNotasCursoAdmiServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveAbandonoAdmin.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveLlamadaAdmin.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoServlet.java
