@@ -157,7 +157,7 @@
                                 <label><b>Seleccionar Curso:</b></label>
                             </div>
                             <div class="col float-right">
-                                <form action="" method="post">
+
                                     <select class="custom-select custom-select-sm" name="cursoSelect" onclick="getYearCurso();" >
                                         <option value="">Curso</option>
                                         <jsp:include page="/getAdminCursos">
@@ -165,7 +165,6 @@
                                         </jsp:include>
                                     </select>
 
-                                </form>
                             </div>
 
 
@@ -173,33 +172,33 @@
                                 <label><b>Seleccionar a&ntilde;o:</b></label>
                             </div>
                             <div class="col float-right">
-                                <form action="" method="post">
+
                                     <select class="custom-select custom-select-sm" name="annoSelect" onclick="getSemesterYearCurso();" >
                                         <option value="">A&ntilde;o</option>
                                     </select>
-                                </form>
+
                             </div>
 
                             <div class="col float-left">
                                 <label><b>Seleccionar semestre:</b></label>
                             </div>
                             <div class="col float-right">
-                                <form action="" method="post">
+
                                     <select class="custom-select custom-select-sm" name="semestreSelect"  onclick="getGruposSemesterYearCurso();" >
                                         <option value="">Semestre</option>
                                     </select>
-                                </form>
+
                             </div>
 
                             <div class="col float-left">
                                 <label><b>Seleccionar grupo:</b></label>
                             </div>
                             <div class="col float-right">
-                                <form action="" method="post">
+
                                     <select class="custom-select custom-select-sm" name="gruposSelect" onclick="getNotasGrupoAdmin();">
                                         <option value="">Grupo</option>
                                     </select>
-                                </form>
+
                             </div>
 
                         </div>
