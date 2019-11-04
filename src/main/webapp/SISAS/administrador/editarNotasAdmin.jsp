@@ -205,9 +205,9 @@
                         </div>
                     </div>
                     &nbsp
-
                     <!-- Ejemplo tabla-->
                     <table class="table h-auto w-100">
+
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
