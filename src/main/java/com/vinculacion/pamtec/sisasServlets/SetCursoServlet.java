@@ -14,12 +14,16 @@ public class SetCursoServlet extends BaseServlet {
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String curso = req.getParameter("curso");
         String cursoName = req.getParameter("cursoName");
+        String tipoUser = req.getParameter("tipoUser");
 
         HttpSession session = req.getSession(true);
         session.removeAttribute("message");
         session.setAttribute("curso", curso);
         session.setAttribute("cursoName", cursoName);
 
-        resp.sendRedirect("/SISAS/profesor/");
+        if (tipoUser.equals("P"))
+            resp.sendRedirect("/SISAS/profesor/");
+        else
+            resp.sendRedirect("/SISAS/asistente/");
     }
 }

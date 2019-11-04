@@ -73,8 +73,8 @@ function validate() {
     return confirm("Esta seguro que desea continuar?");
 }
 
-function goToCurso(cursoId, cursoName){
-    window.location.href = "/setCurso?curso="+cursoId + "&cursoName="+cursoName;
+function goToCurso(cursoId, cursoName, tipoUser){
+    window.location.href = "/setCurso?curso="+cursoId + "&cursoName="+cursoName + "&tipoUser=" + tipoUser;
 }
 
 function goToInformacionSelect() {

@@ -27,7 +27,8 @@ public class GetCursosServlet extends BaseServlet {
             while (rs.next()) {
                 String grupoId = rs.getString("PK_Grupos");
                 String cursoNombre = rs.getString("Informacion_Curso");
-                out.print("<tr class=\"table-light\" onclick=\"goToCurso('" + grupoId + "', '" + cursoNombre + "');\">\n" +
+                String tipoUser = rs.getString("Tipo");
+                out.print("<tr class=\"table-light\" onclick=\"goToCurso('" + grupoId + "', '" + cursoNombre + "', '" + tipoUser + "');\">\n" +
                         "<td scope=\"row\">\n" +
                         "<i class=\"material-icons\">list_alt</i>\n" +
                         "</td>\n" +
@@ -36,7 +37,8 @@ public class GetCursosServlet extends BaseServlet {
                 if (rs.next()) {
                     grupoId = rs.getString("PK_Grupos");
                     cursoNombre = rs.getString("Informacion_Curso");
-                    out.print("<tr class=\"table-dark\" onclick=\"goToCurso('" + grupoId + "', '" + cursoNombre + "');\">\n" +
+                    tipoUser = rs.getString("Tipo");
+                    out.print("<tr class=\"table-dark\" onclick=\"goToCurso('" + grupoId + "', '" + cursoNombre + "', '" + tipoUser + "');\">\n" +
                             "<td scope=\"row\">\n" +
                             "<i class=\"material-icons\">list_alt</i>\n" +
                             "</td>\n" +
