@@ -213,10 +213,13 @@ function getInfoGrupo(){
     var gruposSelect = $('select[name="gruposActualesSelect"]').val();
     var diveTextAsis = $('#idAsistenteInfo');
     var diveTextGroup = $('#grupoInfo');
+
+
+
     getHtmlData( "/getInfoCurso?curso="+gruposSelect ,
         function (data) {
             var i, len, text;
-            diveTextGroup.html(data);
+            diveTextGroup.html("<br><b class=\"izquierda\">Profesor del Curso</b><br>"+data);
         }
     );
     getHtmlData( "/getInfoCursoAsistentes?curso="+gruposSelect ,

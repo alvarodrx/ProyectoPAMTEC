@@ -27,19 +27,19 @@ public class GetInfoCurso  extends BaseServlet {
             String nombreProfesor = rs.getString(4);
             out.print("<div class=\"row\"> " +
                       "<div class=\"column\"> " +
-                      "<b class=\"izquierda\"> Nombre del curso:</b> " +
-                      "<label id=\"labelNombreCurso\" class=\"derecha\"  >" +nombreCurso+
-                      "</label> <br> " +
-                      "<b class=\"izquierda\">N&uacute;mero de grupo:</b> " +
-                      "<label id=\"labelNumeroGrupo\" class=\"derecha\"  >" +Integer.toString(numeroGrupo)+
-                      "</label> <br> </div>" +
+                      "<b aling=\"left\" class=\"izquierda\"> Nombre del curso: </b> " +
+                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+nombreCurso+" </p> " +
+                      "<br> " +
+                      "<b aling=\"left\" class=\"izquierda\">N&uacute;mero de grupo:  </b> " +
+                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+Integer.toString(numeroGrupo)+" </p> " +
+                      "<br> </div>" +
                       "<div class=\"column\"> " +
-                      "<b class=\"izquierda\"> C&oacute;digo:</b> " +
-                      "<label id=\"labelNombreCurso\" class=\"derecha\"  >" +codigoCurso+
-                      "</label> <br> " +
-                      "<b class=\"izquierda\">Profesor:</b> " +
-                      "<label id=\"labelNumeroGrupo\" class=\"derecha\"  >" +nombreProfesor+
-                      "</label> <br> </div>" +
+                      "<b aling=\"left\" class=\"izquierda\"> C&oacute;digo:  </b> " +
+                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+codigoCurso+" </p> " +
+                      " <br> " +
+                      "<b aling=\"left\" class=\"izquierda\">Profesor:  </b> " +
+                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+nombreProfesor+" </p> " +
+                      "<br> </div>" +
                       " </div>");
         }
 

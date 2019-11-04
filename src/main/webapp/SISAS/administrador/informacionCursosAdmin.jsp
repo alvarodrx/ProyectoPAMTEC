@@ -182,7 +182,7 @@
                             </div>
                         </div>
 
-                        <b class="izquierda">Profesor del Curso</b>
+
                         <div class="col float-left" name="grupoInfo"  id="grupoInfo" >
                         </div>
                         <br>
@@ -209,7 +209,6 @@
                             </div>
                         </div>
                         <br>
-                        <b class="izquierda">Asistentes del Curso</b>
                         <div class="col float-left" name="asistentesInfo" id="idAsistenteInfo">
                         </div>
                         <br>

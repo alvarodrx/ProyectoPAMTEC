@@ -172,28 +172,24 @@
                     </jsp:include>
                     <div class="row">
                         <div class="column">
-
                             <br>
-                            <b class="izquierda">Lugar:</b>
-                            <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
+                            <b aling="left" class="izquierda"> Lugar: </b>
+                            <p style="text-align:left;" class="izquierda" >Laboratorio H - Azul</p>
                             <br>
-                            <b class="izquierda">Horario:</b>
-                            <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
+                            <b aling="left" class="izquierda"> Horario: </b>
+                            <p style="text-align:left;" class="izquierda" >Lunes 3:pm a 5:pm</p>
                             <br>
                         </div>
                         <div class="column">
                             <br>
-                            <b class="izquierda">Inicio:</b>
-                            <label id="labelCInicio" class="derecha">05/02/2020</label>
+                            <b aling="left" class="izquierda"> Inicio: </b>
+                            <p style="text-align:left;" class="izquierda" >05/02/2020</p>
                             <br>
-                            <b class="izquierda">Fin:</b>
-                            <label id="labelFin" class="derecha">05/08/2020</label>
+                            <b aling="left" class="izquierda"> Fin: </b>
+                            <p style="text-align:left;" class="izquierda" >05/08/2020</p>
                             <br>
                         </div>
                     </div>
-                    <br>
-                    <b class="izquierda">Asistentes del Curso</b>
-                    <br>
                     <jsp:include page="/getInfoCursoAsistentes">
                         <jsp:param name="curso" value="${curso}"/>
                     </jsp:include>

@@ -170,61 +170,60 @@
                 <div class="jumbotron w-75 rounded-lg shadow ">
                     <h3>Boleta de retiro de estudiantes PAM</h3>
                     <br>
-                    <div class="text-left">
-                        <h4>Datos del curso</h4>
-                        <jsp:include page="/getInfoCurso">
-                            <jsp:param name="curso" value="${curso}"/>
-                        </jsp:include>
-                        <br>
-                        <br><h4>Datos del estudiante PAM</h4>
-                        <br>
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>Nombre del estudiante PAM:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
-                                    <option value=" " >Nombre del estudiante PAM</option>
-                                    <jsp:include page="/getFilterData">
-                                        <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
-                                        <jsp:param name="curso" value="${curso}"/>
-                                        <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
-                                    </jsp:include>
-                                </select>
-                            </div>
-                        </div>
+                    <h4 style="text-align:left;">Datos del curso</h4>
+                    <jsp:include page="/getInfoCurso">
+                        <jsp:param name="curso" value="${curso}"/>
+                    </jsp:include>
+                    <br>
 
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>C&eacute;dula del estudiante PAM:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <div id="cedulaEstudiante" ></div>
-                            </div>
+                    <br><h4 style="text-align:left;">Datos del estudiante PAM</h4>
+                    <br>
+                    <div class="row">
+                        <div class="col float-left">
+                            <label style="text-align:left;"><b>Nombre del estudiante PAM:</b></label>
                         </div>
-                        <!--
-                        <div class="row w-100">
-                            <div class="col float-left">
-                                <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
-                            </div>
-                            <div class="col float-right">
-                                <select class="custom-select custom-select-sm" >
-                                    <option>Telefono del estudiante PAM</option>
-                                </select>
-                            </div>
+                        <div class="col float-left" style="text-align:left;">
+                            <select class="custom-select custom-select-sm" name="estudiantePAM" onchange="getDataEstudiantePAM()" >
+                                <option value=" " >Nombre del estudiante PAM</option>
+                                <jsp:include page="/getFilterData">
+                                    <jsp:param name="tipo" value="EstudiantesPAM_Curso"/>
+                                    <jsp:param name="curso" value="${curso}"/>
+                                    <jsp:param name="estudiantePAM" value="${estudiantePAM}"/>
+                                </jsp:include>
+                            </select>
                         </div>
-                        -->
-                        <br>
-                        <label>En caso de que el estudiante indique el motivo, por favor anotarlo en el siguiente
-                               espacio: </label>
-                        <br>
-                        <textarea id="textAreaMotivo" rows="5" class="w-100" name="textAreaMotivo"></textarea>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"
-                                    type="submit">
-                                Registrar Abandono
-                            </button>
+                    </div>
+
+                    <div class="row">
+                        <div style="text-align:left;" class="col float-left">
+                            <b aling="left" class="izquierda"> C&eacute;dula del estudiante PAM:</b>
                         </div>
+                        <div style="text-align:left;" class="col float-left">
+                            <div id="cedulaEstudiante" ></div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="row w-100">
+                        <div class="col float-left">
+                            <label><b>Tel&eacute;fonos del estudiante PAM:</b></label>
+                        </div>
+                        <div class="col float-right">
+                            <select class="custom-select custom-select-sm" >
+                                <option>Telefono del estudiante PAM</option>
+                            </select>
+                        </div>
+                    </div>
+                    -->
+                    <br>
+                    <label style="text-align:left;">En caso de que el estudiante indique el motivo, por favor anotarlo en el siguiente
+                           espacio: </label>
+                    <br>
+                    <textarea id="textAreaMotivo" rows="5" class="w-100" name="textAreaMotivo"></textarea>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary btn-lg btn-block rounded-lg align-content-center w-75 m-3"
+                                type="submit">
+                            Registrar Abandono
+                        </button>
                     </div>
                 </div>
             </div>
