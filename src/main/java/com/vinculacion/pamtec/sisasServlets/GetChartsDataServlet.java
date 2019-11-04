@@ -81,7 +81,7 @@ public class GetChartsDataServlet extends BaseServlet {
             String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
             String semestre = semestreSelected[0];
             String anno = semestreSelected[1];
-            String query = "SELECT SUM(CASE WHEN e.Sexo = 'F' THEN 1 ELSE 0 END) AS Mujeres, SUM(CASE WHEN e.Sexo = 'M' THEN 1 ELSE 0 END) AS Hombres " +
+            String query = "SELECT COUNT(DISTINCT CASE WHEN e.Sexo = 'F' THEN e.PK_Cedula_Estudiantes_PAM ELSE NULL END) AS Mujeres, COUNT(DISTINCT CASE WHEN e.Sexo = 'M' THEN e.PK_Cedula_Estudiantes_PAM ELSE NULL END) AS Hombres " +
                     "FROM Estudiantes_PAM e " +
                     "INNER JOIN Estudiantes_PAM_Grupo epg " +
                     "ON e.PK_Cedula_Estudiantes_PAM = epg.FK_Cedula_Estudiantes_PAM " +

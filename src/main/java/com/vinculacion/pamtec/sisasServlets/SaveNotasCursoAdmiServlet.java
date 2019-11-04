@@ -24,7 +24,7 @@ public class SaveNotasCursoAdmiServlet extends BaseServlet {
     public void doRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         PrintWriter out = resp.getWriter();
 
-        String curso = "";
+        String curso = "", annoSelect, semestreSelect, gruposSelect = "";
         try {
             listaEstudiantes = new ArrayList<>();
             ServletFileUpload upload = new ServletFileUpload();
@@ -34,17 +34,25 @@ public class SaveNotasCursoAdmiServlet extends BaseServlet {
                 InputStream stream = item.openStream();
                 if (item.isFormField()) {
                     String idForm = item.getFieldName();
-                    if (idForm.equals("groupS")) {
+                    if (idForm.equals("gruposSelect")) {
+                        gruposSelect = Streams.asString(stream, "UTF-8");
+                        out.println("Este es el grupos: "+gruposSelect);
+                    } else if (idForm.equals("semestreSelect")) {
+                        semestreSelect = Streams.asString(stream, "UTF-8");
+                        out.println("Este es el semestre: "+semestreSelect);
+                    } else if (idForm.equals("annoSelect")) {
+                        annoSelect = Streams.asString(stream, "UTF-8");
+                        out.println("Este es el anno: "+annoSelect);
+                    } else if (idForm.equals("cursoSelect")) {
                         curso = Streams.asString(stream, "UTF-8");
-                        String curso2 = req.getParameter("gruposSelect");
-                        out.print("Este es el grupo uno: "+curso);
-                        out.print("Este es el grupo dos: "+curso2);
+                        out.println("Este es el grupo: "+curso);
                     } else if (idForm.startsWith("nota-")) {
                         String id = idForm.replace("nota-", "");
                         String valor = Streams.asString(stream, "UTF-8");
 
                         EstudiantePam r = listaEstudiantes.get(getEstudiante(id));
-                        r.nota = Float.valueOf(valor);
+                        r.nota = Float.parseFloat(valor);
+                        out.println(r.cedula);
                         out.println(r.nota);
                     }
 
@@ -64,17 +72,17 @@ public class SaveNotasCursoAdmiServlet extends BaseServlet {
         for (EstudiantePam e : listaEstudiantes){
 
             PreparedStatement ps = connection.prepareStatement("{call spEstudiantes_PAM_Grupo_SetNota(?,?,?)}");
-            //ps.setInt(1, Integer.parseInt(curso));
-            //ps.setInt(2, Integer.parseInt(e.cedula));
-            //ps.setFloat(3, e.nota);
+            ps.setInt(1, Integer.parseInt(gruposSelect));
+            ps.setInt(2, Integer.parseInt(e.cedula));
+            ps.setFloat(3, e.nota);
 
-            //executeOperation(ps);
+            executeOperation(ps);
         }
 
 
         HttpSession session = req.getSession(true);
         session.setAttribute("message", "Las notas del curso se han guardado con exito.");
-        //resp.sendRedirect("/SISAS/administrador/");
+        resp.sendRedirect("/SISAS/administrador/");
 
 
 

@@ -1,3 +1,4 @@
+<%@ page import="java.time.LocalDate" %>
 <html>
 <head>
     <!--
@@ -28,6 +29,10 @@
         pageContext.setAttribute("curso", -1);
 
         pageContext.setAttribute("cursoName", "Administrador");
+
+
+        String currentDateTime = LocalDate.now().toString();
+        pageContext.setAttribute("currentDateTime", currentDateTime);
     %>
     -->
     <title>SISAS</title>
@@ -64,14 +69,14 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
-        function crearGrafico1(){
+        function crearGrafico1() {
             var semestreSelect = $('#selectSemestre').val();
-            if (semestreSelect === ""){
+            if (semestreSelect === "") {
                 alert("Debe seleccionar un semestre");
                 return false;
             }
             // Load the Visualization API and the corechart package.
-            google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', {'packages': ['corechart']});
 
             // Set a callback to run when the Google Visualization API is loaded.
             google.charts.setOnLoadCallback(drawChart1);
@@ -81,21 +86,23 @@
         // instantiates the pie chart, passes in the data and
         // draws it.
         <!-- This adds the proper namespace on the generated SVG -->
-        function AddNamespace1(){
+        function AddNamespace1() {
             var svg = $('#chart1_div svg');
             svg.attr("xmlns", "http://www.w3.org/2000/svg");
-            svg.css('overflow','visible');
+            svg.css('overflow', 'visible');
         }
-        function AddNamespace2(){
+
+        function AddNamespace2() {
             var svg = $('#chart2_div svg');
             svg.attr("xmlns", "http://www.w3.org/2000/svg");
-            svg.css('overflow','visible');
+            svg.css('overflow', 'visible');
         }
+
         <!-- This generates the google chart -->
         function drawChart1() {
             var semestreSelect = $('#selectSemestre').val();
-            getJSONData("/getChartData?tipo=CHART1&semestre="+semestreSelect,
-                function(data){
+            getJSONData("/getChartData?tipo=CHART1&semestre=" + semestreSelect,
+                function (data) {
                     var dataChart = google.visualization.arrayToDataTable([
                         ['Genero', 'Matriculas por semestre'],
                         ['Hombres', data.Hombres],
@@ -113,14 +120,14 @@
 
         }
 
-        function crearGrafico2(){
+        function crearGrafico2() {
             var semestreSelect = $('#selectSemestre2').val();
-            if (semestreSelect === ""){
+            if (semestreSelect === "") {
                 alert("Debe seleccionar un semestre");
                 return false;
             }
             // Load the Visualization API and the corechart package.
-            google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', {'packages': ['corechart']});
 
             // Set a callback to run when the Google Visualization API is loaded.
             google.charts.setOnLoadCallback(drawChart2);
@@ -129,8 +136,8 @@
         <!-- This generates the google chart -->
         function drawChart2() {
             var semestreSelect = $('#selectSemestre2').val();
-            getJSONData("/getChartData?tipo=CHART2&semestre="+semestreSelect,
-                function(data){
+            getJSONData("/getChartData?tipo=CHART2&semestre=" + semestreSelect,
+                function (data) {
                     var dataChart = google.visualization.arrayToDataTable([
                         ['Estado', 'Matriculas vs abandonos'],
                         ['Activos', data.Activos],
@@ -151,15 +158,15 @@
         function downloadCsv(chart) {
             var url;
             var semestreSelect;
-            if (chart === 1){
+            if (chart === 1) {
                 semestreSelect = $('#selectSemestre').val();
-                url = '/getChartData?tipo=CHART1_DOWNLOAD&semestre='+semestreSelect;
+                url = '/getChartData?tipo=CHART1_DOWNLOAD&semestre=' + semestreSelect;
             }
-            if (chart === 2){
+            if (chart === 2) {
                 semestreSelect = $('#selectSemestre2').val();
-                url = '/getChartData?tipo=CHART2_DOWNLOAD&semestre='+semestreSelect;
+                url = '/getChartData?tipo=CHART2_DOWNLOAD&semestre=' + semestreSelect;
             }
-            if (semestreSelect === ""){
+            if (semestreSelect === "") {
                 alert("Debe seleccionar un semestre");
                 return false;
             }
@@ -227,23 +234,29 @@
         }
 
         #buttons button {
-            color:#111;
-            background-image: linear-gradient(to bottom,#ffffff 0,#777777 100%);
+            color: #111;
+            background-image: linear-gradient(to bottom, #ffffff 0, #777777 100%);
             background-repeat: repeat-x;
             padding: 5px 10px;
             font-size: 12px;
             line-height: 1.5;
             cursor: pointer;
-            border-width:1px;
+            border-width: 1px;
             border-color: #777;
-            text-shadow: 0 -1px 0 rgba(0,0,0,.1);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
-        }
-        #buttons button:hover{
-            color:#fff;
-            background-image: linear-gradient(to top,#337ab7 0,#265a88 100%);
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
         }
 
+        #buttons button:hover {
+            color: #fff;
+            background-image: linear-gradient(to top, #337ab7 0, #265a88 100%);
+        }
+
+        .chart_div{
+            display: inline-block;
+            margin: 0 auto;
+            height: 400px;
+        }
 
     </style>
 
@@ -284,7 +297,7 @@
                     ${usuario}
                 </button>
                 <div>
-                    <h3 class="mt-2 ml-5">Administrador SISAS | Permisos</h3>
+                    <h3 class="mt-2 ml-5">Administrador SISAS | Estadisticas</h3>
                 </div>
             </div>
             <div id="cursoBar" class="btn-group btn-group-lg bg-color1 buttonBar "
@@ -340,18 +353,20 @@
     <div id="charts-content" class="w-100 text-center p-3" style="margin-top: 160px;">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Matricula por g&eacute;nero</a>
+                <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
+                   aria-selected="true">Matricula por g&eacute;nero</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile" aria-selected="false">Matr&iacute;cula vs abandonos</a>
+                <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile"
+                   aria-selected="false">Matr&iacute;cula vs abandonos</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
                 <div class="form-group w-25 mx-auto my-2">
                     <label for="selectSemestre">Seleccione un semestre:</label>
-                    <select class="custom-select custom-select-sm" id="selectSemestre" >
-                        <option value=""> </option>
+                    <select class="custom-select custom-select-sm" id="selectSemestre">
+                        <option value=""></option>
                         <jsp:include page="/getFilterData">
                             <jsp:param name="tipo" value="SEMESTRES"/>
                         </jsp:include>
@@ -359,15 +374,53 @@
                     <br>
                     <button type="button" class="btn btn-secondary my-3" onclick="crearGrafico1();">Generar gr&aacute;fico</button>
                 </div>
-                <div id="chart1-space">
-                    <div id="chart1_div" class="w-75 mx-auto" style="height: 300px; text-align: center;">
+                <div id="chart1-space" class="w-100">
+                    <header style="display:none; margin-top:24px;" xmlns:svg="http://www.w3.org/2000/svg">
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td>Tecnol&oacute;gico de Costa Rica</td>
+                                <td style="text-align:center;">
+                                    <p>Estad&iacute;sticas - Matr&iacute;cula por g&eacute;nero</p>
+                                </td>
+                                <td style="text-align:right;">
+                                    <p>SISAS PAMTEC</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </header>
+                    <footer style="display:none;" xmlns:svg="http://www.w3.org/2000/svg">
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <p> </p>
+                                </td>
+                                <td style="text-align:center;">
+                                    <p>${currentDateTime}</p>
+                                </td>
+                                <td style="text-align:right">
+                                    <p>Page
+                                        <pagenum></pagenum>
+                                        of
+                                        <totpages></totpages>
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </footer>
+                    <br><br>
+                    <div id="chart1_div" class="w-75 chart_div mx-auto" >
                         <p>No se ha generado el gr&aacute;fico.</p>
                     </div>
                 </div>
                 <hr/>
                 <div id="" class="">
                     <div class="dropdown ">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons">
                                 get_app
                             </i>
@@ -380,7 +433,7 @@
                             <a class="dropdown-item" href="#"
                                onclick="return xepOnline.Formatter.Format('chart1-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico1'});">
                                 SVG</a>
-                            <a class="dropdown-item" onclick="downloadCsv(1);" download >CSV</a>
+                            <a class="dropdown-item" onclick="downloadCsv(1);" download>CSV</a>
                         </div>
                     </div>
                 </div>
@@ -388,8 +441,8 @@
             <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
                 <div class="form-group w-25 mx-auto my-2">
                     <label for="selectSemestre2">Seleccione un semestre:</label>
-                    <select class="custom-select custom-select-sm" id="selectSemestre2" >
-                        <option value=""> </option>
+                    <select class="custom-select custom-select-sm" id="selectSemestre2">
+                        <option value=""></option>
                         <jsp:include page="/getFilterData">
                             <jsp:param name="tipo" value="SEMESTRES"/>
                         </jsp:include>
@@ -398,14 +451,15 @@
                     <button type="button" class="btn btn-secondary my-3" onclick="crearGrafico2();">Generar gr&aacute;fico</button>
                 </div>
                 <div id="chart2-space">
-                    <div id="chart2_div" class="w-75 mx-auto" style="height: 300px; text-align: center;">
+                    <div id="chart2_div" class="mx-auto" style="height: 300px; text-align: center;">
                         <p>No se ha generado el gr&aacute;fico.</p>
                     </div>
                 </div>
                 <hr/>
                 <div id="" class="">
                     <div class="dropdown ">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons">
                                 get_app
                             </i>
@@ -418,13 +472,12 @@
                             <a class="dropdown-item" href="#"
                                onclick="return xepOnline.Formatter.Format('chart2-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico2'});">
                                 SVG</a>
-                            <a class="dropdown-item" onclick="downloadCsv(2);" download >CSV</a>
+                            <a class="dropdown-item" onclick="downloadCsv(2);" download>CSV</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
     </div>

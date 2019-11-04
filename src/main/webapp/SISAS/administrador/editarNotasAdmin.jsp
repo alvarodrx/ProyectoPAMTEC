@@ -67,7 +67,7 @@
         <input type="hidden" id="curso" name="curso" value="${curso}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="clearfix w-100 text-center" id="navbarColor02" >
+                <div class="clearfix w-100 text-center" id="navbarColor02">
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item active">
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
@@ -124,13 +124,15 @@
                     </div>
                     <div class="dropdown">
                         <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" onclick="goToInformacionCursosAdmin()">
-                            Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg" >
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                                onclick="goToInformacionCursosAdmin()">
+                            Info. Cursos <img class="img-fluid ico-sm" src="../imagenes/cursoInfo.svg">
                         </button>
                     </div>
                     <div class="dropdown">
                         <button type="button" id="dropdownMenuLista" class="btn btn-outline-secondary bg-color1 btn-lg"
-                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" onclick="goToEstadisticasAdmin()">
+                                data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false"
+                                onclick="goToEstadisticasAdmin()">
                             Estadisticas <img class="img-fluid ico-sm" src="../imagenes/statistics.svg">
                         </button>
                     </div>
@@ -157,26 +159,22 @@
                                 <label><b>Seleccionar Curso:</b></label>
                             </div>
                             <div class="col float-right">
-
-                                    <select class="custom-select custom-select-sm" name="cursoSelect" onclick="getYearCurso();" >
-                                        <option value="">Curso</option>
-                                        <jsp:include page="/getAdminCursos">
-                                            <jsp:param name="curso" value="${curso}"/>
-                                        </jsp:include>
-                                    </select>
-
+                                <select required class="custom-select custom-select-sm" name="cursoSelect"
+                                        onclick="getYearCurso();">
+                                    <option value="">Curso</option>
+                                    <jsp:include page="/getAdminCursos">
+                                        <jsp:param name="curso" value="${curso}"/>
+                                    </jsp:include>
+                                </select>
                             </div>
-
-
                             <div class="col float-left">
                                 <label><b>Seleccionar a&ntilde;o:</b></label>
                             </div>
                             <div class="col float-right">
-
-                                    <select class="custom-select custom-select-sm" name="annoSelect" onclick="getSemesterYearCurso();" >
-                                        <option value="">A&ntilde;o</option>
-                                    </select>
-
+                                <select required class="custom-select custom-select-sm" name="annoSelect"
+                                        onclick="getSemesterYearCurso();">
+                                    <option value="">A&ntilde;o</option>
+                                </select>
                             </div>
 
                             <div class="col float-left">
@@ -184,9 +182,10 @@
                             </div>
                             <div class="col float-right">
 
-                                    <select class="custom-select custom-select-sm" name="semestreSelect"  onclick="getGruposSemesterYearCurso();" >
-                                        <option value="">Semestre</option>
-                                    </select>
+                                <select required class="custom-select custom-select-sm" name="semestreSelect"
+                                        onclick="getGruposSemesterYearCurso();">
+                                    <option value="">Semestre</option>
+                                </select>
 
                             </div>
 
@@ -195,9 +194,10 @@
                             </div>
                             <div class="col float-right">
 
-                                    <select class="custom-select custom-select-sm" name="gruposSelect" onclick="getNotasGrupoAdmin();">
-                                        <option value="">Grupo</option>
-                                    </select>
+                                <select required class="custom-select custom-select-sm" name="gruposSelect"
+                                        onclick="getNotasGrupoAdmin();">
+                                    <option value="">Grupo</option>
+                                </select>
 
                             </div>
 
