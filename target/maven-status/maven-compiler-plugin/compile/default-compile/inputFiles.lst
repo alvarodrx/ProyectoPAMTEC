@@ -12,6 +12,7 @@
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposEstudiantePAMServelt.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/BaseServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetStudentsAdminServlet.java
+/home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/EditAsistenciaProfesorServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposAdminServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GoToServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetFilterDataServlet.java
