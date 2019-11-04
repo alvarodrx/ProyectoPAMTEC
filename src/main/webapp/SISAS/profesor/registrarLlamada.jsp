@@ -66,7 +66,7 @@
         <input type="hidden" id="curso" name="curso" value="${curso}">
         <div id="mainMenuBar" class="mainMenuBar w-100 shadow">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="clearfix w-100" id="navbarColor02">
+                <div class="clearfix w-100 text-center" id="navbarColor02">
                     <ul class="navbar-nav mr-auto float-left">
                         <li class="nav-item active">
                             <img src="../imagenes/logoBlanco.png" class="img-fluid logo">
@@ -74,7 +74,7 @@
                     </ul>
                     <span style="color:white; font-size:24px;">
                         <i class="material-icons" style="vertical-align: sub;"> person_outline </i> ${usuario}
-                    </span>
+                </span>
                     <form class="form-inline my-auto float-right" action="/weblogin">
                         <input type="hidden" name="tipo" value="SALIR">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
@@ -154,7 +154,7 @@
                             <a href="javascript:goToSubirNotas();" class="dropdown-item">Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
-                            <a href="javaScript:goToSubirNotas();" class="dropdown-item" href="#">Editar notas
+                            <a href="javaScript:goToEditarNotasProfesor();"  class="dropdown-item" href="#">Editar notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                             </a>
                         </div>

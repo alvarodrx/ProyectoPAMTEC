@@ -69,3 +69,7 @@ function goToRegistrarLlamadaAdmin() {
 function goToEstadisticasAdmin() {
     window.location.href = "estadisticas.jsp"
 }
+
+function goToEditarNotasProfesor() {
+    window.location.href = "editarNotas.jsp"
+}
