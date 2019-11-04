@@ -228,5 +228,30 @@ function getInfoGrupo(){
 
 }
 
+function getFechasAsistenciaGrupoAdmin(){
+    var gruposSelect = $('select[name="gruposSelect"]').val();
+    var fechaSelectc = $('select[name="fechaSelect"]');
+    getHtmlData( "/getFechasAsistenciaGrupoAdmi?grupo="+gruposSelect,
+        function (data) {
+            var i, len, text;
+            var html = "<option value='' selected >Fecha</option>";
+            fechaSelectc.html(html+data);
+        }
+    );
+}
+
+;
+function getListaAsistenciaFechaAdmi(){
+    var gruposSelect = $('select[name="gruposSelect"]').val();
+    var fechaSelect = $('select[name="fechaSelect"]').val();
+    var tabla = $('#cuerpoTablaAsis');
+    getHtmlData( "/getListaCursoActualizarAdmi?curso="+gruposSelect+"&fecha="+fechaSelect,
+        function (data) {
+            var i, len, text;
+            tabla.html(data);
+        }
+    );
+}
+
 
 

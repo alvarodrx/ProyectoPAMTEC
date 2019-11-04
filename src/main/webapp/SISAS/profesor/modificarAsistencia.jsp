@@ -154,7 +154,7 @@
                             <a href="javascript:goToSubirNotas()" class="dropdown-item">Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
-                            <a class="dropdown-item" href="#">Editar notas
+                            <a href="javaScript:goToSubirNotas();" class="dropdown-item" href="#">Editar notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
                             </a>
                         </div>
