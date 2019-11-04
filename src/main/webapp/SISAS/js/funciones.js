@@ -253,5 +253,43 @@ function getListaAsistenciaFechaAdmi(){
     );
 }
 
+function showModalJustificacion(id, tipo) {
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(tipo);
+    modal.modal('toggle');
+    modal.find('.modal-body input').val(id);
+}
+
+function justificarAsistente(id, justificacion) {
+    var rowId = 'row-' + id;
+    var nameInp = 'justAsi' + id;
+    var inputToAdd = document.createElement("input");
+    var existent = document.getElementById(nameInp);
+    if (existent)
+        existent.remove();
+    inputToAdd.type = "hidden";
+    inputToAdd.name = nameInp;
+    inputToAdd.id = nameInp;
+    inputToAdd.value = justificacion;
+    document.getElementById(rowId).appendChild(inputToAdd);
+    var modal = $('#asistenteModal');
+    modal.modal('toggle');
+}
 
 
+function justificarEstudiante(id, justificacion) {
+    var rowId = 'row-' + id;
+    var nameInp = 'justEst' + id;
+    var inputToAdd = document.createElement("input");
+    var existent = document.getElementById(nameInp);
+    if (existent)
+        existent.remove();
+    inputToAdd.type = "hidden";
+    inputToAdd.name = nameInp;
+    inputToAdd.id = nameInp;
+    inputToAdd.value = justificacion;
+    document.getElementById(rowId).appendChild(inputToAdd);
+    var modal = $('#estudianteModal');
+    modal.modal('toggle');
+}
