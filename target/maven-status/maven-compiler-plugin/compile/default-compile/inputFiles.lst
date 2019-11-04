@@ -1,3 +1,4 @@
+/home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetFechasAsistenciaGrupoAdmi.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveLlamada.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetAdmiCursosServlet.java
@@ -5,6 +6,7 @@
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposActualesCursosServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/SaveNotasCursoServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetEstudiantesActivosServlet.java
+/home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoActualizarAdmiServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMGrupoServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposEstudiantePAMServelt.java

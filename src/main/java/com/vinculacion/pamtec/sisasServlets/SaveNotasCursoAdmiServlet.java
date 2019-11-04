@@ -76,6 +76,7 @@ public class SaveNotasCursoAdmiServlet extends BaseServlet {
             ps.setInt(2, Integer.parseInt(e.cedula));
             ps.setFloat(3, e.nota);
 
+
             executeOperation(ps);
         }
 
