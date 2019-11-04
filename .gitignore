@@ -10,3 +10,5 @@ target/
 /.idea/artifacts/
 /.idea/artifacts/
 /src/test/
+/target/
+/projectFilesBackup/
