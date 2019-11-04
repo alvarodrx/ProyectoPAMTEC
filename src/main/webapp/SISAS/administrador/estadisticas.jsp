@@ -98,6 +98,12 @@
             svg.css('overflow', 'visible');
         }
 
+        function AddNamespace3() {
+            var svg = $('#chart3_div svg');
+            svg.attr("xmlns", "http://www.w3.org/2000/svg");
+            svg.css('overflow', 'visible');
+        }
+
         <!-- This generates the google chart -->
         function drawChart1() {
             var semestreSelect = $('#selectSemestre').val();
@@ -139,17 +145,52 @@
             getJSONData("/getChartData?tipo=CHART2&semestre=" + semestreSelect,
                 function (data) {
                     var dataChart = google.visualization.arrayToDataTable([
-                        ['Estado', 'Matriculas vs abandonos'],
-                        ['Activos', data.Activos],
+                        ['Estado', 'Cupos matriculados vs abandonados'],
+                        ['Cupos matriculados', data.Activos],
                         ['Abandonos', data.Abandonos]
                     ]);
 
                     var options = {
-                        title: 'Matriculas vs abandonos: ' + semestreSelect
+                        title: 'Cupos matriculados vs abandonados: ' + semestreSelect
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('chart2_div'));
                     google.visualization.events.addListener(chart, 'ready', AddNamespace2);
+                    chart.draw(dataChart, options);
+                });
+
+        }
+
+        function crearGrafico3() {
+            var semestreSelect = $('#selectSemestre3').val();
+            if (semestreSelect === "") {
+                alert("Debe seleccionar un semestre");
+                return false;
+            }
+            // Load the Visualization API and the corechart package.
+            google.charts.load('current', {'packages': ['corechart']});
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart3);
+        }
+
+        <!-- This generates the google chart -->
+        function drawChart3() {
+            var semestreSelect = $('#selectSemestre3').val();
+            getJSONData("/getChartData?tipo=CHART3&semestre=" + semestreSelect,
+                function (data) {
+                    var dataChart = google.visualization.arrayToDataTable([
+                        ['Estado', 'Matriculas vs abandonos al programa'],
+                        ['Matriculas realizadas', data.Activos],
+                        ['Abandonos al programa', data.Abandonos]
+                    ]);
+
+                    var options = {
+                        title: 'Matriculas vs abandonos al programa: ' + semestreSelect
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('chart3_div'));
+                    google.visualization.events.addListener(chart, 'ready', AddNamespace3);
                     chart.draw(dataChart, options);
                 });
 
@@ -252,7 +293,7 @@
             background-image: linear-gradient(to top, #337ab7 0, #265a88 100%);
         }
 
-        .chart_div{
+        .chart_div {
             display: inline-block;
             margin: 0 auto;
             height: 400px;
@@ -358,7 +399,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile"
-                   aria-selected="false">Matr&iacute;cula vs abandonos</a>
+                   aria-selected="false">Cupos matriculados vs abandonos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="profile"
+                   aria-selected="false">Matricula vs abandono al programa</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -379,9 +424,11 @@
                         <table width="100%">
                             <tbody>
                             <tr>
-                                <td>Tecnol&oacute;gico de Costa Rica</td>
                                 <td style="text-align:center;">
-                                    <p>Estad&iacute;sticas - Matr&iacute;cula por g&eacute;nero</p>
+                                    <p>Tecnol&oacute;gico de Costa Rica</p>
+                                </td>
+                                <td style="text-align:center;">
+                                    <p>Centro de Vinculaci&oacute;n</p>
                                 </td>
                                 <td style="text-align:right;">
                                     <p>SISAS PAMTEC</p>
@@ -395,7 +442,7 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <p> </p>
+                                    <p></p>
                                 </td>
                                 <td style="text-align:center;">
                                     <p>${currentDateTime}</p>
@@ -411,8 +458,14 @@
                             </tbody>
                         </table>
                     </footer>
-                    <br><br>
-                    <div id="chart1_div" class="w-75 chart_div mx-auto" >
+                    <div>
+                        <br><br><br>
+                        <h5>Proyecto Educativo para la Persona Adulta Mayor - PAMTEC</h5>
+                        <br>
+                        <h6>Estad&iacute;sticas - Matr&iacute;cula por g&eacute;nero</h6>
+                        <br><br><br>
+                    </div>
+                    <div id="chart1_div" class="w-75 chart_div mx-auto">
                         <p>No se ha generado el gr&aacute;fico.</p>
                     </div>
                 </div>
@@ -431,7 +484,7 @@
                                onclick="return xepOnline.Formatter.Format('chart1-space', {render:'download',filename:'grafico1'});">
                                 PDF</a>
                             <a class="dropdown-item" href="#"
-                               onclick="return xepOnline.Formatter.Format('chart1-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico1'});">
+                               onclick="return xepOnline.Formatter.Format('chart1-div', {render:'download',mimeType:'image/svg+xml',filename:'grafico1'});">
                                 SVG</a>
                             <a class="dropdown-item" onclick="downloadCsv(1);" download>CSV</a>
                         </div>
@@ -451,9 +504,57 @@
                     <button type="button" class="btn btn-secondary my-3" onclick="crearGrafico2();">Generar gr&aacute;fico</button>
                 </div>
                 <div id="chart2-space">
+                    <header style="display:none; margin-top:24px;" xmlns:svg="http://www.w3.org/2000/svg">
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td style="text-align:center;">
+                                    <p>Tecnol&oacute;gico de Costa Rica</p>
+                                </td>
+                                <td style="text-align:center;">
+                                    <p>Centro de Vinculaci&oacute;n</p>
+                                </td>
+                                <td style="text-align:right;">
+                                    <p>SISAS PAMTEC</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </header>
+                    <footer style="display:none;" xmlns:svg="http://www.w3.org/2000/svg">
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td style="text-align:center;">
+                                    <p>${currentDateTime}</p>
+                                </td>
+                                <td style="text-align:right">
+                                    <p>Page
+                                        <pagenum></pagenum>
+                                        of
+                                        <totpages></totpages>
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </footer>
+                    <div>
+                        <br><br><br>
+                        <h5>Proyecto Educativo para la Persona Adulta Mayor - PAMTEC</h5>
+                        <br>
+                        <h6>Estad&iacute;sticas - Cupos matriculados vs abandonos</h6>
+                        <br><br><br>
+                    </div>
                     <div id="chart2_div" class="mx-auto" style="height: 300px; text-align: center;">
                         <p>No se ha generado el gr&aacute;fico.</p>
                     </div>
+                    <br><br>
+                    <p>Este gr&aacute;fico muestra la cantidad de cupos matriculados en un determinado periodo
+                        lectivo frente a los cupos que han sido abandonados por alg&uacute;n estudiante PAM.</p>
                 </div>
                 <hr/>
                 <div id="" class="">
@@ -470,9 +571,96 @@
                                onclick="return xepOnline.Formatter.Format('chart2-space', {render:'download',filename:'grafico2'});">
                                 PDF</a>
                             <a class="dropdown-item" href="#"
-                               onclick="return xepOnline.Formatter.Format('chart2-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico2'});">
+                               onclick="return xepOnline.Formatter.Format('chart2-div', {render:'download',mimeType:'image/svg+xml',filename:'grafico2'});">
                                 SVG</a>
                             <a class="dropdown-item" onclick="downloadCsv(2);" download>CSV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+                <div class="form-group w-25 mx-auto my-2">
+                    <label for="selectSemestre3">Seleccione un semestre:</label>
+                    <select class="custom-select custom-select-sm" id="selectSemestre3">
+                        <option value=""></option>
+                        <jsp:include page="/getFilterData">
+                            <jsp:param name="tipo" value="SEMESTRES"/>
+                        </jsp:include>
+                    </select>
+                    <br>
+                    <button type="button" class="btn btn-secondary my-3" onclick="crearGrafico3();">Generar gr&aacute;fico</button>
+                </div>
+                <div id="chart3-space">
+                    <header style="display:none; margin-top:24px;" xmlns:svg="http://www.w3.org/2000/svg">
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td style="text-align:center;">
+                                    <p>Tecnol&oacute;gico de Costa Rica</p>
+                                </td>
+                                <td style="text-align:center;">
+                                    <p>Centro de Vinculaci&oacute;n</p>
+                                </td>
+                                <td style="text-align:right;">
+                                    <p>SISAS PAMTEC</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </header>
+                    <footer style="display:none;" xmlns:svg="http://www.w3.org/2000/svg">
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td style="text-align:center;">
+                                    <p>${currentDateTime}</p>
+                                </td>
+                                <td style="text-align:right">
+                                    <p>Page
+                                        <pagenum></pagenum>
+                                        of
+                                        <totpages></totpages>
+                                    </p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </footer>
+                    <div>
+                        <br><br><br>
+                        <h5>Proyecto Educativo para la Persona Adulta Mayor - PAMTEC</h5>
+                        <br>
+                        <h6>Estad&iacute;sticas - Matricula vs abandonos al programa</h6>
+                        <br><br><br>
+                    </div>
+                    <div id="chart3_div" class="mx-auto" style="height: 300px; text-align: center;">
+                        <p>No se ha generado el gr&aacute;fico.</p>
+                    </div>
+                    <br><br>
+                    <p>Este gr&aacute;fico muestra la cantidad de personas que matricularon en un determinado periodo
+                        lectivo frente a las que han sido dadas de baja en todos sus cursos.</p>
+                </div>
+                <hr/>
+                <div id="" class="">
+                    <div class="dropdown ">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">
+                                get_app
+                            </i>
+                            Descargar
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"
+                               onclick="return xepOnline.Formatter.Format('chart3-space', {render:'download',filename:'grafico3'});">
+                                PDF</a>
+                            <a class="dropdown-item" href="#"
+                               onclick="return xepOnline.Formatter.Format('chart3-space', {render:'download',mimeType:'image/svg+xml',filename:'grafico3'});">
+                                SVG</a>
+                            <a class="dropdown-item" onclick="downloadCsv(3);" download>CSV</a>
                         </div>
                     </div>
                 </div>

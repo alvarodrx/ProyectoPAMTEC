@@ -28,13 +28,7 @@ public class GetChartsDataServlet extends BaseServlet {
             String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
             String semestre = semestreSelected[0];
             String anno = semestreSelected[1];
-            String query = "SELECT SUM(CASE WHEN e.Sexo = 'F' THEN 1 ELSE 0 END) AS Mujeres, SUM(CASE WHEN e.Sexo = 'M' THEN 1 ELSE 0 END) AS Hombres " +
-                    "FROM Estudiantes_PAM e " +
-                    "INNER JOIN Estudiantes_PAM_Grupo epg " +
-                    "ON e.PK_Cedula_Estudiantes_PAM = epg.FK_Cedula_Estudiantes_PAM " +
-                    "INNER JOIN Grupos g " +
-                    "ON epg.FK_Grupos = g.PK_Grupos " +
-                    "WHERE g.Anno = "+anno+" AND g.Semestre = "+semestre+";";
+            String query = "{CALL spGet_Matricula_Por_Genero("+anno+", "+semestre+")}";
             CallableStatement ps = connection.prepareCall(query);
             ResultSet resultSet = ps.executeQuery();
             JSONObject respuesta = new JSONObject();
@@ -54,17 +48,36 @@ public class GetChartsDataServlet extends BaseServlet {
             String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
             String semestre = semestreSelected[0];
             String anno = semestreSelected[1];
-            String query = "SELECT SUM(CASE WHEN epg.Estado_Curso = 1 THEN 1 ELSE 0 END) AS Activos, SUM(CASE WHEN epg.Estado_Curso = 0 THEN 1 ELSE 0 END) AS Abandonos " +
-                    "FROM Estudiantes_PAM_Grupo epg " +
-                    "INNER JOIN Grupos g " +
-                    "ON epg.FK_Grupos = g.PK_Grupos " +
-                    "WHERE g.Anno = "+anno+" AND g.Semestre = "+semestre+";";
+            String query = "{ CALL spGet_Matricula_Vs_Abandono(?,?)}";
             CallableStatement ps = connection.prepareCall(query);
+            ps.setInt(1, Integer.parseInt(anno));
+            ps.setInt(2, Integer.parseInt(semestre));
             ResultSet resultSet = ps.executeQuery();
             JSONObject respuesta = new JSONObject();
             while (resultSet.next()){
                 int activos = resultSet.getInt("Activos");
                 int abandonos = resultSet.getInt("Abandonos");
+                respuesta.put("Activos", activos);
+                respuesta.put("Abandonos", abandonos);
+            }
+            out.println(respuesta.toString());
+            return;
+        }
+
+        if (tipo != null && tipo.equals("CHART3")){
+            String entrada = req.getParameter("semestre");
+            String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
+            String semestre = semestreSelected[0];
+            String anno = semestreSelected[1];
+            String query = "{ CALL spGet_Matricula_vs_AbandonoTotal(?,?)}";
+            CallableStatement ps = connection.prepareCall(query);
+            ps.setInt(1, Integer.parseInt(anno));
+            ps.setInt(2, Integer.parseInt(semestre));
+            ResultSet resultSet = ps.executeQuery();
+            JSONObject respuesta = new JSONObject();
+            while (resultSet.next()){
+                int activos = resultSet.getInt("Total");
+                int abandonos = resultSet.getInt("AbandonoTotal");
                 respuesta.put("Activos", activos);
                 respuesta.put("Abandonos", abandonos);
             }
@@ -81,17 +94,14 @@ public class GetChartsDataServlet extends BaseServlet {
             String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
             String semestre = semestreSelected[0];
             String anno = semestreSelected[1];
-            String query = "SELECT COUNT(DISTINCT CASE WHEN e.Sexo = 'F' THEN e.PK_Cedula_Estudiantes_PAM ELSE NULL END) AS Mujeres, COUNT(DISTINCT CASE WHEN e.Sexo = 'M' THEN e.PK_Cedula_Estudiantes_PAM ELSE NULL END) AS Hombres " +
-                    "FROM Estudiantes_PAM e " +
-                    "INNER JOIN Estudiantes_PAM_Grupo epg " +
-                    "ON e.PK_Cedula_Estudiantes_PAM = epg.FK_Cedula_Estudiantes_PAM " +
-                    "INNER JOIN Grupos g " +
-                    "ON epg.FK_Grupos = g.PK_Grupos " +
-                    "WHERE g.Anno = "+anno+" AND g.Semestre = "+semestre+";";
+            String query = "{ CALL spGet_Matricula_Por_Genero(?,?)}";
             CallableStatement ps = connection.prepareCall(query);
+            ps.setInt(1, Integer.parseInt(anno));
+            ps.setInt(2, Integer.parseInt(semestre));
+            ResultSet resultSet = ps.executeQuery();
             ResultSet rs = ps.executeQuery();
             List<List<String>> csv = resultSetToList(rs);
-            writeCsv(csv, ',', out, true, "Matricula por genero: "+entrada);
+            writeCsv(csv, ',', out, true, "Tecnologico de Costa Rica\nMatricula por genero\n"+entrada);
             return;
         }
 
@@ -104,15 +114,13 @@ public class GetChartsDataServlet extends BaseServlet {
             String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
             String semestre = semestreSelected[0];
             String anno = semestreSelected[1];
-            String query = "SELECT SUM(CASE WHEN epg.Estado_Curso = 1 THEN 1 ELSE 0 END) AS Activos, SUM(CASE WHEN epg.Estado_Curso = 0 THEN 1 ELSE 0 END) AS Abandonos " +
-                    "FROM Estudiantes_PAM_Grupo epg " +
-                    "INNER JOIN Grupos g " +
-                    "ON epg.FK_Grupos = g.PK_Grupos " +
-                    "WHERE g.Anno = "+anno+" AND g.Semestre = "+semestre+";";
+            String query = "{ CALL spGet_Matricula_Vs_Abandono(?,?)}";
             CallableStatement ps = connection.prepareCall(query);
+            ps.setInt(1, Integer.parseInt(anno));
+            ps.setInt(2, Integer.parseInt(semestre));
             ResultSet rs = ps.executeQuery();
             List<List<String>> csv = resultSetToList(rs);
-            writeCsv(csv, ',', out, true, "Matricula vs abandonos: "+entrada);
+            writeCsv(csv, ',', out, true, "Tecnologico de Costa Rica\nMatricula vs abandonos\n"+entrada);
             return;
         }
 
