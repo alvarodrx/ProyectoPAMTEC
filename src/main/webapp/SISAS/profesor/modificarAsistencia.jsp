@@ -189,7 +189,7 @@
                 &nbsp
 
 
-                <form action="#" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+                <form action="/editAsistenciaProfesorServlet" method="post" accept-charset="utf-8" onsubmit="return(validate());"
                       enctype="multipart/form-data" class="w-100 text-center">
 
                     <table class="table h-auto w-100">
@@ -209,10 +209,11 @@
                         </jsp:include>
                         </tbody>
                     </table>
+                    <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar Cambios</button>
+
                 </form>
                 <!-- fin ejemplo -->
             </div>
-            <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar Cambios</button>
 
         </div>
     </div>
