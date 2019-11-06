@@ -12,3 +12,12 @@ target/
 /src/test/
 /target/
 /projectFilesBackup/
+target/surefire-reports/TEST-com.vinculacion.pamtec.HelloAppEngineTest.xml
+target/surefire-reports/com.vinculacion.pamtec.HelloAppEngineTest.txt
+target/pamtec-1.0-SNAPSHOT.war
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+.idea/misc.xml
+.idea/artifacts/pamtec_war_exploded.xml
+.idea/artifacts/pamtec_war.xml
