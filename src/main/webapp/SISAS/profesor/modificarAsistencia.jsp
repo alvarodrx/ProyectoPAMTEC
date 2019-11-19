@@ -163,35 +163,34 @@
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center overflow-scroll p-3">
-            <input type="hidden" name="curso" value="${curso}">
+
             <div class="overflow-scroll w-75 h-100 p-4 mx-auto">
                 <!-- Ejemplo tabla-->
 
-                <div class="text-left">
-                    <div class="row w-150">
-                        <div class="col float-left">
-                            <label><b>Seleccionar fecha de clase que desea modificar:</b></label>
-                        </div>
-                        <div class="col float-right">
-                            <form action="" method="post">
-                                <select class="custom-select custom-select-sm" name="fecha" onchange="$('#changeFechas').click();">
+
+
+
+                <form action="/editAsistenciaProfesorServlet" method="post" accept-charset="utf-8" onsubmit="return(validate());"
+                      enctype="multipart/form-data" class="w-100 text-center">
+                    <input type="hidden" name="curso" value="${curso}">
+
+                    <div class="text-left">
+                        <div class="row w-150">
+                            <div class="col float-left">
+                                <label><b>Seleccionar fecha de clase que desea modificar:</b></label>
+                            </div>
+                            <div class="col float-right">
+                                <select class="custom-select custom-select-sm" name="fechaSelect" onclick="getListaAsistenciaFechaProfesor();">
                                     <option value="">Fecha</option>
                                     <jsp:include page="/getFechaAsistenciaGrupo">
                                         <jsp:param name="curso" value="${curso}"/>
                                         <jsp:param name="fecha" value="${fecha}"/>
                                     </jsp:include>
                                 </select>
-                                <button type="submit" hidden id="changeFechas"></button>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                &nbsp
-
-
-                <form action="/editAsistenciaProfesorServlet" method="post" accept-charset="utf-8" onsubmit="return(validate());"
-                      enctype="multipart/form-data" class="w-100 text-center">
-
+                    &nbsp
                     <table class="table h-auto w-100">
                         <thead class="thead-dark">
                         <tr>
@@ -202,11 +201,7 @@
                             <th scope="col" class="text-center">Justificada</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <jsp:include page="/getListaCursoActualizar">
-                            <jsp:param name="curso" value="${curso}"/>
-                            <jsp:param name="fecha" value="${fecha}"/>
-                        </jsp:include>
+                        <tbody name="cuerpoTablaAsis" id="cuerpoTablaAsis">
                         </tbody>
                     </table>
                     <button type="submit" class="btn btn-light bg-gray1 btn-lg mx-auto w-50"> Guardar Cambios</button>

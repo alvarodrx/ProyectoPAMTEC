@@ -16,8 +16,8 @@ import java.sql.PreparedStatement;
 import java.sql.Types;
 import java.util.ArrayList;
 
-@WebServlet(name = "EditAsistenciaProfesorServlet", value = "/editAsistenciaProfesorServlet")
-public class EditAsistenciaProfesorServlet extends BaseServlet {
+@WebServlet(name = "EditAsistenciaAdminServlet", value = "/editAsistenciaAdminServlet")
+public class EditAsistenciaAdminServlet extends BaseServlet {
 
     private ArrayList<Asistente> listaAsistentes;
     private ArrayList<EstudiantePam> listaEstudiantes;
@@ -39,7 +39,7 @@ public class EditAsistenciaProfesorServlet extends BaseServlet {
                 InputStream stream = item.openStream();
                 if (item.isFormField()) {
                     String idForm = item.getFieldName();
-                    if (idForm.equals("curso")) {
+                    if (idForm.equals("gruposSelect")) {
                         curso = Streams.asString(stream, "UTF-8");
                         out.print(curso);
                     } else if(idForm.equals("fechaSelect")){
@@ -126,7 +126,7 @@ public class EditAsistenciaProfesorServlet extends BaseServlet {
             executeOperation(ps);
         }
         session.setAttribute("message", "La lista de asistencia se ha guardado con exito.");
-        resp.sendRedirect("/SISAS/profesor/");
+        resp.sendRedirect("/SISAS/administrador/");
 
 
 
