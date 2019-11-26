@@ -19,21 +19,24 @@ public class GetInfoCursoAsistentes extends BaseServlet {
         CallableStatement ps = connection.prepareCall(query);
         ps.setInt(1, Integer.parseInt(curso));
         ResultSet rs = ps.executeQuery();
-        out.print( "<div class=\"row\"> <div class=\"column\"> <br> <b style=\"text-align:left;\" >Asistentes del Curso</b> <br> </div></div>");
+        out.print( "<div class=\"row\"> <div class=\"column\"> <br> <h5>Asistentes del Curso</h5> <br> </div></div>" +
+                "<table class=\"table table-md table-borderless w-75 mx-auto\">\n" +
+                "                                    <tbody>\n" );
         while (rs.next()) {
             String asistentePK = rs.getString("PK_Usuarios");
             String nombreAsistente = rs.getString("Nombre_Usuario");
-            out.print("<div class=\"row\"> " +
-                    "<div class=\"column\"> " +
-                    "<b aling=\"left\" class=\"izquierda\"> Nombre del Asistente: </b> " +
-                    "<p style=\"text-align:left;\" class=\"izquierda\"> "+nombreAsistente+" </p> " +
-                    "<br> </div>" +
-                    "<div class=\"column\"> " +
-                    "<b aling=\"left\" class=\"izquierda\"> C&eacute;dula: </b> " +
-                    "<p style=\"text-align:left;\" class=\"izquierda\"> "+asistentePK+" </p> " +
-                    "<br> </div>" +
-                    " </div>");
+            out.print("                                    <tr>\n" +
+                    "                                        <td><b>Nombre del asistente:</b></td>\n" +
+                    "                                        <td>"+nombreAsistente+"</td>\n" +
+                    "<td></td>" +
+                    "<td></td>" +
+                    "                                        <td><b>C&eacute;dula:</b></td>\n" +
+                    "                                        <td>"+asistentePK+"</td>\n" +
+                    "                                    </tr>\n");
+
         }
+        out.println("                                    </tbody>\n" +
+                "                                </table>");
 
     }
 }

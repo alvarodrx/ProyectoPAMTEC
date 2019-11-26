@@ -164,7 +164,7 @@
             <div class="d-flex justify-content-center overflow-scroll p-3 ">
                 <div class="jumbotron w-75 rounded-lg shadow ">
                     <h3>Informaci&oacute;n de estudiantes PAM</h3>
-                    <div class="text-left">
+                    <div class="text-left p-4">
                         <jsp:include page="/getInformacionEstudiantesPAMGrupoServlet">
                             <jsp:param name="curso" value="${curso}"/>
                         </jsp:include>

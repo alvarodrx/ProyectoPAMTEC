@@ -214,12 +214,15 @@ function getInfoGrupo(){
     var diveTextAsis = $('#idAsistenteInfo');
     var diveTextGroup = $('#grupoInfo');
 
-
-
+    if (!gruposSelect || gruposSelect === ''){
+        diveTextGroup.html("");
+        diveTextAsis.html("");
+        return
+    }
     getHtmlData( "/getInfoCurso?curso="+gruposSelect ,
         function (data) {
             var i, len, text;
-            diveTextGroup.html("<br><b class=\"izquierda\">Profesor del Curso</b><br>"+data);
+            diveTextGroup.html(""+data);
         }
     );
     getHtmlData( "/getInfoCursoAsistentes?curso="+gruposSelect ,

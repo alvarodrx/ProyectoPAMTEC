@@ -167,26 +167,7 @@
                     <jsp:include page="/getInfoCurso">
                         <jsp:param name="curso" value="${curso}"/>
                     </jsp:include>
-                    <div class="row">
-                        <div class="column">
-                            <br>
-                            <b aling="left" class="izquierda"> Lugar: </b>
-                            <p style="text-align:left;" class="izquierda" >Laboratorio H - Azul</p>
-                            <br>
-                            <b aling="left" class="izquierda"> Horario: </b>
-                            <p style="text-align:left;" class="izquierda" >Lunes 3:pm a 5:pm</p>
-                            <br>
-                        </div>
-                        <div class="column">
-                            <br>
-                            <b aling="left" class="izquierda"> Inicio: </b>
-                            <p style="text-align:left;" class="izquierda" >05/02/2020</p>
-                            <br>
-                            <b aling="left" class="izquierda"> Fin: </b>
-                            <p style="text-align:left;" class="izquierda" >05/08/2020</p>
-                            <br>
-                        </div>
-                    </div>
+                    <br>
                     <jsp:include page="/getInfoCursoAsistentes">
                         <jsp:param name="curso" value="${curso}"/>
                     </jsp:include>

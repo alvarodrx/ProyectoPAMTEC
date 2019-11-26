@@ -34,7 +34,7 @@ public class GetInformacionEstudiantesPAMGrupoServlet extends BaseServlet {
                                 +"<div class=\"card-body\">"
                                 +"<h5 class=\"card-title\">"+nombreEstudiante+"</h5>"
                                 +"<h6 class=\"card-subtitle mb-2 text-muted\"> Cedula:"+estudiantePK+"</h6>"
-                                +"<div class=\"row\">"
+                                +"<div class=\"row mt-2 px-3\">"
                                 +"<div class=\"column\">"
                                 +"<p class=\"card-text text-left \"> Edad: "+edad+"<p>"
                                 +"<p class=\"card-text text-left \"> Sexo: "+sexo+"<p>"

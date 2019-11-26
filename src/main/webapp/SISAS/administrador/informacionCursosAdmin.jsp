@@ -150,64 +150,52 @@
                 <!-- Informacion de Curso -->
                 <div class="d-flex justify-content-center  p-3 ">
                     <div class="jumbotron w-75 rounded-lg shadow ">
-                        <h3>Informaci&oacuten del Curso</h3>
-                        <div class="text-left">
-                            <div class="row w-150">
-                                <div class="col float-left">
-                                    <label><b>Seleccionar Curso:</b></label>
-                                </div>
-                                <div class="col float-left">
-                                    <form action="" method="post">
-                                        <select class="custom-select custom-select-sm" name="cursoSelect" onclick="getGruposActualesCurso();" >
+                        <h3>Informaci&oacuten del curso</h3>
+                        <div class="row w-100">
+                            <br>
+                            <table class="table table-md table-borderless w-75 mx-auto">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <b>Seleccionar Curso:</b>
+                                    </td>
+                                    <td>
+                                        <select class="custom-select custom-select-sm" name="cursoSelect"
+                                                onclick="getGruposActualesCurso();">
                                             <option value="">Curso</option>
                                             <jsp:include page="/getAdminCursos">
                                                 <jsp:param name="curso" value="${curso}"/>
                                             </jsp:include>
                                         </select>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="row w-150">
-                                <div class="col float-left">
-                                    <label><b>Grupos disponibles:</b></label>
-                                </div>
-                                <div class="col float-left">
-                                    <select class="custom-select custom-select-sm" name="gruposActualesSelect" onclick="getInfoGrupo();">
-                                        <option value="" >Grupos del curso</option>
-                                    </select>
-                                </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Grupos disponibles:</b>
+                                    </td>
+                                    <td>
+                                        <select class="custom-select custom-select-sm" name="gruposActualesSelect"
+                                                onclick="getInfoGrupo();">
+                                            <option value="">Grupos del curso</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row w-100">
+                            <br>
+                            <div class="col float-left p-0 mt-3" id="grupoInfo">
                             </div>
                         </div>
 
-
-                        <div class="col float-left" name="grupoInfo"  id="grupoInfo" >
-                        </div>
-                        <br>
-
-                        <div class="row w-150">
-                            <div class="col float-left">
-
-                                <br>
-                                <b class="izquierda">Lugar:</b>
-                                <label id="labelLugar" class="derecha">Laboratorio H - Azul</label>
-                                <br>
-                                <b class="izquierda">Horario:</b>
-                                <label id="labelHorario" class="derecha">Lunes 3:pm a 5:pm</label>
-                                <br>
-                            </div>
-                            <div class="col float-left">
-                                <br>
-                                <b class="izquierda">Inicio:</b>
-                                <label id="labelCInicio" class="derecha">05/02/2020</label>
-                                <br>
-                                <b class="izquierda">Fin:</b>
-                                <label id="labelFin" class="derecha">05/08/2020</label>
-                                <br>
+                        <div class="row w-100">
+                            <br>
+                            <div class="col float-left" id="idAsistenteInfo">
                             </div>
                         </div>
-                        <br>
-                        <div class="col float-left" name="asistentesInfo" id="idAsistenteInfo">
-                        </div>
+
                         <br>
                     </div>
                 </div>

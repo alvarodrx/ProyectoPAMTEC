@@ -25,22 +25,36 @@ public class GetInfoCurso  extends BaseServlet {
             String codigoCurso = rs.getString(2);
             int numeroGrupo = rs.getInt(3);
             String nombreProfesor = rs.getString(4);
-            out.print("<div class=\"row\"> " +
-                      "<div class=\"column\"> " +
-                      "<b aling=\"left\" class=\"izquierda\"> Nombre del curso: </b> " +
-                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+nombreCurso+" </p> " +
-                      "<br> " +
-                      "<b aling=\"left\" class=\"izquierda\">N&uacute;mero de grupo:  </b> " +
-                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+Integer.toString(numeroGrupo)+" </p> " +
-                      "<br> </div>" +
-                      "<div class=\"column\"> " +
-                      "<b aling=\"left\" class=\"izquierda\"> C&oacute;digo:  </b> " +
-                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+codigoCurso+" </p> " +
-                      " <br> " +
-                      "<b aling=\"left\" class=\"izquierda\">Profesor:  </b> " +
-                      "<p style=\"text-align:left;\" class=\"izquierda\"> "+nombreProfesor+" </p> " +
-                      "<br> </div>" +
-                      " </div>");
+            String aula = rs.getString(5);
+            String cupos = rs.getString(6);
+            out.print("<table class=\"table table-md table-borderless w-75 mx-auto\">\n" +
+                    "                                    <tbody>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><b>Nombre del curso:</b></td>\n" +
+                    "                                        <td>"+nombreCurso+"</td>\n" +
+                    "<td></td>" +
+                    "<td></td>" +
+                    "                                        <td><b>C&oacute;digo de grupo:</b></td>\n" +
+                    "                                        <td>"+codigoCurso+"</td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><b>N&uacute;mero de grupo:</b></td>\n" +
+                    "                                        <td>"+numeroGrupo+"</td>\n" +
+                    "<td></td>" +
+                    "<td></td>" +
+                    "                                        <td><b>Profesor:</b></td>\n" +
+                    "                                        <td>"+nombreProfesor+"</td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><b>Lugar:</b></td>\n" +
+                    "                                        <td>"+aula+"</td>\n" +
+                    "<td></td>" +
+                    "<td></td>" +
+                    "                                        <td><b>Cupos:</b></td>\n" +
+                    "                                        <td>"+cupos+"</td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    </tbody>\n" +
+                    "                                </table>");
         }
 
 
