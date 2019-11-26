@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="571a7be9-edcc-4cdc-8255-1136a1894088" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.vinculacion.pamtec.HelloAppEngineTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.vinculacion.pamtec.HelloAppEngineTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.vinculacion.pamtec.HelloAppEngineTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.vinculacion.pamtec.HelloAppEngineTest.txt" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="SISAS" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/SISAS" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Qi9lhmPsPtxmupsM39q6csURvw" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/SISAS/profesor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vinculacion.pamtec.sisasServlets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/SISAS/profesor" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/SISAS/administrador" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="All in pamtec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pamtec" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="gcp-app-engine-local-run" factoryName="Local" APPLICATION_SERVER_NAME="Google App Engine Standard Local Server" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <server-settings>
+        <artifact>pamtec:war exploded</artifact>
+      </server-settings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="39023" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="pamtec:war exploded" />
+        </option>
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in pamtec" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="571a7be9-edcc-4cdc-8255-1136a1894088" name="Default Changelist" comment="" />
+      <created>1568242705702</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568242705702</updated>
+      <workItem from="1568242713891" duration="492000" />
+      <workItem from="1568243343520" duration="853000" />
+      <workItem from="1568244259605" duration="1748000" />
+      <workItem from="1568246080149" duration="205000" />
+      <workItem from="1568246336937" duration="45000" />
+      <workItem from="1568753123467" duration="314000" />
+      <workItem from="1569476327970" duration="133000" />
+      <workItem from="1569549495622" duration="8558000" />
+      <workItem from="1569724103711" duration="462000" />
+      <workItem from="1569813557789" duration="8102000" />
+      <workItem from="1569866643936" duration="8079000" />
+      <workItem from="1569876448431" duration="1554000" />
+      <workItem from="1569900654651" duration="2954000" />
+      <workItem from="1569904794236" duration="320000" />
+      <workItem from="1569992220020" duration="16818000" />
+      <workItem from="1570034858627" duration="10479000" />
+      <workItem from="1570069887300" duration="3559000" />
+      <workItem from="1571015228781" duration="1538000" />
+      <workItem from="1571679759087" duration="2541000" />
+      <workItem from="1571685200146" duration="663000" />
+      <workItem from="1571685988147" duration="60000" />
+      <workItem from="1571723314628" duration="6835000" />
+      <workItem from="1571732557042" duration="6533000" />
+      <workItem from="1571765304226" duration="14367000" />
+      <workItem from="1571795405600" duration="11581000" />
+      <workItem from="1571807928704" duration="13220000" />
+      <workItem from="1571852858628" duration="15530000" />
+      <workItem from="1571869412257" duration="605000" />
+      <workItem from="1571870049145" duration="1174000" />
+      <workItem from="1571871256478" duration="6000000" />
+      <workItem from="1571894550222" duration="641000" />
+      <workItem from="1572490914443" duration="2434000" />
+      <workItem from="1572569503207" duration="99000" />
+      <workItem from="1572845944956" duration="18025000" />
+      <workItem from="1572889942012" duration="12997000" />
+      <workItem from="1573077097779" duration="3617000" />
+      <workItem from="1574136641322" duration="8370000" />
+      <workItem from="1574304152001" duration="632000" />
+      <workItem from="1574734204934" duration="3267000" />
+      <workItem from="1574744969061" duration="284000" />
+      <workItem from="1574745290401" duration="542000" />
+      <workItem from="1574746487006" duration="417000" />
+    </task>
+    <task id="LOCAL-00001" summary="subirNota">
+      <created>1568246159034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568246159034</updated>
+    </task>
+    <task id="LOCAL-00002" summary="subirNotaReal">
+      <created>1568246260855</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568246260855</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Subir notas a la base agregado">
+      <created>1569563547275</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569563547275</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Informacion de curso y abandono en proceso">
+      <created>1569827802625</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569827802625</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Abandono en proceso">
+      <created>1569877878182</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569877878183</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fechas de Asistencia Agregado">
+      <created>1569903027715</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569903027715</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fechas de Asistencia Agregado">
+      <created>1569903116914</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1569903116914</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Abandono prueba">
+      <created>1569995128475</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569995128475</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Abandono Agregado">
+      <created>1569996635564</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569996635564</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Permisos en proceso">
+      <created>1570045269118</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570045269118</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Permisos en proceso2">
+      <created>1570081119344</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1570081119345</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Permisos asistentes implementado.">
+      <created>1571727840302</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1571727840302</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Permisos asistentes implementado_2.">
+      <created>1571729721094</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571729721094</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Permisos asistentes implementado_2.">
+      <created>1571729794548</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1571729794548</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Permisos asistentes implementado_.">
+      <created>1571729890062</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1571729890062</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Permisos asistentes implementado_ .">
+      <created>1571729971842</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1571729971842</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Informacion Estudiantes PAM Admin en proceso.">
+      <created>1571739155636</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1571739155636</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Editar nota Admin en proceso.">
+      <created>1571790920744</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1571790920744</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Pequeños cambios interfaz">
+      <created>1571792200081</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1571792200081</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Servlets de algunas pantallas de admin agregados.">
+      <created>1571823296550</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1571823296550</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Registro Llamada implementada.&#10;Registro Abandono implementado en Administador">
+      <created>1571860266536</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1571860266536</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Nombre de usuario en la pantalla, en la vista administrador">
+      <created>1571861837034</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1571861837034</updated>
+    </task>
+    <task id="LOCAL-00023" summary="editar nota admi en procesos">
+      <created>1571875677537</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1571875677537</updated>
+    </task>
+    <task id="LOCAL-00024" summary="informacion de estudiantes en profesor, editada">
+      <created>1572569576628</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1572569576628</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Tratando de arreglar editar nota admi">
+      <created>1572848388471</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1572848388471</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Tratando de arreglar editar nota admi 2">
+      <created>1572849452507</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1572849452507</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Implementando editar asistencia">
+      <created>1572866574411</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1572866574411</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Implementando editar notas en profesor">
+      <created>1572891336300</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1572891336300</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Etiquetas medio acomodada">
+      <created>1572898540990</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1572898540990</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Implementando Editar Asistencia">
+      <created>1572903756700</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1572903756700</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Editar Asistencia implementado (Problemas en el update de la base)">
+      <created>1574145543635</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1574145543635</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Editar Asistencia implementado, solucionado problema de la base">
+      <created>1574735570857</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1574735570857</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fechas de Asistencia Agregado" />
+    <MESSAGE value="Abandono prueba" />
+    <MESSAGE value="Abandono Agregado" />
+    <MESSAGE value="Permisos en proceso" />
+    <MESSAGE value="Permisos en proceso2" />
+    <MESSAGE value="Permisos asistentes implementado." />
+    <MESSAGE value="Permisos asistentes implementado_2." />
+    <MESSAGE value="Permisos asistentes implementado_." />
+    <MESSAGE value="Permisos asistentes implementado_ ." />
+    <MESSAGE value="Informacion Estudiantes PAM Admin en proceso." />
+    <MESSAGE value="Editar nota Admin en proceso." />
+    <MESSAGE value="Pequeños cambios interfaz" />
+    <MESSAGE value="Servlets de algunas pantallas de admin agregados." />
+    <MESSAGE value="Registro Llamada implementada.&#10;Registro Abandono implementado en Administador" />
+    <MESSAGE value="Nombre de usuario en la pantalla, en la vista administrador" />
+    <MESSAGE value="editar nota admi en procesos" />
+    <MESSAGE value="informacion de estudiantes en profesor, editada" />
+    <MESSAGE value="Tratando de arreglar editar nota admi" />
+    <MESSAGE value="Tratando de arreglar editar nota admi 2" />
+    <MESSAGE value="Implementando editar asistencia" />
+    <MESSAGE value="Implementando editar notas en profesor" />
+    <MESSAGE value="Etiquetas medio acomodada" />
+    <MESSAGE value="Implementando Editar Asistencia" />
+    <MESSAGE value="Editar Asistencia implementado (Problemas en el update de la base)" />
+    <MESSAGE value="Editar Asistencia implementado, solucionado problema de la base" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editar Asistencia implementado, solucionado problema de la base" />
+  </component>
+</project>
