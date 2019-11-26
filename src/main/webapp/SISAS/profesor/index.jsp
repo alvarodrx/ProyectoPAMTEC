@@ -161,9 +161,6 @@
                             <a href="javaScript:goToSubirNotas();" class="dropdown-item"> Subir notas
                                 <img class="img-fluid ico-sm" src="../imagenes/notasRegistrar.svg">
                             </a>
-                            <a href="javaScript:goToEditarNotasProfesor();" class="dropdown-item" href="#">Editar notas
-                                <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
-                            </a>
                         </div>
                     </div>
                 </div>

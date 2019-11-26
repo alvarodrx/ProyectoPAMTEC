@@ -116,9 +116,6 @@
                             <a href="javascript:goToRegistrarAbandonoAdmin();" class="dropdown-item">Registrar abandono
                                 <img class="img-fluid ico-sm" src="../imagenes/abandono.svg">
                             </a>
-                            <a class="dropdown-item" href="javascript:goToEditarNotaAdmin()">Editar notas
-                                <img class="img-fluid ico-sm" src="../imagenes/notasEditar.svg">
-                            </a>
                             <a class="dropdown-item" href="javascript:goToInformacionEstudiantesAdmin()">Estudiante PAM
                                 <img class="img-fluid ico-sm" src="../imagenes/registro.svg">
                             </a>
