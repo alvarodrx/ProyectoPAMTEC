@@ -46,9 +46,7 @@ function goToInformacionCursosAdmin() {
     window.location.href = "informacionCursosAdmin.jsp";
 }
 
-function goToEditarNotaAdmin() {
-    window.location.href = "editarNotasAdmin.jsp";
-}
+
 
 function goToInformacionEstudiantesAdmin() {
     window.location.href = "informacionEstudiantesAdmin.jsp";
@@ -70,6 +68,3 @@ function goToEstadisticasAdmin() {
     window.location.href = "estadisticas.jsp"
 }
 
-function goToEditarNotasProfesor() {
-    window.location.href = "editarNotas.jsp"
-}
