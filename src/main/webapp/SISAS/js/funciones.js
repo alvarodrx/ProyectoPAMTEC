@@ -256,6 +256,18 @@ function getListaAsistenciaFechaAdmi(){
     );
 }
 
+function getListaAsistenciaFechaProfesor(){
+    var grupo = $('input[name="curso"]').val();
+    var fechaSelect = $('select[name="fechaSelect"]').val();
+    var tabla = $('#cuerpoTablaAsis');
+    getHtmlData( "/getListaCursoActualizar?curso="+grupo+"&fecha="+fechaSelect,
+        function (data) {
+            var i, len, text;
+            tabla.html(data);
+        }
+    );
+}
+
 function showModalJustificacion(id, tipo) {
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.

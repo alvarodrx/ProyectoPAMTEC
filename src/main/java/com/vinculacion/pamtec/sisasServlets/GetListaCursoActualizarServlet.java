@@ -18,7 +18,7 @@ public class GetListaCursoActualizarServlet extends BaseServlet {
         PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession(true);
         session.removeAttribute("message");
-        String grupoId = (String) session.getAttribute("curso");
+        String grupoId =  req.getParameter("curso");
         String fecha = req.getParameter("fecha");
 
         if (fecha == null || fecha.equals("") || fecha.equals(" ")){
