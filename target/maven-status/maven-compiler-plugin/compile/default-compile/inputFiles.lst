@@ -10,6 +10,7 @@
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMGrupoServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetGruposEstudiantePAMServelt.java
+/home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/EditAsistenciaAdminServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/BaseServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/GetStudentsAdminServlet.java
 /home/jose/IdeaProjects/ProyectoPAMTEC/src/main/java/com/vinculacion/pamtec/sisasServlets/EditAsistenciaProfesorServlet.java
