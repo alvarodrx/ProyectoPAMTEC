@@ -98,6 +98,12 @@
             svg.css('overflow', 'visible');
         }
 
+        function AddNamespace2_1() {
+            var svg = $('#chart2_1_div svg');
+            svg.attr("xmlns", "http://www.w3.org/2000/svg");
+            svg.css('overflow', 'visible');
+        }
+
         function AddNamespace3() {
             var svg = $('#chart3_div svg');
             svg.attr("xmlns", "http://www.w3.org/2000/svg");
@@ -157,6 +163,41 @@
                     var chart = new google.visualization.PieChart(document.getElementById('chart2_div'));
                     google.visualization.events.addListener(chart, 'ready', AddNamespace2);
                     chart.draw(dataChart, options);
+                    crearGrafico2_1();
+                });
+
+        }
+        function crearGrafico2_1() {
+            var semestreSelect = $('#selectSemestre2').val();
+            if (semestreSelect === "") {
+                alert("Debe seleccionar un semestre");
+                return false;
+            }
+            // Load the Visualization API and the corechart package.
+            google.charts.load('current', {'packages':['corechart', 'bar']});
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart2_1);
+        }
+
+        <!-- This generates the google chart -->
+        function drawChart2_1() {
+            var semestreSelect = $('#selectSemestre2').val();
+            getJSONData("/getChartData?tipo=CHART2_1&semestre=" + semestreSelect,
+                function (data) {
+                    var dataChart = google.visualization.arrayToDataTable(data);
+
+                    var options = {
+                        chart: {
+                            width: 400,
+                            title: 'Cupos matriculados vs abandonados por grupo: ' + semestreSelect,
+                        }
+                    };
+
+
+                    var chart = new google.visualization.ColumnChart(document.getElementById('chart2_1_div'));
+                    google.visualization.events.addListener(chart, 'ready', AddNamespace2_1);
+                    chart.draw(dataChart, google.charts.Bar.convertOptions(options));
                 });
 
         }
@@ -551,6 +592,8 @@
                     </div>
                     <div id="chart2_div" class="mx-auto" style="height: 300px; text-align: center;">
                         <p>No se ha generado el gr&aacute;fico.</p>
+                    </div>
+                    <div id="chart2_1_div" class="mx-auto" style="height: 300px; max-width: 600px; text-align: center;">
                     </div>
                     <br><br>
                     <p>Este gr&aacute;fico muestra la cantidad de cupos matriculados en un determinado periodo
