@@ -1,6 +1,7 @@
 package com.vinculacion.pamtec.sisasServlets;
 
 import com.vinculacion.pamtec.BaseServlet;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.annotation.WebServlet;
@@ -64,6 +65,32 @@ public class GetChartsDataServlet extends BaseServlet {
             return;
         }
 
+        if (tipo != null && tipo.equals("CHART2_1")){
+            String entrada = req.getParameter("semestre");
+            String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
+            String semestre = semestreSelected[0];
+            String anno = semestreSelected[1];
+            String query = "{ CALL spGet_Matricula_Vs_Abandono_Curso(?,?)}";
+            CallableStatement ps = connection.prepareCall(query);
+            ps.setInt(1, Integer.parseInt(anno));
+            ps.setInt(2, Integer.parseInt(semestre));
+            ResultSet resultSet = ps.executeQuery();
+            JSONArray respuesta = new JSONArray();
+            respuesta.put(new JSONArray("['Cupos', 'Matriculados', 'Abandonados']"));
+            while (resultSet.next()){
+                JSONArray pre = new JSONArray();
+                String curso = resultSet.getString("Curso");
+                int activos = resultSet.getInt("Activos");
+                int abandonos = resultSet.getInt("Abandonos");
+                pre.put(curso);
+                pre.put(activos);
+                pre.put(abandonos);
+                respuesta.put(pre);
+            }
+            out.println(respuesta.toString());
+            return;
+        }
+
         if (tipo != null && tipo.equals("CHART3")){
             String entrada = req.getParameter("semestre");
             String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
@@ -121,6 +148,25 @@ public class GetChartsDataServlet extends BaseServlet {
             ResultSet rs = ps.executeQuery();
             List<List<String>> csv = resultSetToList(rs);
             writeCsv(csv, ',', out, true, "Tecnologico de Costa Rica\nMatricula vs abandonos\n"+entrada);
+            return;
+        }
+
+        if (tipo != null && tipo.equals("CHART3_DOWNLOAD")) {
+            String filename = "grafico3.csv";
+            resp.setHeader("content-type", "text/csv");
+            resp.setHeader("content-disposition", "attachment;filename=\"" + filename + "\"");
+
+            String entrada = req.getParameter("semestre");
+            String[] semestreSelected = entrada.replace("Semestre ","").split(" - ");
+            String semestre = semestreSelected[0];
+            String anno = semestreSelected[1];
+            String query = "{ CALL spGet_Matricula_vs_AbandonoTotal(?,?)}";
+            CallableStatement ps = connection.prepareCall(query);
+            ps.setInt(1, Integer.parseInt(anno));
+            ps.setInt(2, Integer.parseInt(semestre));
+            ResultSet rs = ps.executeQuery();
+            List<List<String>> csv = resultSetToList(rs);
+            writeCsv(csv, ',', out, true, "Tecnologico de Costa Rica\nCupos Matriculados vs abandonados\n"+entrada);
             return;
         }
 

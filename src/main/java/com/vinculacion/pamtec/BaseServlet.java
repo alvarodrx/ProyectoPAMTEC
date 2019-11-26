@@ -23,7 +23,7 @@ public abstract class BaseServlet extends HttpServlet {
     
     private static final long MAX_SESSION = 3600000; //3,600,000 1h
     
-    private static final String SENDER = "dev.vinculacion.itcr@gmail.com";
+    private static final String SENDER = "informacion-sistema-sisas@googlegroups.com";
     protected Connection connection;
     
     
