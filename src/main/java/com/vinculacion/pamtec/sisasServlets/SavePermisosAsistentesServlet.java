@@ -30,7 +30,7 @@ public class SavePermisosAsistentesServlet extends BaseServlet {
 
         while (rs.next()) { //Agrega los asistentes a la lista
             String grupoID = rs.getString("FK_Grupos");
-            String cedula = rs.getString("FK_Asitente_Id");
+            String cedula = rs.getString("FK_Usuario_Id");
             setAsistenteLista(cedula, false, grupoID); //nos evitamos
         }
 

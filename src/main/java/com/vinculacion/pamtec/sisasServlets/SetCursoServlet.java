@@ -21,7 +21,7 @@ public class SetCursoServlet extends BaseServlet {
         session.setAttribute("curso", curso);
         session.setAttribute("cursoName", cursoName);
 
-        if (tipoUser.equals("P"))
+        if (tipoUser.equals("1")) //El tipo de profesor es 1
             resp.sendRedirect("/SISAS/profesor/");
         else
             resp.sendRedirect("/SISAS/asistente/");

@@ -67,7 +67,7 @@ public class GetListaCursoActualizarAdmiServlet extends BaseServlet {
         ResultSet rs2 = ps2.executeQuery();
         int cont2 = 1;
         while (rs2.next()) {
-            String asistentePK = rs2.getString("FK_Asitente_Id");
+            String asistentePK = rs2.getString("FK_Asistente_Id");
             String nombreAsistente = rs2.getString("Nombre_Usuario");
             int estado = rs2.getInt("FK_Estados_Asistencia_Curso");
             out.print("" +

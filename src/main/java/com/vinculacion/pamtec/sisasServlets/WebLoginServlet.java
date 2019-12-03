@@ -42,7 +42,7 @@ public class WebLoginServlet extends BaseServlet {
             resp.sendRedirect("/SISAS/login/");
         }
         
-        String query = "SELECT PK_Usuarios AS ID, FK_Tipos_Usuarios AS Tipo, Estado AS ESTADO, Nombre_Usuario AS NOMBRE FROM Usuarios WHERE Nombre_Usuario = '" + usuario + "' AND Contrasenna = '" + passw + "';";
+        String query = "SELECT PK_Usuarios AS ID, FK_Tipos_Usuarios AS Tipo, Permiso_Acceso AS ESTADO, Nombre_Usuario AS NOMBRE FROM Usuarios WHERE Nombre_Usuario = '" + usuario + "' AND Contrasenna = '" + passw + "';";
         ResultSet rs = executeQuery(query);
         if (rs.next()){
             String userId = rs.getString("ID");
@@ -61,7 +61,7 @@ public class WebLoginServlet extends BaseServlet {
                     session.setMaxInactiveInterval(3600);
                     resp.sendRedirect("/SISAS/administrador/");
                 } else if (userType > 1){
-                    query = "SELECT FK_Profesor_Id AS ID FROM Grupos WHERE FK_Profesor_Id = " + userId + ";";
+                    query = "SELECT FK_Usuario_Id AS ID FROM Roles_Grupo WHERE FK_Usuario_Id = " + userId + ";";
                     ResultSet rs2 = executeQuery(query);
                     if (rs2.next()){
                         session.setAttribute("millis", Calendar.getInstance().getTimeInMillis());

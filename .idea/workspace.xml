@@ -2,26 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571a7be9-edcc-4cdc-8255-1136a1894088" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/editarNotasAdmin.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/estadisticas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/estadisticas.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/informacionCursosAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/informacionCursosAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/informacionEstudiantesAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/informacionEstudiantesAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/modificarAsistenciaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/modificarAsistenciaAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/permisos.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/permisos.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/registrarAbandonoAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/registrarAbandonoAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/registrarLlamadaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/administrador/registrarLlamadaAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/js/transiciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/js/transiciones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/login/js/transiciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/login/js/transiciones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/editarNotas.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/informacionCurso.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/informacionCurso.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/informacionEstudiante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/informacionEstudiante.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/modificarAsistencia.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/modificarAsistencia.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/pasarLista.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/pasarLista.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/registrarAbandono.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/registrarAbandono.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/registrarLlamada.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/registrarLlamada.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/subirNotas.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/SISAS/profesor/subirNotas.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInfoCurso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInfoCurso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMGrupoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMGrupoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetInformacionEstudiantesPAMServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoActualizarAdmiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoActualizarAdmiServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoActualizarServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetListaCursoActualizarServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetPermisosAsistentesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/GetPermisosAsistentesServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/SavePermisosAsistentesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/SavePermisosAsistentesServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/SetCursoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/SetCursoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vinculacion/pamtec/sisasServlets/WebLoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.vinculacion.pamtec.HelloAppEngineTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.vinculacion.pamtec.HelloAppEngineTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.vinculacion.pamtec.HelloAppEngineTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.vinculacion.pamtec.HelloAppEngineTest.txt" afterDir="false" />
     </list>
@@ -252,7 +242,9 @@
       <workItem from="1574744969061" duration="284000" />
       <workItem from="1574745290401" duration="542000" />
       <workItem from="1574746487006" duration="417000" />
-      <workItem from="1574747179326" duration="712000" />
+      <workItem from="1574747179326" duration="1137000" />
+      <workItem from="1574748609957" duration="128000" />
+      <workItem from="1575334737327" duration="13367000" />
     </task>
     <task id="LOCAL-00001" summary="subirNota">
       <created>1568246159034</created>
@@ -478,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574735570857</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="ELiminada opcion de editar notas (Profesor y Admin)">
+      <created>1574748129071</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1574748129071</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fechas de Asistencia Agregado" />
     <MESSAGE value="Abandono prueba" />
     <MESSAGE value="Abandono Agregado" />
     <MESSAGE value="Permisos en proceso" />
@@ -523,6 +521,7 @@
     <MESSAGE value="Implementando Editar Asistencia" />
     <MESSAGE value="Editar Asistencia implementado (Problemas en el update de la base)" />
     <MESSAGE value="Editar Asistencia implementado, solucionado problema de la base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editar Asistencia implementado, solucionado problema de la base" />
+    <MESSAGE value="ELiminada opcion de editar notas (Profesor y Admin)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ELiminada opcion de editar notas (Profesor y Admin)" />
   </component>
 </project>

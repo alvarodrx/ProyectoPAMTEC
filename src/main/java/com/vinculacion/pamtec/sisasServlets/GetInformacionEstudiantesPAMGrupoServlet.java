@@ -26,8 +26,11 @@ public class GetInformacionEstudiantesPAMGrupoServlet extends BaseServlet {
                 String nombreEstudiante = rs.getString("Nombre");
                 int edad = rs.getInt("Edad");
                 String sexo = rs.getString("Sexo");
-                String lugar = rs.getString("Lugar_Procedencia");
+                String lugar = rs.getString("residencia");
                 String correo = rs.getString("Correo_Electronico");
+                String primer = rs.getString("primer_telefono");
+                String segundo =  rs.getString("segundo_telefono");
+                String emergencia =  rs.getString("telefono_emergencia");
 
                 out.print(
                         "<div class=\"card\" w-75 rounded-lg shadow \" >"
@@ -39,8 +42,11 @@ public class GetInformacionEstudiantesPAMGrupoServlet extends BaseServlet {
                                 +"<p class=\"card-text text-left \"> Edad: "+edad+"<p>"
                                 +"<p class=\"card-text text-left \"> Sexo: "+sexo+"<p>"
                                 +"</div> <div class=\"column\">"
-                                +"<p class=\"card-text text-left \"> Lugar de Procedencia: "+lugar+"<p>"
+                                +"<p class=\"card-text text-left \"> Residencia: "+lugar+"<p>"
                                 +"<p class=\"card-text text-left \"> Correo: "+correo+"<p>"
+                                +"</div> <div class=\"column\">"
+                                +"<p class=\"card-text text-left \"> Teléfonos: "+primer+" | "+segundo+" <p>"
+                                +"<p class=\"card-text text-left \"> Teléfono de Emergencia: "+emergencia+"<p>"
                                 +"</div>"
                                 +"</div>"
                                 +" </div> </div>");

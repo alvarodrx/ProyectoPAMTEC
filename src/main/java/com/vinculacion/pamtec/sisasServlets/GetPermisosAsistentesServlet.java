@@ -23,7 +23,7 @@ public class GetPermisosAsistentesServlet extends BaseServlet {
         while (rs.next()) {
             String idGrupo = rs.getString("FK_Grupos");
             String nombreCurso = rs.getString("Nombre_Curso");
-            String asistentePK = rs.getString("FK_Asitente_Id");
+            String asistentePK = rs.getString("FK_Usuario_Id");
             String nombreAsistente = rs.getString("Nombre_Usuario");
             int permiso = rs.getInt("Permiso_Acceso");
             String permisoAsistente= "";

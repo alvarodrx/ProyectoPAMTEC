@@ -26,7 +26,8 @@ public class GetInfoCurso  extends BaseServlet {
             int numeroGrupo = rs.getInt(3);
             String nombreProfesor = rs.getString(4);
             String aula = rs.getString(5);
-            String cupos = rs.getString(6);
+            String dias = rs.getString(6);
+            String horas = rs.getString(7);
             out.print("<table class=\"table table-md table-borderless w-75 mx-auto\">\n" +
                     "                                    <tbody>\n" +
                     "                                    <tr>\n" +
@@ -50,8 +51,12 @@ public class GetInfoCurso  extends BaseServlet {
                     "                                        <td>"+aula+"</td>\n" +
                     "<td></td>" +
                     "<td></td>" +
-                    "                                        <td><b>Cupos:</b></td>\n" +
-                    "                                        <td>"+cupos+"</td>\n" +
+                    "                                        <td><b>Días:</b></td>\n" +
+                    "                                        <td>"+dias+"</td>\n" +
+                    "                                    </tr>\n" +
+                    "                                    <tr>\n" +
+                    "                                        <td><b>Horas:</b></td>\n" +
+                    "                                        <td>"+horas+"</td>\n" +
                     "                                    </tr>\n" +
                     "                                    </tbody>\n" +
                     "                                </table>");
